@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,9 +12,11 @@ export class UiControlComponent {
   // TODO: create a type of input control
   @Input() type: unknown;
   
+  @Input() event = new EventEmitter<string>();
+
   value = '';
 
   onInput() {
-    console.log(this.value);
+    this.event.emit(this.value);
   }
 }
