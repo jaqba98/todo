@@ -8,14 +8,14 @@ export class AddTodoFromStore extends FromStore<AddTodoStoreModel> {
     constructor() {
         super({
             title: { value: '' },
-            description: { value: '' } 
+            description: { value: '' }
         });
     }
 
     clearModel() {
-        this.model = {
+        this.setMode({
             title: { value: '' },
             description: { value: '' }
-        }
+        });
     }
 }

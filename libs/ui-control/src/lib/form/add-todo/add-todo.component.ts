@@ -19,7 +19,7 @@ export class AddTodoComponent {
   constructor(readonly formStore: AddTodoFromStore) {}
 
   onSubmit() {
-    const { model } = this.formStore;
+    const model = this.formStore.getModel();
     console.log(model);
     this.formStore.clearModel();
   }
