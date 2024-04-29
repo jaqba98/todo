@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import { InputType } from '../../type/control.type';
 export class InputComponent {
   @Input() type: InputType = 'text';
   
-  @Input() event = new EventEmitter<string>();
+  @Output() event = new EventEmitter<string>();
 
   value = '';
 
