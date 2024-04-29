@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { InputType } from '../../type/control.type';
+import { AddTodoValueModel } from '../../model/add-todo.model';
 
 @Component({
   selector: 'lib-input',
@@ -14,8 +15,5 @@ export class InputComponent {
 
   @Input() placeholder = '';
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Input() model: any = {};
-  
-  @Input() key = '';
+  @Input() value: AddTodoValueModel = { value: '' };
 }

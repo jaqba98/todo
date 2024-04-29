@@ -19,7 +19,8 @@ export class AddTodoComponent {
   constructor(readonly store: AddTodoStore) {}
 
   onSubmit() {
-    console.log(this.store.model);
+    const { model } = this.store;
+    console.log(model);
     this.store.cleanModel();
   }
 }

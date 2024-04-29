@@ -1,4 +1,8 @@
+export interface AddTodoValueModel {
+    value: string;
+}
+
 export interface AddTodoModel {
-    title: string;
-    description: string;
+    title: AddTodoValueModel;
+    description: AddTodoValueModel;
 }
