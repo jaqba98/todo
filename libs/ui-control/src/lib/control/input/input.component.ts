@@ -15,7 +15,7 @@ export class InputComponent {
   @Input() placeholder = '';
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Input() model = {};
+  @Input() model: any = {};
   
   @Input() key = '';
 }
