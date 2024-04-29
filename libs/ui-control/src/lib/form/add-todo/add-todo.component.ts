@@ -23,7 +23,7 @@ export class AddTodoComponent {
     description: ''
   } 
 
-  submitForm() {
+  onSubmit() {
     this.event.emit(this.model);
   }
 }
