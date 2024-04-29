@@ -18,12 +18,12 @@ import { AddTodoModel } from '../../model/add-todo.model';
 export class AddTodoComponent {
   @Output() event = new EventEmitter<AddTodoModel>();
 
-  model: AddTodoModel = {
+  formModel: AddTodoModel = {
     title: '',
     description: ''
   } 
 
   onSubmit() {
-    this.event.emit(this.model);
+    this.event.emit(this.formModel);
   }
 }
