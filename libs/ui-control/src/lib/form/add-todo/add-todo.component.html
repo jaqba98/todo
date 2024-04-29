@@ -1,0 +1,5 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <lib-input placeholder="Title" (event)="model.title= $event"></lib-input>
+    <lib-input placeholder="Description" (event)="model.description = $event"></lib-input>
+    <lib-button value="Add todo"></lib-button>
+</form>
