@@ -10,7 +10,7 @@ import { InputType } from '../../type/control.type';
   imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html'
 })
-export class UiControlComponent {
+export class InputComponent {
   @Input() type: InputType = 'text';
   
   @Input() event = new EventEmitter<string>();

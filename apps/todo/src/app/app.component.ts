@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
-import { UiControlComponent } from '@todo/ui-control';
+import { InputComponent } from '@todo/ui-control';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, UiControlComponent],
+  imports: [InputComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'todo';
 }
