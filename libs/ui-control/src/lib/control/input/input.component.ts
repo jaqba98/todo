@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { InputType } from '../../type/control.type';
@@ -7,7 +6,7 @@ import { InputType } from '../../type/control.type';
 @Component({
   selector: 'lib-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './input.component.html'
 })
 export class InputComponent {
