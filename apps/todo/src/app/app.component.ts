@@ -10,7 +10,4 @@ import { AddTodoComponent } from '@todo/ui-control';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  run(event: unknown) {
-    console.log(event);
-  }
 }

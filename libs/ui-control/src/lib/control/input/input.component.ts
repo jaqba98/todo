@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { InputType } from '../../type/control.type';
@@ -13,12 +13,9 @@ export class InputComponent {
   @Input() type: InputType = 'text';
 
   @Input() placeholder = '';
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @Input() model = {};
   
-  @Output() event = new EventEmitter<string>();
-
-  value = '';
-
-  onInput() {
-    this.event.emit(this.value);
-  }
+  @Input() key = '';
 }

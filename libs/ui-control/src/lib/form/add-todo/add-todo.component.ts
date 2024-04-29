@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { InputComponent } from '../../control/input/input.component';
 import { ButtonComponent } from '../../control/button/button.component';
-import { AddTodoModel } from '../../model/add-todo.model';
+import { AddTodoStore } from '../../store/add-todo.store';
 
 @Component({
   selector: 'lib-add-todo',
@@ -16,14 +16,10 @@ import { AddTodoModel } from '../../model/add-todo.model';
   templateUrl: './add-todo.component.html'
 })
 export class AddTodoComponent {
-  @Output() event = new EventEmitter<AddTodoModel>();
-
-  formModel: AddTodoModel = {
-    title: '',
-    description: ''
-  } 
+  constructor(readonly store: AddTodoStore) {}
 
   onSubmit() {
-    this.event.emit(this.formModel);
+    console.log(this.store.model);
+    this.store.cleanModel();
   }
 }
