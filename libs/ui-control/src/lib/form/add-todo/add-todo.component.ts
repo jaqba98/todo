@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { AddTodoFromStore } from '@todo/store';
+
 import { InputComponent } from '../../control/input/input.component';
 import { ButtonComponent } from '../../control/button/button.component';
-import { AddTodoFromStore } from '../../store/add-todo-form.store';
 
 @Component({
   selector: 'lib-add-todo',
