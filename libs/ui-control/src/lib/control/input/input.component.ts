@@ -11,6 +11,8 @@ import { InputType } from '../../type/control.type';
 })
 export class InputComponent {
   @Input() type: InputType = 'text';
+
+  @Input() placeholder = '';
   
   @Output() event = new EventEmitter<string>();
 

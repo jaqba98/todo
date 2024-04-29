@@ -1,2 +1,1 @@
-export * from './lib/control/input/input.component';
-export * from './lib/control/button/button.component';
+export * from './lib/form/add-todo/add-todo.component';
