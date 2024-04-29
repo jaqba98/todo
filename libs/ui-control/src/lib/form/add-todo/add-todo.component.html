@@ -1,5 +1,5 @@
 <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-    <lib-input placeholder="Title" [value]="store.model.title"></lib-input>
-    <lib-input placeholder="Description" [value]="store.model.description"></lib-input>
+    <lib-input placeholder="Title" [value]="formStore.model.title"></lib-input>
+    <lib-input placeholder="Description" [value]="formStore.model.description"></lib-input>
     <lib-button value="Add todo"></lib-button>
 </form>

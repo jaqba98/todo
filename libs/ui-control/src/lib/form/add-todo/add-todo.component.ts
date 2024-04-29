@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 import { InputComponent } from '../../control/input/input.component';
 import { ButtonComponent } from '../../control/button/button.component';
-import { AddTodoStore } from '../../store/add-todo.store';
+import { AddTodoFromStore } from '../../store/add-todo-form.store';
 
 @Component({
   selector: 'lib-add-todo',
@@ -16,11 +16,11 @@ import { AddTodoStore } from '../../store/add-todo.store';
   templateUrl: './add-todo.component.html'
 })
 export class AddTodoComponent {
-  constructor(readonly store: AddTodoStore) {}
+  constructor(readonly formStore: AddTodoFromStore) {}
 
   onSubmit() {
-    const { model } = this.store;
+    const { model } = this.formStore;
     console.log(model);
-    this.store.cleanModel();
+    this.formStore.clearModel();
   }
 }
