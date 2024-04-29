@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { StoreValueModel } from '../../model/store-value.model';
+import { StoreValueModel } from '@todo/store';
+
 import { InputType } from '../../type/control.type';
 
 @Component({
