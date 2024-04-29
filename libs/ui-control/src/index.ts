@@ -1,1 +1,1 @@
-export * from './lib/ui-control/ui-control.component';
+export * from './lib/control/input/input.component';
