@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { InputType } from '../../type/control.type';
+
 @Component({
   selector: 'lib-input',
   standalone: true,
@@ -9,8 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './input.component.html'
 })
 export class UiControlComponent {
-  // TODO: create a type of input control
-  @Input() type: unknown;
+  @Input() type: InputType = 'text';
   
   @Input() event = new EventEmitter<string>();
 
