@@ -1,1 +1,3 @@
-<input [type]="type">
+<input [type]="type"
+       [(ngModel)]="value"
+       (input)="onInput()">
