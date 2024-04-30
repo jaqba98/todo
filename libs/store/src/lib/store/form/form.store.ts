@@ -2,7 +2,7 @@ export class FromStore<TModel> {
     constructor(private model: TModel) {
     }
 
-    setMode(model: TModel) {
+    setModel(model: TModel) {
         this.model = model;
     }
 

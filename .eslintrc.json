@@ -24,7 +24,10 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/semi": "error",
+        "@typescript-eslint/quotes": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

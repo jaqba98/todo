@@ -1,2 +1,2 @@
-export * from "./lib/model/store-value.model";
-export * from "./lib/form/add-todo-form.store";
+export * from "./lib/store/form/add-todo-form.store";
+export * from "./lib/service/create-form-value.service";
