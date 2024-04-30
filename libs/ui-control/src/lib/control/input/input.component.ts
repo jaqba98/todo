@@ -6,19 +6,19 @@ import { CreateFormValue } from "@todo/store";
 import { InputType } from "../../type/control.type";
 
 @Component({
-  selector: 'lib-input',
+  selector: "lib-input",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './input.component.html'
+  templateUrl: "./input.component.html"
 })
 export class InputComponent {
-  @Input() type: InputType = 'text';
+  @Input() type: InputType = "text";
 
-  @Input() placeholder = '';
+  @Input() placeholder = "";
 
   @Input() model;
 
   constructor(private readonly formValue: CreateFormValue) {
-    this.model = formValue.create('');
+    this.model = formValue.create("");
   }
 }
