@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AddTodoFromStore } from '@todo/store';
+import { AddTodoFormStore } from "@todo/store";
 
-import { InputComponent } from '../../control/input/input.component';
-import { ButtonComponent } from '../../control/button/button.component';
+import { ButtonComponent } from "../../control/button/button.component";
+import { InputComponent } from "../../control/input/input.component";
 
 @Component({
   selector: 'lib-add-todo',
@@ -17,7 +17,7 @@ import { ButtonComponent } from '../../control/button/button.component';
   templateUrl: './add-todo.component.html'
 })
 export class AddTodoComponent {
-  constructor(readonly formStore: AddTodoFromStore) {}
+  constructor(readonly formStore: AddTodoFormStore) {}
 
   onSubmit() {
     const model = this.formStore.getModel();
