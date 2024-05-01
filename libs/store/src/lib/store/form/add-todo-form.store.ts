@@ -1,22 +1,14 @@
 import { Injectable } from "@angular/core";
 
-import { FromStore } from "./form.store";
 import { AddTodoFormStoreModel } from "../../model/form/add-todo-form-store.model";
-import { CreateFormValue } from "../../service/create-form-value.service";
+import { FormStore } from "./form.store";
 
 @Injectable({ providedIn: "root" })
-export class AddTodoFormStore extends FromStore<AddTodoFormStoreModel> {
-    constructor(private readonly formValue: CreateFormValue) {
+export class AddTodoFormStore extends FormStore<AddTodoFormStoreModel> {
+    constructor() {
         super({
-            title: formValue.create(""),
-            description: formValue.create("")
-        });
-    }
-
-    clearModel() {
-        this.setModel({
-            title: this.formValue.create(""),
-            description: this.formValue.create("")
+            title: "",
+            description: ""
         });
     }
 }

@@ -1,3 +1,4 @@
 <input [type]="type"
        [placeholder]="placeholder"
-       [(ngModel)]="model.value">
+       [(ngModel)]="value"
+       (input)="onInput()">

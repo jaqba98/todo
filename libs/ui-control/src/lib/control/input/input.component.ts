@@ -1,7 +1,5 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-
-import { CreateFormValue } from "@todo/store";
 
 import { InputType } from "../../type/control.type";
 
@@ -16,9 +14,12 @@ export class InputComponent {
 
   @Input() placeholder = "";
 
-  @Input() model;
+  @Input()
+  value = "";
 
-  constructor(private readonly formValue: CreateFormValue) {
-    this.model = formValue.create("");
+  @Output() event = new EventEmitter<string>();
+
+  onInput() {
+    this.event.emit(this.value);
   }
 }
