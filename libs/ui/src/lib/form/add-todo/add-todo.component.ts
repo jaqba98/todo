@@ -10,12 +10,8 @@ import { InputComponent } from "../../control/input/input.component";
 @Component({
   selector: "lib-add-todo",
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    InputComponent,
-    ButtonComponent
-  ],
-  templateUrl: "./add-todo.component.html"
+  imports: [ReactiveFormsModule, InputComponent, ButtonComponent],
+  templateUrl: "./add-todo.component.html",
 })
 export class AddTodoComponent implements OnDestroy {
   form: FormGroup;
@@ -29,7 +25,7 @@ export class AddTodoComponent implements OnDestroy {
     this.form = this.builder.group<AddTodoFormStoreModel>(
       this.store.getCleanModel()
     );
-    this.subscription = this.store.getModel().subscribe(model => {
+    this.subscription = this.store.getModel().subscribe((model) => {
       console.log(model);
       this.form.patchValue(model);
     });

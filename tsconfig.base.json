@@ -17,7 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@todo/store": ["libs/store/src/index.ts"],
-      "@todo/ui-control": ["libs/ui-control/src/index.ts"]
+      "@todo/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

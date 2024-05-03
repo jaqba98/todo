@@ -7,7 +7,7 @@ import { InputType } from "../../type/control.type";
   selector: "lib-input",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: "./input.component.html"
+  templateUrl: "./input.component.html",
 })
 export class InputComponent {
   @Input() type: InputType = "text";
