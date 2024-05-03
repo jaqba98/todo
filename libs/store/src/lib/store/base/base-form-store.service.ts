@@ -21,7 +21,11 @@ export class BaseFormStoreService<TModel> {
 
     clearModel() {
         this.setModel(
-            deepcopy(this.baseModel)
+            this.getCleanModel()
         );
+    }
+
+    getCleanModel() {
+        return deepcopy(this.baseModel);
     }
 }

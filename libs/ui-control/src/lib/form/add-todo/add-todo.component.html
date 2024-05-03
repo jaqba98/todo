@@ -1,5 +1,10 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit()">
-    <lib-input placeholder="Title" [value]="title" (event)="title = $event"></lib-input>
-    <lib-input placeholder="Description" [value]="description" (event)="description = $event"></lib-input>
-    <lib-button value="Add"></lib-button>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <lib-input placeholder="Title"
+               [value]="form.value.title"
+               (event)="form.value.title = $event"></lib-input>
+    <lib-input placeholder="Description"
+               [value]="form.value.description"
+               (event)="form.value.description = $event"></lib-input>
+    <lib-button type="submit"
+                value="Add"></lib-button>
 </form>

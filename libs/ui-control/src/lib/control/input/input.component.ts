@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 import { InputType } from "../../type/control.type";
@@ -14,8 +14,7 @@ export class InputComponent {
 
   @Input() placeholder = "";
 
-  @Input()
-  value = "";
+  @Input() value = "";
 
   @Output() event = new EventEmitter<string>();
 
