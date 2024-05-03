@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { AddTodoComponent } from "@todo/ui-control";
+import { AddTodoComponent } from "@todo/ui";
 
 @Component({
   standalone: true,
