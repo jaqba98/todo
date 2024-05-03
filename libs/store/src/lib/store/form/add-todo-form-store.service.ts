@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 
+import { BaseFormStoreService } from "../base/base-form-store.service";
 import { AddTodoFormStoreModel } from "../../model/form/add-todo-form-store.model";
-import { FormStore } from "./form.store";
 
 @Injectable({ providedIn: "root" })
-export class AddTodoFormStore extends FormStore<AddTodoFormStoreModel> {
+export class AddTodoFormStoreService extends BaseFormStoreService<AddTodoFormStoreModel> {
     constructor() {
         super({
             title: "",

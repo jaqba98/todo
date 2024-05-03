@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@todo/store": ["libs/store/src/index.ts"],
       "@todo/ui-control": ["libs/ui-control/src/index.ts"]
