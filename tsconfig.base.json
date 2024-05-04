@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@todo/fe": ["libs/fe/src/index.ts"],
       "@todo/store": ["libs/store/src/index.ts"],
       "@todo/ui": ["libs/ui/src/index.ts"]
     }
