@@ -1,42 +1,34 @@
 import { Component, OnDestroy } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { Subscription } from "rxjs";
+import { ReactiveFormsModule, Validators } from "@angular/forms";
 
 import { AddTodoFormStoreModel, AddTodoFormStoreService } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
+import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
+import { BaseFormService } from "../base-form/base-form.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "lib-add-todo",
   standalone: true,
-  imports: [ReactiveFormsModule, InputComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputComponent,
+    ButtonComponent
+  ],
   templateUrl: "./add-todo.component.html",
 })
-export class AddTodoComponent implements OnDestroy {
-  form: FormGroup;
-
-  subscription: Subscription;
-
-  constructor(
-    private readonly builder: FormBuilder,
-    private readonly store: AddTodoFormStoreService
-  ) {
-    this.form = this.builder.group<AddTodoFormStoreModel>(
-      this.store.getCleanModel()
-    );
-    this.subscription = this.store.getModel().subscribe((model) => {
-      console.log(model);
-      this.form.patchValue(model);
-    });
+export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel> implements OnDestroy {
+  constructor(private readonly store: AddTodoFormStoreService) {
+    super({
+      title: ["", Validators.required],
+      description: ["", Validators.required]
+    }, store);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  onSubmit() {
-    this.store.setModel(this.form.value);
-    this.store.clearModel();
+  ngOnDestroy(): void {
+    this.destroyForm();
   }
 }
