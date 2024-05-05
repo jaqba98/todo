@@ -8,6 +8,8 @@ export class BaseFormService<TForm extends object, TStore extends object> {
 
   private subscription: Subscription;
 
+  isSubmitted = false;
+
   constructor(
     private readonly form: TForm,
     private readonly baseStore: BaseFormStoreService<TStore>
@@ -24,12 +26,19 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   }
 
   protected onSubmit() {
-    console.log(this.baseForm.value, this.baseForm.valid);
+    this.isSubmitted = true;
+    if (this.baseForm.invalid) return;
+    console.log(this.baseForm.invalid);
     this.baseStore.setModel(this.baseForm.value);
     this.baseStore.clearModel();
+    this.isSubmitted = false;
   }
 
   protected destroyForm() {
     this.subscription.unsubscribe();
+  }
+
+  protected getInvalidField(field: string) {
+    return this.baseForm.get(field)?.invalid && this.isSubmitted;
   }
 }

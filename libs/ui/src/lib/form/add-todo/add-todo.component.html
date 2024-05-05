@@ -1,7 +1,9 @@
 <form [formGroup]="getForm()" (ngSubmit)="onSubmit()">
   <lib-input placeholder="Title"
              formControlName="title"></lib-input>
+  <span *ngIf="getInvalidField('title')">Error title!</span>
   <lib-input placeholder="Description"
              formControlName="description"></lib-input>
+  <span *ngIf="getInvalidField('description')">Error description!</span>
   <lib-button type="submit" value="Add"></lib-button>
 </form>
