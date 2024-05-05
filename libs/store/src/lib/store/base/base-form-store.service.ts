@@ -1,5 +1,5 @@
 import { BehaviorSubject } from "rxjs";
-import * as lodash from "lodash";
+import { cloneDeep } from "lodash";
 
 export class BaseFormStoreService<TModel> {
     private readonly subject = new BehaviorSubject(this.model);
@@ -7,7 +7,7 @@ export class BaseFormStoreService<TModel> {
     private readonly baseModel: TModel;
 
     constructor(private model: TModel) {
-        this.baseModel = lodash.cloneDeep(model);
+        this.baseModel = cloneDeep(model);
     }
 
     setModel(model: TModel) {
@@ -26,6 +26,6 @@ export class BaseFormStoreService<TModel> {
     }
 
     getCleanModel() {
-        return lodash.cloneDeep(this.baseModel);
+        return cloneDeep(this.baseModel);
     }
 }
