@@ -10,6 +10,12 @@ export type InputType =
     | "password"
     | "email";
 
+export type LogStatusType =
+    | "error"
+    | "warning"
+    | "success"
+    | "info";
+
 export type OnChangeType<T> = (value: T) => void;
 
 export type OnTouchType = () => void;

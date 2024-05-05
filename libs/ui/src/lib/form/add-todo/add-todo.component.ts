@@ -8,6 +8,7 @@ import { InputComponent } from "../../control/input/input.component";
 import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
 import { BaseFormService } from "../base-form/base-form.service";
 import { CommonModule } from "@angular/common";
+import { LogStatusComponent } from "../../control/log-status/log-status.component";
 
 @Component({
   selector: "lib-add-todo",
@@ -16,7 +17,8 @@ import { CommonModule } from "@angular/common";
     CommonModule,
     ReactiveFormsModule,
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    LogStatusComponent
   ],
   templateUrl: "./add-todo.component.html",
 })
