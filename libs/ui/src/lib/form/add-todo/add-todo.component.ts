@@ -21,6 +21,7 @@ import { LogStatusComponent } from "../../control/log-status/log-status.componen
     LogStatusComponent
   ],
   templateUrl: "./add-todo.component.html",
+  styleUrl: "./add-todo.component.scss"
 })
 export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel> implements OnDestroy {
   constructor(private readonly store: AddTodoFormStoreService) {
