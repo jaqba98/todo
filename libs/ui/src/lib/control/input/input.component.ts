@@ -1,24 +1,49 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { Component, Input, forwardRef } from "@angular/core";
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { InputType } from "../../type/control.type";
+import { InputType, OnChange, OnTouch } from "../../type/control.type";
 
 @Component({
   selector: "lib-input",
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./input.component.html",
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true
+    }
+  ]
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   @Input() type: InputType = "text";
 
   @Input() placeholder = "";
 
-  @Input() value = "";
+  value = "";
 
-  @Output() event = new EventEmitter<string>();
+  onChange: OnChange<string> = () => {};
+  
+  onTouched: OnTouch = () => {};
 
-  onInput() {
-    this.event.emit(this.value);
+  writeValue(value: string): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: OnChange<string>): void {
+    this.onChange = fn;
+  }
+  
+  registerOnTouched(fn: OnTouch): void {
+    this.onTouched = fn;
+  }
+
+  onInput(): void {
+    this.onChange(this.value);
+  }
+
+  onBlur(): void {
+    this.onTouched();
   }
 }

@@ -26,7 +26,8 @@
       "extends": ["plugin:@nx/typescript"],
       "rules": {
         "@typescript-eslint/semi": "error",
-        "@typescript-eslint/quotes": "error"
+        "@typescript-eslint/quotes": "error",
+        "@typescript-eslint/no-empty-function": "off"
       }
     },
     {

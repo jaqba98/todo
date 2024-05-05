@@ -19,10 +19,10 @@ export class AddTodoComponent implements OnDestroy {
   subscription: Subscription;
 
   constructor(
-    private readonly builder: FormBuilder,
+    private readonly fb: FormBuilder,
     private readonly store: AddTodoFormStoreService
   ) {
-    this.form = this.builder.group<AddTodoFormStoreModel>(
+    this.form = this.fb.group<AddTodoFormStoreModel>(
       this.store.getCleanModel()
     );
     this.subscription = this.store.getModel().subscribe((model) => {
