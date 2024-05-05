@@ -1,11 +1,12 @@
 import { Component, OnDestroy } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService } from "@todo/store";
+import { AddTodoFormStoreService } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
+import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
 
 @Component({
   selector: "lib-add-todo",
@@ -22,11 +23,11 @@ export class AddTodoComponent implements OnDestroy {
     private readonly fb: FormBuilder,
     private readonly store: AddTodoFormStoreService
   ) {
-    this.form = this.fb.group<AddTodoFormStoreModel>(
-      this.store.getCleanModel()
-    );
+    this.form = this.fb.group<AddTodoFormModel>({
+      title: new FormControl(["", Validators.required]),
+      description: new FormControl(["", Validators.required])
+    });
     this.subscription = this.store.getModel().subscribe((model) => {
-      console.log(model);
       this.form.patchValue(model);
     });
   }
@@ -36,6 +37,7 @@ export class AddTodoComponent implements OnDestroy {
   }
 
   onSubmit() {
+    console.log(this.form.value, this.form.valid);
     this.store.setModel(this.form.value);
     this.store.clearModel();
   }
