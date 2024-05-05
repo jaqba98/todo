@@ -13,6 +13,7 @@ export class BaseFormService<TForm extends object, TStore extends object> {
     private readonly baseStore: BaseFormStoreService<TStore>
   ) {
     this.baseForm = new FormBuilder().group(this.form);
+    this.baseStore.setModel(this.baseForm.value);
     this.subscription = this.baseStore.getModel().subscribe((model) => {
       this.baseForm.patchValue(model);
     });
