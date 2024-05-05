@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 
 import { AddTodoFormStoreService } from "@todo/store";
@@ -24,8 +24,8 @@ export class AddTodoComponent implements OnDestroy {
     private readonly store: AddTodoFormStoreService
   ) {
     this.form = this.fb.group<AddTodoFormModel>({
-      title: new FormControl(["", Validators.required]),
-      description: new FormControl(["", Validators.required])
+      title: ["", Validators.required],
+      description: ["", Validators.required]
     });
     this.subscription = this.store.getModel().subscribe((model) => {
       this.form.patchValue(model);

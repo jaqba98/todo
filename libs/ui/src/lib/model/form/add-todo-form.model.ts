@@ -1,6 +1,6 @@
-import { FormControl } from "@angular/forms";
+import { FormControlType } from "../../type/control.type";
 
 export interface AddTodoFormModel {
-    title: FormControl;
-    description: FormControl;
+    title: FormControlType;
+    description: FormControlType;
 }

@@ -1,3 +1,5 @@
+import { Validators } from "@angular/forms";
+
 export type ButtonType =
     | "button"
     | "submit"
@@ -11,3 +13,5 @@ export type InputType =
 export type OnChange<T> = (value: T) => void;
 
 export type OnTouch = () => void;
+
+export type FormControlType = [string, Validators | Validators[]];
