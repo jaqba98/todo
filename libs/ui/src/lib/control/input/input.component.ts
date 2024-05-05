@@ -1,7 +1,7 @@
 import { Component, Input, forwardRef } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { InputType, OnChange, OnTouch } from "../../type/control.type";
+import { InputType, OnChangeType, OnTouchType } from "../../type/control.type";
 
 @Component({
   selector: "lib-input",
@@ -23,19 +23,19 @@ export class InputComponent implements ControlValueAccessor {
 
   value = "";
 
-  onChange: OnChange<string> = () => {};
+  onChange: OnChangeType<string> = () => {};
   
-  onTouched: OnTouch = () => {};
+  onTouched: OnTouchType = () => {};
 
   writeValue(value: string): void {
     this.value = value;
   }
 
-  registerOnChange(fn: OnChange<string>): void {
+  registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
   
-  registerOnTouched(fn: OnTouch): void {
+  registerOnTouched(fn: OnTouchType): void {
     this.onTouched = fn;
   }
 

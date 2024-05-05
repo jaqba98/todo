@@ -10,8 +10,8 @@ export type InputType =
     | "password"
     | "email";
 
-export type OnChange<T> = (value: T) => void;
+export type OnChangeType<T> = (value: T) => void;
 
-export type OnTouch = () => void;
+export type OnTouchType = () => void;
 
 export type FormControlType = [string, Validators | Validators[]];
