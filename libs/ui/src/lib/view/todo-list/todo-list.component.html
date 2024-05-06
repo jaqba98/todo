@@ -3,6 +3,7 @@
   <fieldset *ngFor="let todo of model.todos">
     <legend>{{todo.name}}</legend>
     <p>{{todo.description}}</p>
+    <p>{{todo.range}} %</p>
     <p>{{todo.deadline}}</p>
     <p>{{todo.priority}}</p>
     <p>{{todo.tags}}</p>

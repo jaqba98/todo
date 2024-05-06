@@ -17,6 +17,13 @@
       *ngIf="getInvalidField('description')"
       type="error"
       value="Error description!"></lib-log-status>
+    <!-- Range -->
+    <lib-range
+      formControlName="range"></lib-range>
+    <lib-log-status
+      *ngIf="getInvalidField('range')"
+      type="error"
+      value="Error range!"></lib-log-status>
     <!-- Date -->  
     <lib-input
       type="date"

@@ -11,6 +11,7 @@ import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
 import { BaseFormService } from "../base-form/base-form.service";
 import { LogStatusComponent } from "../../control/log-status/log-status.component";
 import { SelectComponent } from "../../control/select/select.component";
+import { RangeComponent } from "../../control/range/range.component";
 
 @Component({
   selector: "lib-add-todo",
@@ -21,6 +22,7 @@ import { SelectComponent } from "../../control/select/select.component";
     InputComponent,
     ButtonComponent,
     SelectComponent,
+    RangeComponent,
     LogStatusComponent
   ],
   templateUrl: "./add-todo.component.html",
@@ -34,6 +36,7 @@ export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoF
     super({
       name: ["", Validators.required],
       description: ["", Validators.required],
+      range: [0, Validators.required],
       deadline: [new Date(), Validators.required],
       priority: [PriorityEnum.low, Validators.required],
       tags: ["", Validators.required]

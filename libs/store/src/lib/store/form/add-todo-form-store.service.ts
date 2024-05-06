@@ -10,6 +10,7 @@ export class AddTodoFormStoreService extends BaseStoreService<AddTodoFormStoreMo
         super({
             name: "",
             description: "",
+            range: 0,
             deadline: new Date(),
             priority: PriorityEnum.low,
             tags: ""

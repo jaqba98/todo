@@ -1,11 +1,6 @@
-import { PriorityEnum } from "../../enum/priority.enum";
+import { AddTodoFormStoreModel } from "../form/add-todo-form-store.model";
 
-export interface AddTodoItemCoreStoreModel {
-    name: string;
-    description: string;
-    deadline: Date;
-    priority: PriorityEnum;
-    tags: string;
+export interface AddTodoItemCoreStoreModel extends AddTodoFormStoreModel {
 }
 
 export interface AddTodoCoreStoreModel {
