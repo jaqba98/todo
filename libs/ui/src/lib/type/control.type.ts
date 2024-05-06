@@ -8,7 +8,8 @@ export type ButtonType =
 export type InputType =
     | "text"
     | "password"
-    | "email";
+    | "email"
+    | "date";
 
 export type LogStatusType =
     | "error"

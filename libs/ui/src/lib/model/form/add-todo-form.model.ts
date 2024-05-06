@@ -1,6 +1,9 @@
 import { FormControlType } from "../../type/control.type";
 
 export interface AddTodoFormModel {
-    title: FormControlType;
+    name: FormControlType;
     description: FormControlType;
+    deadline: FormControlType;
+    priority: FormControlType;
+    tags: FormControlType;
 }

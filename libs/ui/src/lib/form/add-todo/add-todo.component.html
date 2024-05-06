@@ -1,11 +1,11 @@
 <form [formGroup]="getForm()" (ngSubmit)="onSubmit()" class="add-todo-form">
   <lib-input
-    placeholder="Title"
-    formControlName="title"></lib-input>
+    placeholder="Name"
+    formControlName="name"></lib-input>
   <lib-log-status
-    *ngIf="getInvalidField('title')"
+    *ngIf="getInvalidField('name')"
     type="error"
-    value="Error title!"></lib-log-status>
+    value="Error name!"></lib-log-status>
   <lib-input
     placeholder="Description"
     formControlName="description"></lib-input>
@@ -13,5 +13,26 @@
     *ngIf="getInvalidField('description')"
     type="error"
     value="Error description!"></lib-log-status>
+  <lib-input
+    type="date"
+    formControlName="deadline"></lib-input>
+  <lib-log-status 
+    *ngIf="getInvalidField('deadline')"
+    type="error"
+    value="Error deadline!"></lib-log-status>
+  <lib-input
+    placeholder="Priority"
+    formControlName="priority"></lib-input>
+  <lib-log-status 
+    *ngIf="getInvalidField('priority')"
+    type="error"
+    value="Error priority!"></lib-log-status>
+  <lib-input
+    placeholder="Tags"
+    formControlName="tags"></lib-input>
+  <lib-log-status 
+    *ngIf="getInvalidField('tags')"
+    type="error"
+    value="Error tags!"></lib-log-status>
   <lib-button type="submit" value="Add"></lib-button>
 </form>

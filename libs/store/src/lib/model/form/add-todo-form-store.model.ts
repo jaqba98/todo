@@ -1,4 +1,7 @@
 export interface AddTodoFormStoreModel {
-    title: string;
+    name: string;
     description: string;
+    deadline: Date;
+    priority: "high" | "medium" | "low";
+    tags: string;
 }

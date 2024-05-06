@@ -26,8 +26,11 @@ import { LogStatusComponent } from "../../control/log-status/log-status.componen
 export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel> implements OnDestroy {
   constructor(private readonly store: AddTodoFormStoreService) {
     super({
-      title: ["", Validators.required],
-      description: ["", Validators.required]
+      name: ["", Validators.required],
+      description: ["", Validators.required],
+      deadline: ["", Validators.required],
+      priority: ["", Validators.required],
+      tags: ["", Validators.required]
     }, store);
   }
 

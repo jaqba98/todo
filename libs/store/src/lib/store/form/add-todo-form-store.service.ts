@@ -7,8 +7,11 @@ import { AddTodoFormStoreModel } from "../../model/form/add-todo-form-store.mode
 export class AddTodoFormStoreService extends BaseFormStoreService<AddTodoFormStoreModel> {
     constructor() {
         super({
-            title: "",
-            description: ""
+            name: "",
+            description: "",
+            deadline: new Date(),
+            priority: "low",
+            tags: ""
         });
     }
 }
