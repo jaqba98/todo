@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Subscription } from "rxjs";
 
-import { BaseFormStoreService } from "@todo/store";
+import { BaseStoreService } from "@todo/store";
 
 export class BaseFormService<TForm extends object, TStore extends object> {
   private baseForm: FormGroup;
@@ -12,7 +12,7 @@ export class BaseFormService<TForm extends object, TStore extends object> {
 
   constructor(
     private readonly form: TForm,
-    private readonly baseStore: BaseFormStoreService<TStore>
+    private readonly baseStore: BaseStoreService<TStore>
   ) {
     this.baseForm = new FormBuilder().group(this.form);
     this.baseStore.setModel(this.baseForm.value);
@@ -23,15 +23,6 @@ export class BaseFormService<TForm extends object, TStore extends object> {
 
   protected getForm() {
     return this.baseForm;
-  }
-
-  protected onSubmit() {
-    this.isSubmitted = true;
-    if (this.baseForm.invalid) return;
-    console.log(this.baseForm.invalid);
-    this.baseStore.setModel(this.baseForm.value);
-    this.baseStore.clearModel();
-    this.isSubmitted = false;
   }
 
   protected destroyForm() {

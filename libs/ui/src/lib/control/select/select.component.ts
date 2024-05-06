@@ -1,26 +1,24 @@
 import { Component, Input, forwardRef } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
-import { InputType } from "../../type/control.type";
 import { OnChangeType, OnTouchType } from "../../type/form.type";
 
 @Component({
-  selector: "lib-input",
+  selector: "lib-select",
   standalone: true,
-  imports: [FormsModule],
-  templateUrl: "./input.component.html",
+  imports: [CommonModule ,FormsModule],
+  templateUrl: "./select.component.html",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => SelectComponent),
       multi: true
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor {
-  @Input() type: InputType = "text";
-
-  @Input() placeholder = "";
+export class SelectComponent implements ControlValueAccessor {
+  @Input() options: string[] = [];
 
   value = "";
 
@@ -40,8 +38,9 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  onInput(): void {
-    this.onChange(this.value);
+  onSelect(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    this.onChange(select.value);
   }
 
   onBlur(): void {

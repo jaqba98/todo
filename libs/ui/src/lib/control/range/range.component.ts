@@ -1,38 +1,33 @@
-import { Component, Input, forwardRef } from "@angular/core";
+import { Component, forwardRef } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { InputType } from "../../type/control.type";
 import { OnChangeType, OnTouchType } from "../../type/form.type";
 
 @Component({
-  selector: "lib-input",
+  selector: "lib-range",
   standalone: true,
   imports: [FormsModule],
-  templateUrl: "./input.component.html",
+  templateUrl: "./range.component.html",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => RangeComponent),
       multi: true
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor {
-  @Input() type: InputType = "text";
+export class RangeComponent implements ControlValueAccessor {
+  value = 0;
 
-  @Input() placeholder = "";
-
-  value = "";
-
-  onChange: OnChangeType<string> = () => {};
+  onChange: OnChangeType<number> = () => {};
   
   onTouched: OnTouchType = () => {};
 
-  writeValue(value: string): void {
+  writeValue(value: number): void {
     this.value = value;
   }
 
-  registerOnChange(fn: OnChangeType<string>): void {
+  registerOnChange(fn: OnChangeType<number>): void {
     this.onChange = fn;
   }
   
@@ -40,7 +35,7 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  onInput(): void {
+  onSelect(): void {
     this.onChange(this.value);
   }
 
