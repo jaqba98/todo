@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { take, tap } from "rxjs";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService, PriorityEnum } from "@todo/store";
+import { AddTodoFormStoreModel, AddTodoFormStoreService, PriorityEnum, TodoListCoreStoreService } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
@@ -26,7 +27,10 @@ import { SelectComponent } from "../../control/select/select.component";
   styleUrl: "./add-todo.component.scss"
 })
 export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel> implements OnDestroy {
-  constructor(private readonly store: AddTodoFormStoreService) {
+  constructor(
+    private readonly store: AddTodoFormStoreService,
+    private readonly coreStore: TodoListCoreStoreService
+  ) {
     super({
       name: ["", Validators.required],
       description: ["", Validators.required],
@@ -38,6 +42,27 @@ export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoF
 
   ngOnDestroy(): void {
     this.destroyForm();
+  }
+
+  onSubmit() {
+    this.isSubmitted = true;
+    const form = this.getForm();
+    if (form.invalid) return;
+    this.coreStore.getModel()
+      .pipe(
+        take(1),
+        tap(oldModel => {
+          this.coreStore.setModel({
+            ...oldModel,
+            todos: [...oldModel.todos, form.value]
+          });
+          this.store.setModel(form.value);
+          this.store.clearModel();
+          this.isSubmitted = false;
+        })
+      )
+      .subscribe()
+      .unsubscribe();
   }
 
   getPriority() {

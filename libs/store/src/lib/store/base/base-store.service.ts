@@ -1,7 +1,7 @@
 import { BehaviorSubject } from "rxjs";
 import { cloneDeep } from "lodash";
 
-export class BaseFormStoreService<TModel> {
+export class BaseStoreService<TModel> {
     private readonly subject = new BehaviorSubject(this.model);
 
     private readonly baseModel: TModel;

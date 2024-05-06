@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 
-import { BaseFormStoreService } from "../base/base-form-store.service";
+import { BaseStoreService } from "../base/base-store.service";
 import { AddTodoFormStoreModel } from "../../model/form/add-todo-form-store.model";
 import { PriorityEnum } from "../../enum/priority.enum";
 
 @Injectable({ providedIn: "root" })
-export class AddTodoFormStoreService extends BaseFormStoreService<AddTodoFormStoreModel> {
+export class AddTodoFormStoreService extends BaseStoreService<AddTodoFormStoreModel> {
     constructor() {
         super({
             name: "",
