@@ -2,10 +2,12 @@
   <legend>{{title}}</legend>
   <fieldset *ngFor="let todo of getTasks()">
     <legend>{{todo.name}}</legend>
+    <p>{{todo.id}}</p>
     <p>{{todo.description}}</p>
     <p>{{todo.range}} %</p>
     <p>{{todo.deadline}}</p>
     <p>{{todo.priority}}</p>
     <p>{{todo.tags}}</p>
+    <button (click)="onRemove(todo.id)">Remove</button>
   </fieldset>
 </fieldset>

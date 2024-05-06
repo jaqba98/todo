@@ -2,8 +2,9 @@ import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { take, tap } from "rxjs";
+import { v4 } from "uuid";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService, PriorityEnum, TodoListCoreStoreService } from "@todo/store";
+import { AddTodoFormStoreModel, AddTodoFormStoreService, AddTodoItemCoreStoreModel, PriorityEnum, TodoListCoreStoreService } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
@@ -49,15 +50,19 @@ export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoF
 
   onSubmit() {
     this.isSubmitted = true;
-    const form = this.getForm();
+    const form = this.getForm().value;
     if (form.invalid) return;
     this.coreStore.getModel()
       .pipe(
         take(1),
         tap(oldModel => {
+          const newTask: AddTodoItemCoreStoreModel = {
+            ...this.getForm().value,
+            id: v4()
+          };
           this.coreStore.setModel({
             ...oldModel,
-            todos: [...oldModel.todos, form.value]
+            todos: [...oldModel.todos, newTask]
           });
           this.store.setModel(form.value);
           this.store.clearModel();
