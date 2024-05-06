@@ -1,14 +1,15 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService } from "@todo/store";
+import { AddTodoFormStoreModel, AddTodoFormStoreService, PriorityEnum } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
 import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
 import { BaseFormService } from "../base-form/base-form.service";
-import { CommonModule } from "@angular/common";
 import { LogStatusComponent } from "../../control/log-status/log-status.component";
+import { SelectComponent } from "../../control/select/select.component";
 
 @Component({
   selector: "lib-add-todo",
@@ -18,6 +19,7 @@ import { LogStatusComponent } from "../../control/log-status/log-status.componen
     ReactiveFormsModule,
     InputComponent,
     ButtonComponent,
+    SelectComponent,
     LogStatusComponent
   ],
   templateUrl: "./add-todo.component.html",
@@ -28,13 +30,17 @@ export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoF
     super({
       name: ["", Validators.required],
       description: ["", Validators.required],
-      deadline: ["", Validators.required],
-      priority: ["", Validators.required],
+      deadline: [new Date(), Validators.required],
+      priority: [PriorityEnum.low, Validators.required],
       tags: ["", Validators.required]
     }, store);
   }
 
   ngOnDestroy(): void {
     this.destroyForm();
+  }
+
+  getPriority() {
+    return Object.values(PriorityEnum);
   }
 }

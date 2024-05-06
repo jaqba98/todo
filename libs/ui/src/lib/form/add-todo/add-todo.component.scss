@@ -1,5 +1,9 @@
-.add-todo-form {
-    display: flex;
-    flex-direction: column;
-    margin: 1em;
+.add-todo {
+    &__fieldset {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25em;
+        margin: 0.5em;
+        padding: 0.5em;
+    }
 }

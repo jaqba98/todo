@@ -26,9 +26,9 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   }
 
   protected onSubmit() {
+    console.log(this.baseForm.value);
     this.isSubmitted = true;
     if (this.baseForm.invalid) return;
-    console.log(this.baseForm.invalid);
     this.baseStore.setModel(this.baseForm.value);
     this.baseStore.clearModel();
     this.isSubmitted = false;

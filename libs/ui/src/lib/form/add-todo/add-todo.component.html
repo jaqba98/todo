@@ -1,38 +1,47 @@
-<form [formGroup]="getForm()" (ngSubmit)="onSubmit()" class="add-todo-form">
-  <lib-input
-    placeholder="Name"
-    formControlName="name"></lib-input>
-  <lib-log-status
-    *ngIf="getInvalidField('name')"
-    type="error"
-    value="Error name!"></lib-log-status>
-  <lib-input
-    placeholder="Description"
-    formControlName="description"></lib-input>
-  <lib-log-status 
-    *ngIf="getInvalidField('description')"
-    type="error"
-    value="Error description!"></lib-log-status>
-  <lib-input
-    type="date"
-    formControlName="deadline"></lib-input>
-  <lib-log-status 
-    *ngIf="getInvalidField('deadline')"
-    type="error"
-    value="Error deadline!"></lib-log-status>
-  <lib-input
-    placeholder="Priority"
-    formControlName="priority"></lib-input>
-  <lib-log-status 
-    *ngIf="getInvalidField('priority')"
-    type="error"
-    value="Error priority!"></lib-log-status>
-  <lib-input
-    placeholder="Tags"
-    formControlName="tags"></lib-input>
-  <lib-log-status 
-    *ngIf="getInvalidField('tags')"
-    type="error"
-    value="Error tags!"></lib-log-status>
-  <lib-button type="submit" value="Add"></lib-button>
+<form [formGroup]="getForm()" (ngSubmit)="onSubmit()" class="add-todo">
+  <fieldset class="add-todo__fieldset">
+    <legend>Add a task to do</legend>
+    <!-- Name -->
+    <lib-input
+      placeholder="Name"
+      formControlName="name"></lib-input>
+    <lib-log-status
+      *ngIf="getInvalidField('name')"
+      type="error"
+      value="Error name!"></lib-log-status>
+    <!-- Description -->
+    <lib-input
+      placeholder="Description"
+      formControlName="description"></lib-input>
+    <lib-log-status
+      *ngIf="getInvalidField('description')"
+      type="error"
+      value="Error description!"></lib-log-status>
+    <!-- Date -->  
+    <lib-input
+      type="date"
+      formControlName="deadline"></lib-input>
+    <lib-log-status 
+      *ngIf="getInvalidField('deadline')"
+      type="error"
+      value="Error deadline!"></lib-log-status>
+    <!-- Priority -->
+    <lib-select
+      [options]="getPriority()"
+      formControlName="priority"></lib-select>
+    <lib-log-status 
+      *ngIf="getInvalidField('priority')"
+      type="error"
+      value="Error priority!"></lib-log-status>
+    <!-- Tags -->
+    <lib-input
+      placeholder="Tags"
+      formControlName="tags"></lib-input>
+    <lib-log-status 
+      *ngIf="getInvalidField('tags')"
+      type="error"
+      value="Error tags!"></lib-log-status>
+    <!-- Submit -->
+    <lib-button type="submit" value="Add"></lib-button>
+  </fieldset>
 </form>

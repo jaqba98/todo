@@ -1,7 +1,9 @@
+import { PriorityEnum } from "../../enum/priority.enum";
+
 export interface AddTodoFormStoreModel {
     name: string;
     description: string;
     deadline: Date;
-    priority: "high" | "medium" | "low";
+    priority: PriorityEnum;
     tags: string;
 }
