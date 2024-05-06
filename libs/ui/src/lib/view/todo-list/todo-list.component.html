@@ -1,6 +1,6 @@
 <fieldset class="todo-list__fieldset">
-  <legend>Todo List</legend>
-  <fieldset *ngFor="let todo of model.todos">
+  <legend>{{title}}</legend>
+  <fieldset *ngFor="let todo of getTasks()">
     <legend>{{todo.name}}</legend>
     <p>{{todo.description}}</p>
     <p>{{todo.range}} %</p>
