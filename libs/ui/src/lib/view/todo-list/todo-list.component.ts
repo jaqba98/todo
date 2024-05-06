@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
+import { take, tap } from "rxjs";
 
 import { AddTodoCoreStoreModel, TodoListCoreStoreService } from "@todo/store";
 
@@ -32,5 +33,18 @@ export class TodoListComponent {
       return this.model.todos.filter(todo => todo.range < 100);
     }
     return this.model.todos.filter(todo => todo.range === 100);
+  }
+
+  onRemove(id: string) {
+    this.store.getModel()
+      .pipe(
+        take(1),
+        tap(model => {
+          const newTodos = model.todos.filter(todo => todo.id !== id);
+          this.store.setModel({ todos: newTodos });
+        })
+      )
+      .subscribe()
+      .unsubscribe();
   }
 }
