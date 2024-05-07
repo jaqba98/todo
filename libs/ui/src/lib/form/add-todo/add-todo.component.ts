@@ -50,7 +50,7 @@ export class AddTodoComponent extends BaseFormService<AddTodoFormModel, AddTodoF
 
   onSubmit() {
     this.isSubmitted = true;
-    const form = this.getForm().value;
+    const form = this.getForm();
     if (form.invalid) return;
     this.coreStore.getModel()
       .pipe(
