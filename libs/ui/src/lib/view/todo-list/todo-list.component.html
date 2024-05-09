@@ -2,12 +2,18 @@
   <legend>{{title}}</legend>
   <fieldset *ngFor="let todo of getTasks()">
     <legend>{{todo.name}}</legend>
-    <p>{{todo.id}}</p>
-    <p>{{todo.description}}</p>
-    <p>{{todo.range}} %</p>
-    <p>{{todo.deadline}}</p>
-    <p>{{todo.priority}}</p>
-    <p>{{todo.tags}}</p>
+    <ng-container *ngIf="!isEdit">
+      <p>{{todo.id}}</p>
+      <p>{{todo.description}}</p>
+      <p>{{todo.range}} %</p>
+      <p>{{todo.deadline}}</p>
+      <p>{{todo.priority}}</p>
+      <p>{{todo.tags}}</p>
+      <button (click)="onEdit(true)">Edit</button>
+    </ng-container>
+    <ng-container *ngIf="isEdit">
+      <button (click)="onEdit(false)">Save</button>
+    </ng-container>
     <button (click)="onRemove(todo.id)">Remove</button>
   </fieldset>
 </fieldset>

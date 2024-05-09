@@ -18,6 +18,8 @@ export class TodoListComponent {
 
   @Input() status: StatusType = "inProgress";
 
+  isEdit = false;
+
   model: AddTodoCoreStoreModel = {
     todos: []
   };
@@ -33,6 +35,10 @@ export class TodoListComponent {
       return this.model.todos.filter(todo => todo.range < 100);
     }
     return this.model.todos.filter(todo => todo.range === 100);
+  }
+
+  onEdit(value: boolean) {
+    this.isEdit = value;
   }
 
   onRemove(id: string) {
