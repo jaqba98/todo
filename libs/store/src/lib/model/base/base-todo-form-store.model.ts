@@ -1,6 +1,6 @@
 import { PriorityEnum } from "../../enum/priority.enum";
 
-export interface BaseFormModel {
+export interface BaseTodoFormStoreModel {
     name: string;
     description: string;
     range: number;

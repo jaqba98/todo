@@ -1,4 +1,4 @@
-import { BaseFormModel } from "../base/base-form.model";
+import { BaseTodoFormStoreModel } from "../base/base-todo-form-store.model";
 
-export interface EditTodoFormStoreModel extends BaseFormModel {
+export interface EditTodoFormStoreModel extends BaseTodoFormStoreModel {
 }

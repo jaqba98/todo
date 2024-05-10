@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
-import { BaseStoreService } from "../base/base-store.service";
 import { PriorityEnum } from "../../enum/priority.enum";
+import { BaseStoreService } from "../base/base-store.service";
 import { EditTodoFormStoreModel } from "../../model/form/edit-todo-form-store.model";
 
 @Injectable({ providedIn: "root" })

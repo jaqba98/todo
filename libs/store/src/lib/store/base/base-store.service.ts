@@ -11,7 +11,7 @@ export class BaseStoreService<TModel> {
     }
 
     setModel(model: TModel) {
-        this.model = model;
+        this.model = cloneDeep(model);
         this.subject.next(this.model);
     }
 
@@ -19,13 +19,7 @@ export class BaseStoreService<TModel> {
         return this.subject.asObservable();
     }
 
-    clearModel() {
-        this.setModel(
-            this.getCleanModel()
-        );
-    }
-
-    getCleanModel() {
-        return cloneDeep(this.baseModel);
+    cleanModel() {
+        this.setModel(this.baseModel);
     }
 }
