@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 
 import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum } from "@todo/store";
@@ -29,9 +29,9 @@ export class AddTodoFormComponent
   extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel>
   implements OnDestroy {
 
-  @Input({ required: true }) title = "";
+  readonly title = "Add Todo";
 
-  @Input({ required: true }) submitButton = "";
+  readonly submitButton = "Add";
   
   constructor(
     store: AddTodoFormStoreService,

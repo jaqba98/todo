@@ -1,13 +1,12 @@
 import { Component } from "@angular/core";
 
-import { AddTodoComponent, TodoListComponent } from "@todo/ui";
+import { AddTodoFormComponent } from "@todo/ui";
 
 @Component({
   selector: "lib-tasks",
   standalone: true,
   imports: [
-    AddTodoComponent,
-    TodoListComponent
+    AddTodoFormComponent
   ],
   templateUrl: "./tasks.component.html"
 })

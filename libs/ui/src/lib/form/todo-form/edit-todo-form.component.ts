@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 
 import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum } from "@todo/store";
@@ -29,9 +29,9 @@ export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
   implements OnDestroy {
 
-  @Input({ required: true }) title = "";
+  readonly title = "Edit Panel";
 
-  @Input({ required: true }) submitButton = "";
+  readonly submitButton = "Edit";
 
   constructor(
     store: EditTodoFormStoreService,
