@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum } from "@todo/store";
 
@@ -15,6 +16,7 @@ import { ButtonComponent } from "../../control/button/button.component";
   selector: "lib-add-todo-form",
   standalone: true,
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     InputComponent,
     MessageStatusComponent,
