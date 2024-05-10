@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { take, tap } from "rxjs";
 
 import { AddTodoCoreStoreModel, TodoListCoreStoreService } from "@todo/store";
