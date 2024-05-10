@@ -8,8 +8,6 @@ export class BaseFormService<TForm extends object, TStore extends object> {
 
   private subscription: Subscription;
 
-  protected isSubmitted = false;
-
   constructor(
     private readonly form: TForm,
     private readonly store: BaseStoreService<TStore>
@@ -30,7 +28,7 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   }
 
   isValidField(field: string) {
-    return this.formGroup.get(field)?.valid && this.isSubmitted;
+    return this.formGroup.get(field)?.valid;
   }
 
   isNotValidField(field: string) {
