@@ -3,34 +3,34 @@
     <legend>{{title}}</legend>
     <!-- name -->
     <lib-input formControlName="name"></lib-input>
-    <lib-log-status type="error"
+    <!-- <lib-log-status type="error"
                     value="Error name!"
-                    *ngIf="isNotValidField('name')"></lib-log-status>
+                    *ngIf="isNotValidField('name')"></lib-log-status> -->
     <!-- description -->
     <lib-input formControlName="description"></lib-input>
-    <lib-log-status type="error"
+    <!-- <lib-log-status type="error"
                     value="Error description!"
-                    *ngIf="isNotValidField('description')"></lib-log-status>
+                    *ngIf="isNotValidField('description')"></lib-log-status> -->
     <!-- range -->
-    <lib-range formControlName="range"></lib-range>
+    <!-- <lib-range formControlName="range"></lib-range>
     <lib-log-status type="error"
                     value="Error range!"
-                    *ngIf="isNotValidField('range')"></lib-log-status>
+                    *ngIf="isNotValidField('range')"></lib-log-status> -->
     <!-- deadline -->
     <lib-input type="date" formControlName="deadline"></lib-input>
-    <lib-log-status type="error"
+    <!-- <lib-log-status type="error"
                     value="Error deadline!"
-                    *ngIf="isNotValidField('deadline')"></lib-log-status>
+                    *ngIf="isNotValidField('deadline')"></lib-log-status> -->
     <!-- priority -->
-    <lib-select [options]="priority.getArray()" formControlName="priority"></lib-select>
+    <!-- <lib-select [options]="priority.getArray()" formControlName="priority"></lib-select>
     <lib-log-status type="error"
                     value="Error priority!"
-                    *ngIf="isNotValidField('priority')"></lib-log-status>
+                    *ngIf="isNotValidField('priority')"></lib-log-status> -->
     <!-- tags -->
     <lib-input formControlName="tags"></lib-input>
-    <lib-log-status type="error"
+    <!-- <lib-log-status type="error"
                     value="Error tags!"
-                    *ngIf="isNotValidField('tags')"></lib-log-status>
+                    *ngIf="isNotValidField('tags')"></lib-log-status> -->
     <lib-button type="submit" [value]="submitButton"></lib-button>
   </fieldset>
 </form>
