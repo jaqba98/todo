@@ -6,7 +6,7 @@ import { AddTodoItemCoreStoreModel, EditTodoFormStoreModel, EditTodoFormStoreSer
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
-import { BaseFormService } from "../base-form/base-form.service";
+import { BaseFormService } from "../base/base-form.service";
 import { LogStatusComponent } from "../../control/log-status/log-status.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { RangeComponent } from "../../control/range/range.component";
