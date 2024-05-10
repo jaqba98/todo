@@ -1,6 +1,6 @@
-import { AddTodoFormStoreModel } from "../form/add-todo-form-store.model";
+import { BaseFormModel } from "../base/base-form.model";
 
-export interface AddTodoItemCoreStoreModel extends AddTodoFormStoreModel {
+export interface AddTodoItemCoreStoreModel extends BaseFormModel {
     id: string;
 }
 

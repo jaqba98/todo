@@ -1,10 +1,4 @@
-import { PriorityEnum } from "../../enum/priority.enum";
+import { BaseFormModel } from "../base/base-form.model";
 
-export interface AddTodoFormStoreModel {
-    name: string;
-    description: string;
-    range: number;
-    deadline: Date;
-    priority: PriorityEnum;
-    tags: string;
+export interface AddTodoFormStoreModel extends BaseFormModel {
 }
