@@ -1,5 +1,2 @@
-<input type="range"
-       min="0"
-       max="100"
-       [(ngModel)]="value">
+<input type="range" min="0" max="100" [(ngModel)]="value" (change)="onChange(value)">
 <span>{{value}} %</span>

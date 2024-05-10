@@ -12,10 +12,10 @@
                         value="Error description!"
                         *ngIf="isNotValidField('description')"></lib-message-status>
     <!-- range -->
-    <!-- <lib-range formControlName="range"></lib-range>
-    <lib-log-status type="error"
+    <lib-range formControlName="range"></lib-range>
+    <lib-message-status type="error"
                     value="Error range!"
-                    *ngIf="isNotValidField('range')"></lib-log-status> -->
+                    *ngIf="isNotValidField('range')"></lib-message-status>
     <!-- deadline -->
     <lib-input type="date" formControlName="deadline"></lib-input>
     <lib-message-status type="error"

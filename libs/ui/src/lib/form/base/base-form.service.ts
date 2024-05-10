@@ -35,5 +35,7 @@ export class BaseFormService<TForm extends object, TStore extends object> {
     return !this.isValidField(field);
   }
 
-  onSubmit() {}
+  onSubmit() {
+    console.log(this.formGroup.value);
+  }
 }
