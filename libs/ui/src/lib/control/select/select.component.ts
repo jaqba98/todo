@@ -20,7 +20,7 @@ import { OnChangeType, OnTouchType } from "../../type/form.type";
 export class SelectComponent implements ControlValueAccessor {
   @Input() options: string[] = [];
 
-  value = "";
+  @Input() value = "";
 
   onChange: OnChangeType<string> = () => {};
   

@@ -22,7 +22,7 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input() placeholder = "";
 
-  value = "";
+  @Input() value = "";
 
   onChange: OnChangeType<string> = () => {};
   

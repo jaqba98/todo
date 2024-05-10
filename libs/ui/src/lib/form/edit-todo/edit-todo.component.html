@@ -1,0 +1,23 @@
+<form class="edit-todo">
+  <fieldset class="edit-todo__fieldset">
+    <legend>Add Todo</legend>
+    <lib-input
+      [value]="name"
+      placeholder="Name"></lib-input>
+    <lib-input
+      [value]="description"
+      placeholder="Description"></lib-input>
+    <lib-range
+      [value]="range"></lib-range>
+    <lib-input
+      [value]="deadline.toString()"
+      type="date"></lib-input>
+    <lib-select
+      [value]="priority"
+      [options]="getPriority()"></lib-select>
+    <lib-input
+      [value]="tags"
+      placeholder="Tags"></lib-input>
+    <lib-button type="submit" value="Add"></lib-button>
+  </fieldset>
+</form>

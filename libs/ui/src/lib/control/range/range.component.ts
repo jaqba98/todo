@@ -1,4 +1,4 @@
-import { Component, forwardRef } from "@angular/core";
+import { Component, Input, forwardRef } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/form.type";
@@ -17,7 +17,7 @@ import { OnChangeType, OnTouchType } from "../../type/form.type";
   ]
 })
 export class RangeComponent implements ControlValueAccessor {
-  value = 0;
+  @Input() value = 0;
 
   onChange: OnChangeType<number> = () => {};
   
