@@ -6,7 +6,7 @@ import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, P
 import { BaseFormService } from "../base/base-form.service";
 import { EditTodoFormModel } from "../../model/edit-todo-form.model";
 import { InputComponent } from "../../control/input/input.component";
-import { LogStatusComponent } from "../../control/log-status/log-status.component";
+import { MessageStatusComponent } from "../../control/message/message.component";
 import { RangeComponent } from "../../control/range/range.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { ButtonComponent } from "../../control/button/button.component";
@@ -17,7 +17,7 @@ import { ButtonComponent } from "../../control/button/button.component";
   imports: [
     ReactiveFormsModule,
     InputComponent,
-    LogStatusComponent,
+    MessageStatusComponent,
     RangeComponent,
     SelectComponent,
     ButtonComponent
