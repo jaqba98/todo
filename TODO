@@ -1,5 +1,5 @@
 [] apps/todo
 [] libs/fe
 [] libs/page
-[] libs/store
+[+] libs/store
 [] libs/ui
