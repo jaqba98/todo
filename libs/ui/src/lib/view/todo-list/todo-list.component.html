@@ -12,13 +12,7 @@
       <button (click)="onEdit(true)">Edit</button>
     </ng-container>
     <ng-container *ngIf="isEdit">
-      <lib-edit-todo
-        [name]="todo.name"
-        [description]="todo.description"
-        [range]="todo.range"
-        [deadline]="todo.deadline"
-        [priority]="todo.priority"
-        [tags]="todo.tags"></lib-edit-todo>
+      <lib-edit-todo [id]="todo.id"></lib-edit-todo>
       <button (click)="onEdit(false)">Back</button>
     </ng-container>
     <button (click)="onRemove(todo.id)">Remove</button>
