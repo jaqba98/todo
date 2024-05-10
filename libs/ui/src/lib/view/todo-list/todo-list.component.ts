@@ -5,7 +5,7 @@ import { take, tap } from "rxjs";
 import { AddTodoCoreStoreModel, TodoListCoreStoreService } from "@todo/store";
 
 import { StatusType } from "../../type/status.type";
-import { EditTodoComponent } from "../../form/add-todo/edit-todo.component";
+import { EditTodoComponent } from "../../form/todo-form/edit-todo-form.component";
 
 @Component({
   selector: "lib-todo-list",

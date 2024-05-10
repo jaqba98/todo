@@ -36,4 +36,6 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   isNotValidField(field: string) {
     return !this.isValidField(field);
   }
+
+  onSubmit() {}
 }

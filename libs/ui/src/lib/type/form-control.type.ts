@@ -1,1 +1,3 @@
-export type FormControlType<T> = [string, T | T[]];
+import { Validators } from "@angular/forms";
+
+export type FormControlType<T> = [T, Validators | Validators[]];
