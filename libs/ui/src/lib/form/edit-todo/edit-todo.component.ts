@@ -10,7 +10,7 @@ import { BaseFormService } from "../base-form/base-form.service";
 import { LogStatusComponent } from "../../control/log-status/log-status.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { RangeComponent } from "../../control/range/range.component";
-import { EditTodoFormModel } from "../../model/form/edit-todo-form.model";
+import { EditTodoFormModel } from "../../model/edit-todo-form.model";
 import { take, tap } from "rxjs";
 
 @Component({

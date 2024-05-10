@@ -8,7 +8,7 @@ import { AddTodoFormStoreModel, AddTodoFormStoreService, AddTodoItemCoreStoreMod
 
 import { ButtonComponent } from "../../control/button/button.component";
 import { InputComponent } from "../../control/input/input.component";
-import { AddTodoFormModel } from "../../model/form/add-todo-form.model";
+import { AddTodoFormModel } from "../../model/add-todo-form.model";
 import { BaseFormService } from "../base-form/base-form.service";
 import { LogStatusComponent } from "../../control/log-status/log-status.component";
 import { SelectComponent } from "../../control/select/select.component";
