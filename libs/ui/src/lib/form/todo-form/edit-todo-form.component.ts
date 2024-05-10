@@ -52,4 +52,6 @@ export class EditTodoFormComponent
   ngOnDestroy() {
     this.unsubscribeFormGroup();
   }
+
+  onSubmit() {}
 }

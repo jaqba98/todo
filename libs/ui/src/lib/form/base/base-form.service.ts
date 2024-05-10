@@ -8,9 +8,11 @@ export class BaseFormService<TForm extends object, TStore extends object> {
 
   private subscription: Subscription;
 
+  protected isSubmitted = false;
+
   constructor(
     private readonly form: TForm,
-    private readonly store: BaseStoreService<TStore>
+    protected readonly store: BaseStoreService<TStore>
   ) {
     this.formGroup = new FormBuilder().group(form);
     this.store.setModel(this.formGroup.value);
@@ -28,14 +30,10 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   }
 
   isValidField(field: string) {
-    return this.formGroup.get(field)?.valid;
+    return this.formGroup.get(field)?.valid && this.isSubmitted;
   }
 
   isNotValidField(field: string) {
-    return !this.isValidField(field);
-  }
-
-  onSubmit() {
-    console.log(this.formGroup.value);
+    return this.formGroup.get(field)?.invalid && this.isSubmitted;
   }
 }

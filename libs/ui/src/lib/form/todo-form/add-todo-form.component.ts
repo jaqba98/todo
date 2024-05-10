@@ -2,7 +2,7 @@ import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum } from "@todo/store";
+import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
 import { BaseFormService } from "../base/base-form.service";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
@@ -11,6 +11,7 @@ import { MessageStatusComponent } from "../../control/message-status/message-sta
 import { RangeComponent } from "../../control/range/range.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { ButtonComponent } from "../../control/button/button.component";
+import { v4 } from "uuid";
 
 @Component({
   selector: "lib-add-todo-form",
@@ -37,7 +38,8 @@ export class AddTodoFormComponent
   
   constructor(
     store: AddTodoFormStoreService,
-    readonly priority: GetPriorityService
+    readonly priority: GetPriorityService,
+    private readonly coreStore: TodoCoreStoreService
   ) {
     super({
       name: ["", Validators.required],
@@ -51,5 +53,17 @@ export class AddTodoFormComponent
 
   ngOnDestroy() {
     this.unsubscribeFormGroup();
+  }
+
+  onSubmit() {
+    // TODO: create implementation of this method
+    this.isSubmitted = true;
+    if (this.getFormGroup().invalid) return;
+    this.coreStore.getModel().subscribe(model => {
+      model.todos = model.todos.set(v4(), this.getFormGroup().value);
+      console.log(model.todos);
+      this.store.cleanModel();
+      this.isSubmitted = false;
+    }).unsubscribe();
   }
 }
