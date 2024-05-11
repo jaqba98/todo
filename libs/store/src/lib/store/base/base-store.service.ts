@@ -6,7 +6,7 @@ export class BaseStoreService<TModel> {
 
     private readonly baseModel: TModel;
 
-    constructor(private model: TModel) {
+    constructor(protected model: TModel) {
         this.baseModel = cloneDeep(model);
     }
 

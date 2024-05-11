@@ -25,6 +25,10 @@ export class BaseFormService<TForm extends object, TStore extends object> {
     return this.formGroup;
   }
 
+  getValue() {
+    return <TStore>this.formGroup.value;
+  }
+
   unsubscribeFormGroup() {
     this.subscription.unsubscribe();
   }
