@@ -1,3 +1,11 @@
 <fieldset class="todo-list__fieldset">
     <legend>{{title}}</legend>
+    <fieldset *ngFor="let todo of model.todos | keyvalue">
+        <legend>{{ todo.value.name }}</legend>
+        <p>{{ todo.value.description }}</p>
+        <p>{{ todo.value.range }}</p>
+        <p>{{ todo.value.deadline }}</p>
+        <p>{{ todo.value.priority }}</p>
+        <p>{{ todo.value.tags }}</p>
+    </fieldset>
 </fieldset>
