@@ -20,4 +20,13 @@ export class TodoCoreStoreService extends BaseStoreService<TodoCoreStoreModel> {
         this.model.todos.delete(id);
         this.setModel(this.model);
     }
+
+    switchEditMode(id: string) {
+        if (!this.model.todos.has(id)) return;
+        const oldModel = this.model.todos.get(id);
+        if (!oldModel) return;
+        oldModel.isEdited = !oldModel.isEdited;
+        this.model.todos.set(id, oldModel);
+        this.setModel(this.model);
+    }
 }

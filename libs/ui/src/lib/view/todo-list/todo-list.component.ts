@@ -6,13 +6,15 @@ import { CommonModule } from "@angular/common";
 import { TodoCoreStoreModel, TodoCoreStoreService } from "@todo/store";
 
 import { ButtonComponent } from "../../control/button/button.component";
+import { EditTodoFormComponent } from "../../form/todo-form/edit-todo-form.component";
 
 @Component({
   selector: "lib-todo-list",
   standalone: true,
   imports: [
     CommonModule,
-    ButtonComponent
+    ButtonComponent,
+    EditTodoFormComponent
   ],
   templateUrl: "./todo-list.component.html",
   styleUrl: "./todo-list.component.scss"
@@ -38,5 +40,9 @@ export class TodoListComponent implements OnDestroy {
 
   onRemove(id: string) {
     this.coreStore.deleteTodo(id);
+  }
+
+  onEdit(id: string) {
+    this.coreStore.switchEditMode(id);
   }
 }
