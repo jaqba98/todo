@@ -1,6 +1,8 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { v4 } from "uuid";
+import { cloneDeep } from "lodash";
 
 import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
@@ -11,7 +13,6 @@ import { MessageStatusComponent } from "../../control/message-status/message-sta
 import { RangeComponent } from "../../control/range/range.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { ButtonComponent } from "../../control/button/button.component";
-import { v4 } from "uuid";
 
 @Component({
   selector: "lib-add-todo-form",
@@ -56,12 +57,14 @@ export class AddTodoFormComponent
   }
 
   onSubmit() {
-    // TODO: create implementation of this method
     this.isSubmitted = true;
-    if (this.getFormGroup().invalid) return;
+    const { invalid, value } = this.getFormGroup();
+    if (invalid) return;
     this.coreStore.getModel().subscribe(model => {
-      model.todos = model.todos.set(v4(), this.getFormGroup().value);
-      console.log(model.todos);
+      const id = v4();
+      const oldModel = cloneDeep(model);
+      oldModel.todos.set(id, value);
+      this.coreStore.setModel(oldModel);
       this.store.cleanModel();
       this.isSubmitted = false;
     }).unsubscribe();
