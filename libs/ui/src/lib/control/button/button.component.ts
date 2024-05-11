@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 import { ButtonType } from "../../type/control.type";
 
@@ -12,4 +12,10 @@ export class ButtonComponent {
   @Input() type: ButtonType = "button";
 
   @Input({ required: true }) value = "";
+
+  @Output() event = new EventEmitter();
+
+  onClick() {
+    this.event.emit();
+  }
 }

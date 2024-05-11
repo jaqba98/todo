@@ -15,4 +15,9 @@ export class TodoCoreStoreService extends BaseStoreService<TodoCoreStoreModel> {
         this.model.todos.set(id, newTodo);
         this.setModel(this.model);
     }
+
+    deleteTodo(id: string) {
+        this.model.todos.delete(id);
+        this.setModel(this.model);
+    }
 }

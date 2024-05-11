@@ -1,11 +1,13 @@
 <fieldset class="todo-list__fieldset">
     <legend>{{title}}</legend>
     <fieldset *ngFor="let todo of model.todos | keyvalue">
-        <legend>{{ todo.value.name }}</legend>
-        <p>{{ todo.value.description }}</p>
-        <p>{{ todo.value.range }}</p>
-        <p>{{ todo.value.deadline }}</p>
-        <p>{{ todo.value.priority }}</p>
-        <p>{{ todo.value.tags }}</p>
+        <legend>Task</legend>
+        <p>Name: {{ todo.value.name }}</p>
+        <p>Description: {{ todo.value.description }}</p>
+        <p>Range: {{ todo.value.range }}</p>
+        <p>Deadline: {{ todo.value.deadline }}</p>
+        <p>Priority: {{ todo.value.priority }}</p>
+        <p>Tags: {{ todo.value.tags }}</p>
+        <lib-button value="Remove" (event)="onRemove(todo.key)"></lib-button>
     </fieldset>
 </fieldset>

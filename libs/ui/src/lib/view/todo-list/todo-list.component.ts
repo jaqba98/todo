@@ -5,10 +5,15 @@ import { CommonModule } from "@angular/common";
 
 import { TodoCoreStoreModel, TodoCoreStoreService } from "@todo/store";
 
+import { ButtonComponent } from "../../control/button/button.component";
+
 @Component({
   selector: "lib-todo-list",
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ButtonComponent
+  ],
   templateUrl: "./todo-list.component.html",
   styleUrl: "./todo-list.component.scss"
 })
@@ -29,5 +34,9 @@ export class TodoListComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onRemove(id: string) {
+    this.coreStore.deleteTodo(id);
   }
 }
