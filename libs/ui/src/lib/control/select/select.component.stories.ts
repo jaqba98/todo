@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { SelectComponent } from './select.component';
+import type { Meta, StoryObj } from "@storybook/angular";
+import { SelectComponent } from "./select.component";
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 const meta: Meta<SelectComponent> = {
   component: SelectComponent,
-  title: 'SelectComponent',
+  title: "SelectComponent",
 };
 export default meta;
 type Story = StoryObj<SelectComponent>;
@@ -14,14 +14,14 @@ type Story = StoryObj<SelectComponent>;
 export const Primary: Story = {
   args: {
     options: [],
-    value: '',
+    value: "",
   },
 };
 
 export const Heading: Story = {
   args: {
     options: [],
-    value: '',
+    value: "",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

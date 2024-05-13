@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { EditTodoFormComponent } from './edit-todo-form.component';
+import type { Meta, StoryObj } from "@storybook/angular";
+import { EditTodoFormComponent } from "./edit-todo-form.component";
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 const meta: Meta<EditTodoFormComponent> = {
   component: EditTodoFormComponent,
-  title: 'EditTodoFormComponent',
+  title: "EditTodoFormComponent",
 };
 export default meta;
 type Story = StoryObj<EditTodoFormComponent>;
 
 export const Primary: Story = {
   args: {
-    id: '',
+    id: "",
   },
 };
 
 export const Heading: Story = {
   args: {
-    id: '',
+    id: "",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

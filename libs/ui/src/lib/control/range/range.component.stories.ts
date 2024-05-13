@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { RangeComponent } from './range.component';
+import type { Meta, StoryObj } from "@storybook/angular";
+import { RangeComponent } from "./range.component";
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 const meta: Meta<RangeComponent> = {
   component: RangeComponent,
-  title: 'RangeComponent',
+  title: "RangeComponent",
 };
 export default meta;
 type Story = StoryObj<RangeComponent>;
