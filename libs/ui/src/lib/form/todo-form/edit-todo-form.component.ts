@@ -1,8 +1,8 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
-import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum } from "@todo/store";
+import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
 import { BaseFormService } from "../base/base-form.service";
 import { EditTodoFormModel } from "../../model/edit-todo-form.model";
@@ -11,6 +11,7 @@ import { MessageStatusComponent } from "../../control/message-status/message-sta
 import { RangeComponent } from "../../control/range/range.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { ButtonComponent } from "../../control/button/button.component";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "lib-edit-todo-form",
@@ -29,7 +30,11 @@ import { ButtonComponent } from "../../control/button/button.component";
 })
 export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
-  implements OnDestroy {
+  implements OnInit, OnDestroy {
+
+  @Input() id = "";
+
+  coreSubscription!: Subscription;
 
   readonly title = "Edit Panel";
 
@@ -37,7 +42,8 @@ export class EditTodoFormComponent
 
   constructor(
     store: EditTodoFormStoreService,
-    readonly priority: GetPriorityService
+    readonly priority: GetPriorityService,
+    private readonly coreStore: TodoCoreStoreService
   ) {
     super({
       name: ["", Validators.required],
@@ -49,9 +55,19 @@ export class EditTodoFormComponent
     }, store);
   }
 
+  ngOnInit() {
+    this.coreSubscription = this.coreStore.getModel().subscribe(model => {
+      const todo = model.todos.get(this.id);
+      if (todo) this.store.setModel(todo);
+    });
+  }
+
   ngOnDestroy() {
     this.unsubscribeFormGroup();
   }
 
-  onSubmit() {}
+  onSubmit() {
+    const value = this.getValue();
+    this.coreStore.editTodo(this.id, { ...value, isEdited: false });
+  }
 }

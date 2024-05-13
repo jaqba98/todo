@@ -2,17 +2,17 @@
     <legend>{{title}}</legend>
     <fieldset *ngFor="let todo of model.todos | keyvalue">
         <legend>{{ todo.value.name }}</legend>
-        <ng-container *ngIf="todo.value.isEdited">
+        <ng-container *ngIf="todo.value.isEdited; else isNotEdited">
+            <lib-edit-todo-form [id]="todo.key"></lib-edit-todo-form>
+        </ng-container>
+        <ng-template #isNotEdited>
             <p>Name: {{ todo.value.name }}</p>
             <p>Description: {{ todo.value.description }}</p>
             <p>Range: {{ todo.value.range }}</p>
             <p>Deadline: {{ todo.value.deadline }}</p>
             <p>Priority: {{ todo.value.priority }}</p>
             <p>Tags: {{ todo.value.tags }}</p>
-        </ng-container>
-        <ng-container *ngIf="!todo.value.isEdited">
-            <lib-edit-todo-form></lib-edit-todo-form>
-        </ng-container>
+        </ng-template>
         <lib-button value="Remove" (event)="onRemove(todo.key)"></lib-button>
         <lib-button value="Edit" (event)="onEdit(todo.key)"></lib-button>
     </fieldset>
