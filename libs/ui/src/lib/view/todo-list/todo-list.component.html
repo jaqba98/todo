@@ -1,13 +1,19 @@
 <fieldset class="todo-list__fieldset">
-  <legend>{{title}}</legend>
-  <fieldset *ngFor="let todo of getTasks()">
-    <legend>{{todo.name}}</legend>
-    <p>{{todo.id}}</p>
-    <p>{{todo.description}}</p>
-    <p>{{todo.range}} %</p>
-    <p>{{todo.deadline}}</p>
-    <p>{{todo.priority}}</p>
-    <p>{{todo.tags}}</p>
-    <button (click)="onRemove(todo.id)">Remove</button>
-  </fieldset>
+    <legend>{{title}}</legend>
+    <fieldset *ngFor="let todo of model.todos | keyvalue">
+        <legend>{{ todo.value.name }}</legend>
+        <ng-container *ngIf="todo.value.isEdited; else isNotEdited">
+            <lib-edit-todo-form [id]="todo.key"></lib-edit-todo-form>
+        </ng-container>
+        <ng-template #isNotEdited>
+            <p>Name: {{ todo.value.name }}</p>
+            <p>Description: {{ todo.value.description }}</p>
+            <p>Range: {{ todo.value.range }}</p>
+            <p>Deadline: {{ todo.value.deadline }}</p>
+            <p>Priority: {{ todo.value.priority }}</p>
+            <p>Tags: {{ todo.value.tags }}</p>
+        </ng-template>
+        <lib-button value="Remove" (event)="onRemove(todo.key)"></lib-button>
+        <lib-button value="Edit" (event)="onEdit(todo.key)"></lib-button>
+    </fieldset>
 </fieldset>

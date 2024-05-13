@@ -1,13 +1,13 @@
 import { Component, forwardRef } from "@angular/core";
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-
-import { OnChangeType, OnTouchType } from "../../type/form.type";
+import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 
 @Component({
   selector: "lib-range",
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./range.component.html",
+  styleUrl: "./range.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -16,30 +16,22 @@ import { OnChangeType, OnTouchType } from "../../type/form.type";
     }
   ]
 })
-export class RangeComponent implements ControlValueAccessor {
-  value = 0;
+export class RangeComponent {
+  value = "";
 
-  onChange: OnChangeType<number> = () => {};
-  
-  onTouched: OnTouchType = () => {};
+  onChange: OnChangeType<string> = (_value: string) => {};
 
-  writeValue(value: number): void {
+  onTouch: OnTouchType = () => {};
+
+  writeValue(value: string) {
     this.value = value;
   }
-
-  registerOnChange(fn: OnChangeType<number>): void {
+  
+  registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
   
   registerOnTouched(fn: OnTouchType): void {
-    this.onTouched = fn;
-  }
-
-  onSelect(): void {
-    this.onChange(this.value);
-  }
-
-  onBlur(): void {
-    this.onTouched();
+    this.onTouch = fn;
   }
 }

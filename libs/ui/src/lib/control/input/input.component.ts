@@ -2,13 +2,14 @@ import { Component, Input, forwardRef } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { InputType } from "../../type/control.type";
-import { OnChangeType, OnTouchType } from "../../type/form.type";
+import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 
 @Component({
   selector: "lib-input",
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./input.component.html",
+  styleUrl: "./input.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -20,31 +21,25 @@ import { OnChangeType, OnTouchType } from "../../type/form.type";
 export class InputComponent implements ControlValueAccessor {
   @Input() type: InputType = "text";
 
-  @Input() placeholder = "";
+  @Input() value = "";
 
-  value = "";
+  onChange: OnChangeType<string> = (_value: string) => {};
 
-  onChange: OnChangeType<string> = () => {};
-  
-  onTouched: OnTouchType = () => {};
+  onTouch: OnTouchType = () => {};
 
-  writeValue(value: string): void {
+  writeValue(value: string) {
     this.value = value;
   }
-
+  
   registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
   
   registerOnTouched(fn: OnTouchType): void {
-    this.onTouched = fn;
+    this.onTouch = fn;
   }
 
-  onInput(): void {
+  onInput() {
     this.onChange(this.value);
-  }
-
-  onBlur(): void {
-    this.onTouched();
   }
 }

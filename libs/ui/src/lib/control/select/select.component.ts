@@ -1,14 +1,15 @@
-import { Component, Input, forwardRef } from "@angular/core";
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { Component, Input, forwardRef } from "@angular/core";
+import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { OnChangeType, OnTouchType } from "../../type/form.type";
+import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 
 @Component({
   selector: "lib-select",
   standalone: true,
-  imports: [CommonModule ,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: "./select.component.html",
+  styleUrl: "./select.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -17,33 +18,29 @@ import { OnChangeType, OnTouchType } from "../../type/form.type";
     }
   ]
 })
-export class SelectComponent implements ControlValueAccessor {
+export class SelectComponent {
   @Input() options: string[] = [];
 
-  value = "";
+  @Input() value = "";
 
-  onChange: OnChangeType<string> = () => {};
-  
-  onTouched: OnTouchType = () => {};
+  onChange: OnChangeType<string> = (_value: string) => {};
 
-  writeValue(value: string): void {
+  onTouch: OnTouchType = () => {};
+
+  writeValue(value: string) {
     this.value = value;
   }
-
+  
   registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
   
   registerOnTouched(fn: OnTouchType): void {
-    this.onTouched = fn;
+    this.onTouch = fn;
   }
 
   onSelect(event: Event): void {
     const select = event.target as HTMLSelectElement;
     this.onChange(select.value);
-  }
-
-  onBlur(): void {
-    this.onTouched();
   }
 }

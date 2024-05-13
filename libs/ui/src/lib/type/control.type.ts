@@ -9,7 +9,7 @@ export type InputType =
     | "email"
     | "date";
 
-export type LogStatusType =
+export type MessageStatusType =
     | "error"
     | "warning"
     | "success"

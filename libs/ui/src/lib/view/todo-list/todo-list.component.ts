@@ -1,50 +1,48 @@
+import { Component, Input, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
+import { cloneDeep } from "lodash";
 import { CommonModule } from "@angular/common";
-import { Component, Input } from "@angular/core";
-import { take, tap } from "rxjs";
 
-import { AddTodoCoreStoreModel, TodoListCoreStoreService } from "@todo/store";
+import { TodoCoreStoreModel, TodoCoreStoreService } from "@todo/store";
 
-import { StatusType } from "../../type/status.type";
+import { ButtonComponent } from "../../control/button/button.component";
+import { EditTodoFormComponent } from "../../form/todo-form/edit-todo-form.component";
 
 @Component({
   selector: "lib-todo-list",
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    EditTodoFormComponent
+  ],
   templateUrl: "./todo-list.component.html",
   styleUrl: "./todo-list.component.scss"
 })
-export class TodoListComponent {
-  @Input() title = "";
-
-  @Input() status: StatusType = "inProgress";
-
-  model: AddTodoCoreStoreModel = {
-    todos: []
+export class TodoListComponent implements OnDestroy {
+  model: TodoCoreStoreModel = {
+    todos: new Map()
   };
-  
-  constructor(private readonly store: TodoListCoreStoreService) {
-    this.store.getModel().subscribe(model => {
-      this.model = model;
+
+  subscription: Subscription;
+
+  @Input({ required: true }) title = "";
+
+  constructor(private readonly coreStore: TodoCoreStoreService) {
+    this.subscription = this.coreStore.getModel().subscribe(model => {
+      this.model = cloneDeep(model);
     });
   }
 
-  getTasks() {
-    if (this.status === "inProgress") {
-      return this.model.todos.filter(todo => todo.range < 100);
-    }
-    return this.model.todos.filter(todo => todo.range === 100);
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   onRemove(id: string) {
-    this.store.getModel()
-      .pipe(
-        take(1),
-        tap(model => {
-          const newTodos = model.todos.filter(todo => todo.id !== id);
-          this.store.setModel({ todos: newTodos });
-        })
-      )
-      .subscribe()
-      .unsubscribe();
+    this.coreStore.deleteTodo(id);
+  }
+
+  onEdit(id: string) {
+    this.coreStore.switchEditMode(id);
   }
 }

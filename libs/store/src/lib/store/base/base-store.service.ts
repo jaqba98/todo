@@ -6,12 +6,12 @@ export class BaseStoreService<TModel> {
 
     private readonly baseModel: TModel;
 
-    constructor(private model: TModel) {
+    constructor(protected model: TModel) {
         this.baseModel = cloneDeep(model);
     }
 
     setModel(model: TModel) {
-        this.model = model;
+        this.model = cloneDeep(model);
         this.subject.next(this.model);
     }
 
@@ -19,13 +19,7 @@ export class BaseStoreService<TModel> {
         return this.subject.asObservable();
     }
 
-    clearModel() {
-        this.setModel(
-            this.getCleanModel()
-        );
-    }
-
-    getCleanModel() {
-        return cloneDeep(this.baseModel);
+    cleanModel() {
+        this.setModel(this.baseModel);
     }
 }
