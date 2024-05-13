@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { format } from "date-fns";
 
 import { AddTodoFormStoreModel, AddTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
@@ -44,10 +45,11 @@ export class AddTodoFormComponent
       name: ["", Validators.required],
       description: ["", Validators.required],
       range: [0, Validators.required],
-      deadline: [new Date(), Validators.required],
+      deadline: [format(new Date(), "yyyy-MM-dd"), Validators.required],
       priority: [PriorityEnum.low, Validators.required],
       tags: ["", Validators.required]
     }, store);
+    console.log(new Date().toDateString());
   }
 
   ngOnDestroy() {

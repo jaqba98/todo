@@ -1,6 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { Subscription } from "rxjs";
+import { format } from "date-fns";
 
 import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
@@ -11,7 +13,6 @@ import { MessageStatusComponent } from "../../control/message-status/message-sta
 import { RangeComponent } from "../../control/range/range.component";
 import { SelectComponent } from "../../control/select/select.component";
 import { ButtonComponent } from "../../control/button/button.component";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "lib-edit-todo-form",
@@ -49,7 +50,7 @@ export class EditTodoFormComponent
       name: ["", Validators.required],
       description: ["", Validators.required],
       range: [0, Validators.required],
-      deadline: [new Date(), Validators.required],
+      deadline: [format(new Date(), "yyyy-MM-dd"), Validators.required],
       priority: [PriorityEnum.low, Validators.required],
       tags: ["", Validators.required]
     }, store);
