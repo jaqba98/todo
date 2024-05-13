@@ -9,7 +9,10 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./input.component.html",
-  styleUrl: "./input.component.scss",
+  styleUrls: [
+    "../control.scss",
+    "./input.component.scss"
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
