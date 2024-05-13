@@ -1,0 +1,10 @@
+.button-control {
+    background-color: #0ba6ff;
+    color: white;
+    padding: 1em 1.5em;
+    cursor: pointer;
+
+    &:active {
+        outline: 5px solid #0ba6ff50;
+    }
+}
