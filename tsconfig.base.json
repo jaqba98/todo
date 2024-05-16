@@ -19,6 +19,7 @@
       "@todo/fe": ["libs/fe/src/index.ts"],
       "@todo/page": ["libs/page/src/index.ts"],
       "@todo/store": ["libs/store/src/index.ts"],
+      "@todo/todo-storybook": ["todo-storybook/src/index.ts"],
       "@todo/ui": ["libs/ui/src/index.ts"]
     }
   },
