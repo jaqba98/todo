@@ -26,6 +26,10 @@ export class SelectComponent {
 
   @Input() value = "";
 
+  @Input() label = "";
+
+  isSelected = false;
+
   onChange: OnChangeType<string> = (_value: string) => {};
 
   onTouch: OnTouchType = () => {};
