@@ -1,10 +1,15 @@
 .button-control {
-    background-color: #0ba6ff;
-    color: #fff;
-    padding: 1em 1.5em;
+    color: #ffffff;
+    background-color: #7360Df;
     cursor: pointer;
 
+    &:focus,
     &:active {
-        outline: 5px solid #0ba6ff50;
+        outline: 2px solid #7360Df;
+        outline-offset: 2px;
+    }
+
+    &:active {
+        background-color: #7360Df95;
     }
 }
