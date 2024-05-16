@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/angular";
-import { InputComponent } from "./input.component";
 
-import { within } from "@storybook/testing-library";
-import { expect } from "@storybook/jest";
+import { InputComponent } from "./input.component";
 
 const meta: Meta<InputComponent> = {
   component: InputComponent,
-  title: "InputComponent",
+  title: "Control/InputComponent",
 };
 export default meta;
 type Story = StoryObj<InputComponent>;
@@ -14,17 +12,7 @@ type Story = StoryObj<InputComponent>;
 export const Primary: Story = {
   args: {
     type: "text",
-    value: "",
-  },
-};
-
-export const Heading: Story = {
-  args: {
-    type: "text",
-    value: "",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/input works!/gi)).toBeTruthy();
+    label: "Label",
+    value: ""
   },
 };
