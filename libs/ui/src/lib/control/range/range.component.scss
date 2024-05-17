@@ -1,0 +1,10 @@
+.range-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__counter {
+        text-align: right;
+        color: gray;
+    }
+}
