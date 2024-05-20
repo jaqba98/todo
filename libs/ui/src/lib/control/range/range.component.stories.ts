@@ -10,5 +10,7 @@ export default meta;
 type Story = StoryObj<RangeComponent>;
 
 export const Primary: Story = {
-  args: {}
+  args: {
+    value: "50"
+  }
 };
