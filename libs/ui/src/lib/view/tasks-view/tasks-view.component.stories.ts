@@ -4,7 +4,10 @@ import { TasksViewComponent } from "./tasks-view.component";
 
 const meta: Meta<TasksViewComponent> = {
   component: TasksViewComponent,
-  title: "View/TasksViewComponent"
+  title: "View/TasksViewComponent",
+  parameters: {
+    layout: "fullscreen"
+  }
 };
 export default meta;
 type Story = StoryObj<TasksViewComponent>;
