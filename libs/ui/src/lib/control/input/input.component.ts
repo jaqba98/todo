@@ -1,15 +1,29 @@
-import { Component, Input, forwardRef } from "@angular/core";
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import {
+  Component,
+  Input,
+  forwardRef
+} from "@angular/core";
+import {
+  ControlValueAccessor,
+  FormsModule,
+  NG_VALUE_ACCESSOR
+} from "@angular/forms";
 
 import { InputType } from "../../type/control.type";
-import { OnChangeType, OnTouchType } from "../../type/accessor.type";
+import {
+  OnChangeType,
+  OnTouchType
+} from "../../type/accessor.type";
 
 @Component({
   selector: "lib-input",
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./input.component.html",
-  styleUrl: "./input.component.scss",
+  styleUrls: [
+    "../control.scss",
+    "./input.component.scss"
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -21,7 +35,11 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 export class InputComponent implements ControlValueAccessor {
   @Input() type: InputType = "text";
 
+  @Input() label = "";
+
   @Input() value = "";
+
+  isSelected = false;
 
   onChange: OnChangeType<string> = (_value: string) => {};
 

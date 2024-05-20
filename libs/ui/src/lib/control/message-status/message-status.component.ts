@@ -8,7 +8,10 @@ import { MessageStatusType } from "../../type/control.type";
   standalone: true,
   imports: [CommonModule],
   templateUrl: "./message-status.component.html",
-  styleUrl: "./message-status.component.scss"
+  styleUrls: [
+    "../control.scss",
+    "./message-status.component.scss"
+  ]
 })
 export class MessageStatusComponent {
   @Input() type: MessageStatusType = "info";

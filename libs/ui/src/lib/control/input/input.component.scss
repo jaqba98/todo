@@ -1,0 +1,25 @@
+.input-control {
+    &__label {
+        display: block;
+        color: gray;
+        margin-bottom: 2px;
+    }
+
+    &__input {
+        border: 1px solid gray;
+        color: gray;
+        width: 100%;
+    }
+
+    &__selected {
+        .input-control__label {
+            color: #7360Df;
+        }
+
+        .input-control__input {
+            border: 1px solid #7360Df;
+            color: #7360Df;
+            outline: none;
+        }
+    }
+}

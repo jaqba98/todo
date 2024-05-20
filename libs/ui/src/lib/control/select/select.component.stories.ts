@@ -1,30 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/angular";
-import { SelectComponent } from "./select.component";
 
-import { within } from "@storybook/testing-library";
-import { expect } from "@storybook/jest";
+import { SelectComponent } from "./select.component";
 
 const meta: Meta<SelectComponent> = {
   component: SelectComponent,
-  title: "SelectComponent",
+  title: "Control/SelectComponent"
 };
 export default meta;
 type Story = StoryObj<SelectComponent>;
 
 export const Primary: Story = {
   args: {
-    options: [],
-    value: "",
-  },
-};
-
-export const Heading: Story = {
-  args: {
-    options: [],
-    value: "",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/select works!/gi)).toBeTruthy();
+    options: ["Element 1", "Element 2", "Element 3"],
+    value: "Element 1",
+    label: "Title"
   },
 };

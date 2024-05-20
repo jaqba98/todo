@@ -9,7 +9,10 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: "./select.component.html",
-  styleUrl: "./select.component.scss",
+  styleUrls: [
+    "../control.scss",
+    "./select.component.scss"
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -22,6 +25,10 @@ export class SelectComponent {
   @Input() options: string[] = [];
 
   @Input() value = "";
+
+  @Input() label = "";
+
+  isSelected = false;
 
   onChange: OnChangeType<string> = (_value: string) => {};
 

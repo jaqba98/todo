@@ -1,2 +1,10 @@
-<input type="range" min="0" max="100" [(ngModel)]="value" (change)="onChange(value)">
-<span>{{value}} %</span>
+<div class="range-control">
+    <input class="range-control__input"
+           type="range"
+           min="0"
+           max="100"
+           steps="1"
+           [(ngModel)]="value"
+           (change)="onChange(value)">
+    <p class="range-control__counter">{{value}} %</p>
+</div>

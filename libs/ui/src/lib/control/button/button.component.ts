@@ -1,4 +1,9 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from "@angular/core";
 
 import { ButtonType } from "../../type/control.type";
 
@@ -6,12 +11,15 @@ import { ButtonType } from "../../type/control.type";
   selector: "lib-button",
   standalone: true,
   templateUrl: "./button.component.html",
-  styleUrl: "./button.component.scss"
+  styleUrls: [
+    "../control.scss",
+    "./button.component.scss"
+  ]
 })
 export class ButtonComponent {
   @Input() type: ButtonType = "button";
 
-  @Input({ required: true }) value = "";
+  @Input() value = "";
 
   @Output() event = new EventEmitter();
 
