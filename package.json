@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build-storybook": "nx run ui:build-storybook",
-    "chromatic": "doten -e token.env -- pnpx chromatic --project-token=$CHROMATIC_PROJECT-TOKEN"
+    "chromatic": "dotenv -e token.env -- pnpx chromatic --project-token=$CHROMATIC_PROJECT-TOKEN"
   },
   "private": true,
   "dependencies": {
