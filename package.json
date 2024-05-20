@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build-storybook": "nx run ui:build-storybook",
-    "chromatic": "dotenv -e token.env -- pnpx chromatic --project-token=$CHROMATIC_PROJECT-TOKEN"
+    "chromatic": "dotenv -e .env -- pnpx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +19,6 @@
     "@chromatic-com/storybook": "^1.4.0",
     "@nx/angular": "19.0.0",
     "date-fns": "^3.6.0",
-    "dotenv": "^16.4.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -63,6 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
     "chromatic": "^11.3.5",
+    "dotenv-cli": "^7.4.2",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "jest": "^29.4.1",
