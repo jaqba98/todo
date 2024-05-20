@@ -5,9 +5,7 @@ import { TasksViewComponent } from "@todo/ui";
 @Component({
   selector: "lib-tasks",
   standalone: true,
-  imports: [
-    TasksViewComponent
-  ],
+  imports: [TasksViewComponent],
   templateUrl: "./tasks.component.html",
   styleUrl: "./tesk.component.scss"
 })
