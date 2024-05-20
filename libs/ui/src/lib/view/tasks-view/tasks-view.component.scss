@@ -1,0 +1,14 @@
+.tasks-view {
+    display: flex;
+    min-height: 100svh;
+
+    > * {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    &__list {
+        flex: 1;
+    }
+}
