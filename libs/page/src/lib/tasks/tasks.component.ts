@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
 
-import { TasksViewComponent, TopNavViewComponent } from "@todo/ui";
+import { TasksViewComponent, ButtonAddViewComponent } from "@todo/ui";
 
 @Component({
   selector: "lib-tasks",
   standalone: true,
   imports: [
-    TopNavViewComponent,
+    ButtonAddViewComponent,
     TasksViewComponent
   ],
   templateUrl: "./tasks.component.html",
