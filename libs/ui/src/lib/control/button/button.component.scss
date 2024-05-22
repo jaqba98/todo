@@ -4,6 +4,15 @@
     padding: 0.5em 1em;
     cursor: pointer;
 
+    &__small {
+        font-size: 1em;
+    }
+
+    &__big {
+        font-size: 2em;
+        padding: 0.25em 0.6em;
+    }
+
     &:focus,
     &:active {
         outline: 2px solid #7360Df;

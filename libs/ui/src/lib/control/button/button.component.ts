@@ -21,6 +21,8 @@ export class ButtonComponent {
 
   @Input() value = "";
 
+  @Input() size: "small" | "big" = "small";
+
   @Output() event = new EventEmitter();
 
   onClick() {
