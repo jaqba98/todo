@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { ButtonAddViewStoreService } from "@todo/store";
+
 import { ButtonComponent } from "../../control/button/button.component";
 
 @Component({
@@ -10,7 +12,10 @@ import { ButtonComponent } from "../../control/button/button.component";
   styleUrl: "./button-add-view.component.scss"
 })
 export class ButtonAddViewComponent {
+  constructor(private readonly store: ButtonAddViewStoreService) {
+  }
+
   onClick() {
-    alert("Hello!");
+    this.store.switchIsOpened();
   }
 }
