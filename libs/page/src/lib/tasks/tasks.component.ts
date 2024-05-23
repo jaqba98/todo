@@ -1,6 +1,11 @@
 import { Component } from "@angular/core";
 
-import { TasksViewComponent, ButtonAddViewComponent, TodoListComponent } from "@todo/ui";
+import {
+  TasksViewComponent,
+  ButtonAddViewComponent,
+  TodoListComponent,
+  ToastViewComponent
+} from "@todo/ui";
 
 @Component({
   selector: "lib-tasks",
@@ -8,7 +13,8 @@ import { TasksViewComponent, ButtonAddViewComponent, TodoListComponent } from "@
   imports: [
     ButtonAddViewComponent,
     TasksViewComponent,
-    TodoListComponent
+    TodoListComponent,
+    ToastViewComponent
   ],
   templateUrl: "./tasks.component.html",
   styleUrl: "./tesk.component.scss"
