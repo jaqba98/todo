@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { Subscription } from "rxjs";
 import { format } from "date-fns";
 
-import { EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
+import { ButtonAddViewStoreService, EditTodoFormStoreModel, EditTodoFormStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
 
 import { BaseFormService } from "../base/base-form.service";
 import { EditTodoFormModel } from "../../model/edit-todo-form.model";
@@ -44,7 +44,8 @@ export class EditTodoFormComponent
   constructor(
     store: EditTodoFormStoreService,
     readonly priority: GetPriorityService,
-    private readonly coreStore: TodoCoreStoreService
+    private readonly coreStore: TodoCoreStoreService,
+    private readonly buttonStore: ButtonAddViewStoreService
   ) {
     super({
       name: ["", Validators.required],
@@ -70,5 +71,9 @@ export class EditTodoFormComponent
   onSubmit() {
     const value = this.getValue();
     this.coreStore.editTodo(this.id, { ...value, isEdited: false });
+  }
+
+  onClick() {
+    this.buttonStore.switchIsOpened();
   }
 }
