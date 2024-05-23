@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Component, Input, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ToastViewStoreService } from "@todo/store";
 import { Subscription } from "rxjs";
@@ -10,7 +10,7 @@ import { Subscription } from "rxjs";
   templateUrl: "./toast-view.component.html",
   styleUrl: "./toast-view.component.scss"
 })
-export class ToastViewComponent implements OnInit, OnDestroy {
+export class ToastViewComponent implements OnDestroy {
   @Input() value = "";
 
   isVisible = true;
@@ -20,13 +20,13 @@ export class ToastViewComponent implements OnInit, OnDestroy {
   constructor(private readonly toastStore: ToastViewStoreService) {
     this.subscription = this.toastStore.getModel().subscribe(model => {
       this.isVisible = model.isVisible;
+      if (this.isVisible) {
+        const timer = setInterval(() => {
+          this.toastStore.switchIsVisible();
+          clearInterval(timer);
+        }, 3000);
+      }
     });
-  }
-
-  ngOnInit() {
-    setInterval(() => {
-      this.toastStore.switchIsVisible();
-    }, 5000);
   }
 
   ngOnDestroy() {
