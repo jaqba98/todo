@@ -9,3 +9,4 @@ export * from "./lib/model/form/edit-todo-form-store.model";
 export * from "./lib/model/core/todo-core-store.model";
 export * from "./lib/model/view/button-add-view-store.model";
 export * from "./lib/service/get-priority.service";
+export * from "./lib/store/view/toast-view-store.service";

@@ -3,7 +3,15 @@ import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { format } from "date-fns";
 
-import { AddTodoFormStoreModel, AddTodoFormStoreService, ButtonAddViewStoreService, GetPriorityService, PriorityEnum, TodoCoreStoreService } from "@todo/store";
+import {
+  AddTodoFormStoreModel,
+  AddTodoFormStoreService,
+  ButtonAddViewStoreService,
+  GetPriorityService,
+  PriorityEnum,
+  ToastViewStoreService,
+  TodoCoreStoreService
+} from "@todo/store";
 
 import { BaseFormService } from "../base/base-form.service";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
@@ -40,7 +48,8 @@ export class AddTodoFormComponent
     store: AddTodoFormStoreService,
     readonly priority: GetPriorityService,
     private readonly coreStore: TodoCoreStoreService,
-    private readonly buttonStore: ButtonAddViewStoreService
+    private readonly buttonStore: ButtonAddViewStoreService,
+    private readonly toastStore: ToastViewStoreService
   ) {
     super({
       name: ["", Validators.required],
@@ -64,6 +73,7 @@ export class AddTodoFormComponent
     const value = this.getValue();
     this.coreStore.addTodo({ ...value, isEdited: false });
     this.store.cleanModel();
+    this.toastStore.switchIsVisible();
     this.isSubmitted = false;
   }
 
