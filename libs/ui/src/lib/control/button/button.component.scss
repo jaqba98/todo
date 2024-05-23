@@ -1,7 +1,6 @@
 .button-control {
     color: #ffffff;
     background-color: #7360Df;
-    padding: 0.5em 1em;
     cursor: pointer;
 
     &__small {
@@ -10,7 +9,6 @@
 
     &__big {
         font-size: 2em;
-        padding: 0.25em 0.6em;
     }
 
     &:focus,
