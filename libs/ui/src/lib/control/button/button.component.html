@@ -1,5 +1,6 @@
 <button class="button-control"
         [class.button-control__small]="size === 'small'"
         [class.button-control__big]="size === 'big'"
+        [class.button-control__full-size]="fullSize === true"
         [type]="type"
         (click)="onClick()">{{value}}</button>

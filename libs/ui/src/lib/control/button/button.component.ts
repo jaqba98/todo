@@ -23,6 +23,8 @@ export class ButtonComponent {
 
   @Input() size: "small" | "big" = "small";
 
+  @Input() fullSize = false;
+
   @Output() event = new EventEmitter();
 
   onClick() {
