@@ -4,7 +4,7 @@ import { TodoListComponent } from "./todo-list.component";
 
 const meta: Meta<TodoListComponent> = {
   component: TodoListComponent,
-  title: "TodoListComponent"
+  title: "View/TodoListComponent"
 };
 export default meta;
 type Story = StoryObj<TodoListComponent>;
