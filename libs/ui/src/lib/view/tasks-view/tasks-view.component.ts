@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, Input, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { ButtonAddViewStoreService } from "@todo/store";
@@ -17,6 +17,7 @@ import { Subscription } from "rxjs";
   styleUrl: "./tasks-view.component.scss"
 })
 export class TasksViewComponent implements OnDestroy {
+  @Input()
   isOpened = false;
 
   subscription: Subscription;

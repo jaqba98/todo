@@ -12,4 +12,8 @@ const meta: Meta<TasksViewComponent> = {
 export default meta;
 type Story = StoryObj<TasksViewComponent>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: {
+    isOpened: true
+  }
+};
