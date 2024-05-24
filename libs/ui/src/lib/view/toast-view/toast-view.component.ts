@@ -22,13 +22,15 @@ export class ToastViewComponent implements OnDestroy {
 
   subscription: Subscription;
 
+  timer = 0;
+
   constructor(private readonly toastStore: ToastViewStoreService) {
     this.subscription = this.toastStore.getModel().subscribe(model => {
       this.isVisible = model.isVisible;
       if (this.isVisible) {
-        const timer = setInterval(() => {
+        this.timer = setInterval(() => {
           this.toastStore.switchIsVisible();
-          clearInterval(timer);
+          clearInterval(this.timer);
         }, 3000);
       }
     });
@@ -36,5 +38,10 @@ export class ToastViewComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onClick() {
+    this.toastStore.switchIsVisible();
+    clearInterval(this.timer);
   }
 }

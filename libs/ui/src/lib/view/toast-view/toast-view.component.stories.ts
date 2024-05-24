@@ -8,6 +8,12 @@ const meta: Meta<ToastViewComponent> = {
   title: "View/ToastViewComponent",
   parameters: {
     layout: "fullscreen"
+  },
+  argTypes: {
+    status: {
+      options: Object.values(StatusEnum),
+      control: { type: "select" }
+    }
   }
 };
 export default meta;
