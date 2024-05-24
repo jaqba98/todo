@@ -1,12 +1,21 @@
 <div class="select">
-       <label class="select__label"
-              [class.select__label--selected]="isSelected">{{label}}</label>
-       <select class="select__control"
-               [class.select__control--selected]="isSelected"
-               [(ngModel)]="value"
-               (change)="onSelect($event)"
-               (focus)="isSelected = true"
-               (blur)="isSelected = false">
-               <option *ngFor="let option of options" [value]="option">{{option}}</option>
-       </select>
+       <button
+              type="button"
+              class="select__header select__container"
+              (click)="onClick()"
+              (blur)="onBlur()"
+       >
+              <div class="select__header-value">Value</div>
+              <div class="select__header-icon">
+                     <img src="assets/arrow_down.svg" alt="arrow_down">
+              </div>
+       </button>
+       <ng-container *ngIf="isOpened">
+              <div class="select__options select__container">
+                     <button class="select__option">Option 1</button>
+                     <button class="select__option">Option 2</button>
+                     <button class="select__option">Option 3</button>
+                     <button class="select__option">Option 4</button>
+              </div>
+       </ng-container>
 </div>

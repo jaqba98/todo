@@ -1,22 +1,61 @@
 .select {
-    &__label {
-        display: block;
-        margin-bottom: 0.5em;
-        color: grey;
+    position: relative;
 
-        &--selected {
-            color: #7360Df;
+    &__container {
+        background-color: #ffffff;
+        border: 1px solid #d3d3d3;
+        box-shadow: 0 2px 2px #d3d3d3;
+        border-radius: 5px;
+        padding: 1em;
+        display: flex;
+        gap: 5px;
+    }
+
+    &__header {
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 1.25em;
+        width: 100%;
+        font-size: 1em;
+        cursor: pointer;
+
+        &-value {
+            color: #808080;
+        }
+
+        &-icon > img {
+            width: 30px;
         }
     }
 
-    &__control {
-        width: 100%;
-        border: 1px solid grey;
-        outline: none;
-        color: grey;
-        background-color: #fff;
-        
-        &--selected {
+    &__options {
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 0.5em);
+        left: 0;
+        right: 0;
+    }
+
+    &__option {
+        background-color: transparent;
+        border: 1px solid transparent;
+        color: #808080;
+        text-align: left;
+        font-size: 1em;
+        padding: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #7360Df20;
+            border-color: #7360Df40;
+            color: #7360Df;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            background-color: #7360Df40;
             border-color: #7360Df;
             color: #7360Df;
         }

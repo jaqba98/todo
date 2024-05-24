@@ -30,6 +30,16 @@ export class SelectComponent {
 
   isSelected = false;
 
+  isOpened = false;
+
+  onClick() {
+    this.isOpened = !this.isOpened;
+  }
+
+  onBlur() {
+    this.isOpened = false;
+  }
+
   onChange: OnChangeType<string> = (_value: string) => {};
 
   onTouch: OnTouchType = () => {};
