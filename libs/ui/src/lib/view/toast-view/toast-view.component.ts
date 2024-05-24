@@ -22,7 +22,8 @@ export class ToastViewComponent implements OnDestroy {
 
   subscription: Subscription;
 
-  timer = 0;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  timer: any;
 
   constructor(private readonly toastStore: ToastViewStoreService) {
     this.subscription = this.toastStore.getModel().subscribe(model => {

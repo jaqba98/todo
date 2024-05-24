@@ -1,21 +1,15 @@
 .button-control,
 .input-control__input,
 .select-control__control,
-.range-control,
-.message-status {
+.message-status,
+.button-control {
     font-size: 1em;
-    padding: 0.75em 0;
-}
-
-.button-control,
-.input-control__input,
-.select-control__control,
-.message-status {
-    padding: 0.75em;
+    padding: 1em;
     border: none;
     border-radius: 5px;
 }
 
-.button-control {
-    padding: 0.75em 1em;
+.input__control {
+    padding: 1em;
+    border-radius: 5px;
 }

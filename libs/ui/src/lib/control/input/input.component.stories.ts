@@ -12,7 +12,7 @@ type Story = StoryObj<InputComponent>;
 export const Primary: Story = {
   args: {
     type: "text",
-    label: "Label",
-    value: ""
+    label: "Login",
+    value: "admin"
   },
 };
