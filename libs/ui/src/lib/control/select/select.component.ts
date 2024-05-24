@@ -3,11 +3,12 @@ import { Component, Input, forwardRef } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
+import { LabelComponent } from "../label/label.component";
 
 @Component({
   selector: "lib-select",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LabelComponent],
   templateUrl: "./select.component.html",
   styleUrls: [
     "../control.scss",
@@ -22,11 +23,13 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
   ]
 })
 export class SelectComponent {
+  @Input() id = "";
+
+  @Input() label = "";
+
   @Input() options: string[] = [];
 
   @Input() value = "";
-
-  @Input() label = "";
 
   isSelected = false;
 

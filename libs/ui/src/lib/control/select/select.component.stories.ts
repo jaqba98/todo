@@ -11,8 +11,9 @@ type Story = StoryObj<SelectComponent>;
 
 export const Primary: Story = {
   args: {
+    id: "select",
     options: ["Element 1", "Element 2", "Element 3"],
     value: "Element 1",
-    label: "Title"
+    label: "Select"
   },
 };
