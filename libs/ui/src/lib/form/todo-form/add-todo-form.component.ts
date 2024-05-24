@@ -59,7 +59,6 @@ export class AddTodoFormComponent
       priority: [PriorityEnum.low, Validators.required],
       tags: ["", Validators.required]
     }, store);
-    console.log(new Date().toDateString());
   }
 
   ngOnDestroy() {

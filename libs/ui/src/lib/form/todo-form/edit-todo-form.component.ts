@@ -74,6 +74,6 @@ export class EditTodoFormComponent
   }
 
   onClick() {
-    this.buttonStore.switchIsOpened();
+    this.coreStore.switchEditMode(this.id);
   }
 }
