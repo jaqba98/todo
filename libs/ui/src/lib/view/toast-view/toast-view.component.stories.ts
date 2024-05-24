@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/angular";
 
 import { ToastViewComponent } from "./toast-view.component";
+import { StatusEnum } from "../../enum/status.enum";
 
 const meta: Meta<ToastViewComponent> = {
   component: ToastViewComponent,
@@ -14,6 +15,8 @@ type Story = StoryObj<ToastViewComponent>;
 
 export const Primary: Story = {
   args: {
-    value: "Lorem"
+    value: "Lorem",
+    isVisible: true,
+    status: StatusEnum.success
   }
 };

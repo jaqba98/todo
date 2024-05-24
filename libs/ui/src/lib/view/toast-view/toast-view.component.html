@@ -1,1 +1,4 @@
-<div *ngIf="isVisible" class="toast-view">{{value}}</div>
+<ng-container *ngIf="isVisible">
+    <div class="toast-view"
+         [class.toast-view__success]="status === 'success'">{{value}}</div>
+</ng-container>

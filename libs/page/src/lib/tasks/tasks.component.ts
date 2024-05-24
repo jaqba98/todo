@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import {
   TasksViewComponent,
   ButtonAddViewComponent,
-  TodoListComponent,
+  TodoListViewComponent,
   ToastViewComponent
 } from "@todo/ui";
 
@@ -13,7 +13,7 @@ import {
   imports: [
     ButtonAddViewComponent,
     TasksViewComponent,
-    TodoListComponent,
+    TodoListViewComponent,
     ToastViewComponent
   ],
   templateUrl: "./tasks.component.html",

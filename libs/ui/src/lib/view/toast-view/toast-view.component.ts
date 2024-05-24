@@ -1,7 +1,10 @@
 import { Component, Input, OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ToastViewStoreService } from "@todo/store";
 import { Subscription } from "rxjs";
+
+import { ToastViewStoreService } from "@todo/store";
+
+import { StatusEnum } from "../../enum/status.enum";
 
 @Component({
   selector: "lib-toast-view",
@@ -13,7 +16,9 @@ import { Subscription } from "rxjs";
 export class ToastViewComponent implements OnDestroy {
   @Input() value = "";
 
-  isVisible = true;
+  @Input() isVisible = true;
+
+  @Input() status: StatusEnum = StatusEnum.success;
 
   subscription: Subscription;
 

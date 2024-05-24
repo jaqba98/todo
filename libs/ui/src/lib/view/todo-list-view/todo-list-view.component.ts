@@ -9,17 +9,17 @@ import { ButtonComponent } from "../../control/button/button.component";
 import { EditTodoFormComponent } from "../../form/todo-form/edit-todo-form.component";
 
 @Component({
-  selector: "lib-todo-list",
+  selector: "lib-todo-list-view",
   standalone: true,
   imports: [
     CommonModule,
     ButtonComponent,
     EditTodoFormComponent
   ],
-  templateUrl: "./todo-list.component.html",
-  styleUrl: "./todo-list.component.scss"
+  templateUrl: "./todo-list-view.component.html",
+  styleUrl: "./todo-list-view.component.scss"
 })
-export class TodoListComponent implements OnDestroy {
+export class TodoListViewComponent implements OnDestroy {
   model: TodoCoreStoreModel = {
     todos: new Map()
   };

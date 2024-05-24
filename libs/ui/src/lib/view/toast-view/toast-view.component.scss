@@ -1,9 +1,14 @@
 .toast-view {
     position: fixed;
-    z-index: 3;
     top: 1em;
     left: 1em;
     right: 1em;
+    z-index: 3;
     padding: 1em;
-    background-color: green;
+    border-radius: 5px;
+    
+    &__success {
+        background-color: #00800080;
+        color: #008000;
+    }
 }
