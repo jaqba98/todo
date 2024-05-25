@@ -1,0 +1,12 @@
+@use "../const";
+
+.label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: const.$color__plain-text;
+    cursor: pointer;
+
+    &__error {
+        color: const.$color__error-text;
+    }
+}

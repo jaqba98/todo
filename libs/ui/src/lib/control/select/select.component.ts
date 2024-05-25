@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, Input, forwardRef } from "@angular/core";
+import { Component, ElementRef, Input, ViewChild, forwardRef } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
@@ -23,6 +23,8 @@ import { LabelComponent } from "../label/label.component";
   ]
 })
 export class SelectComponent {
+  @ViewChild("myButton", { static: true }) myButton!: ElementRef<HTMLButtonElement>;
+  
   @Input() id = "";
 
   @Input() label = "";
@@ -37,6 +39,9 @@ export class SelectComponent {
 
   onClick() {
     this.isOpened = !this.isOpened;
+    if (this.isOpened) {
+      this.myButton.nativeElement.focus();
+    }
   }
 
   onBlur() {

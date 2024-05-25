@@ -1,7 +1,8 @@
 <div class="select">
-       <lib-label [for]="id" [value]="label"></lib-label>
+       <lib-label [value]="label" (event)="onClick()"></lib-label>
        <!-- TODO: I am here -->
        <button
+              #myButton
               [id]="id"
               type="button"
               class="select__header select__container"

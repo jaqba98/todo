@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "lib-label",
@@ -7,7 +7,13 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./label.component.scss"
 })
 export class LabelComponent {
-  @Input({ required: true }) for = "";
-
   @Input({ required: true }) value = "";
+
+  @Input() isError = false;
+
+  @Output() event = new EventEmitter();
+
+  onClick() {
+    this.event.emit();
+  }
 }

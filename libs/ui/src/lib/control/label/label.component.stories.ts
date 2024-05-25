@@ -9,9 +9,20 @@ const meta: Meta<LabelComponent> = {
 export default meta;
 type Story = StoryObj<LabelComponent>;
 
-export const Primary: Story = {
+const baseArgs = {
+  value: "Login"
+};
+
+export const Default: Story = {
   args: {
-    for: "login",
-    value: "Login"
+    ...baseArgs,
+    isError: false
+  }
+};
+
+export const Error: Story = {
+  args: {
+    ...baseArgs,
+    isError: true
   }
 };
