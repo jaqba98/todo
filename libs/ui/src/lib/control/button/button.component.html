@@ -5,13 +5,11 @@
         [type]="type"
         (click)="onClick()"
         (blur)="onBlur()">
-        <p *ngIf="leftIconVisible" class="button__icon">
-                <img [src]="leftIconSrc"
-                     [alt]="leftIconAlt">
-        </p>
+        <div *ngIf="leftIconVisible" class="button__icon">
+                <img [src]="leftIconSrc" [alt]="leftIconAlt">
+        </div>
         <p class="button__value">{{value}}</p>
-        <p *ngIf="rightIconVisible" class="button__icon">
-                <img [src]="rightIconSrc"
-                     [alt]="rightIconAlt">
-        </p>
+        <div *ngIf="rightIconVisible" class="button__icon">
+                <img [src]="rightIconSrc" [alt]="rightIconAlt">
+        </div>
 </button>

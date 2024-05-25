@@ -1,6 +1,5 @@
 <div class="select">
-       <lib-label #labelRef
-                  [value]="label"
+       <lib-label [value]="label"
                   (eventClick)="onClick()"></lib-label>
        <lib-button #button
                    [value]="value"
@@ -13,13 +12,4 @@
        <div *ngIf="isOpened" class="select__options">
               <div #selectOptionsContent class="select__options-content"></div>
        </div>
-       <!-- TODO: I am here -->
-       <!-- <ng-container *ngIf="isOpened">
-              <div class="select__options select__container">
-                     <button class="select__option">Option 1</button>
-                     <button class="select__option">Option 2</button>
-                     <button class="select__option">Option 3</button>
-                     <button class="select__option">Option 4</button>
-              </div>
-       </ng-container> -->
 </div>

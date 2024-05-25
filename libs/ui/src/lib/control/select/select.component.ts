@@ -29,11 +29,11 @@ import { ButtonComponent } from "../button/button.component";
   ]
 })
 export class SelectComponent {
-  @ViewChild("labelRef", { static: false }) labelRef!: ElementRef<HTMLElement>;
+  @ViewChild("button", { static: false })
+  button!: ElementRef<HTMLElement>;
 
-  @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
-
-  @ViewChild("selectOptionsContent", { static: false }) selectOptionsContent!: ElementRef<HTMLElement>;
+  @ViewChild("selectOptionsContent", { static: false })
+  selectOptionsContent!: ElementRef<HTMLElement>;
   
   @Input() id = "";
 
@@ -47,6 +47,16 @@ export class SelectComponent {
 
   isOpened = false;
 
+  mouseX = 0;
+  
+  mouseY = 0;
+
+  @HostListener("mousemove", ["$event"])
+  onMouseMove(event: MouseEvent): void {
+    this.mouseX = event.clientX;
+    this.mouseY = event.clientY;
+  }
+
   onClick() {
     this.isOpened = !this.isOpened;
     this.isOpened ?
@@ -55,14 +65,14 @@ export class SelectComponent {
   }
 
   onBlur() {
-    // this.isOpened = false;
-  }
-
-  @HostListener("click", ["$event"])
-  onClick2(event: MouseEvent) {
-    if (event.target === this.selectOptionsContent.nativeElement) return;
-    if (event.target === this.button.nativeElement) return;
-    if (event.target === this.labelRef.nativeElement) return;
+    const element = this.selectOptionsContent.nativeElement;
+    const rect = element.getBoundingClientRect();
+    if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
+      if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
+        this.button.nativeElement.focus();
+        return;
+      } 
+    }
     this.isOpened = false;
   }
 
