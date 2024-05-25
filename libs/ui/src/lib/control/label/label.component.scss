@@ -2,8 +2,9 @@
 
 .label {
     display: inline-block;
-    margin-bottom: 10px;
     color: const.$color__plain-text;
+    font-size: 1em;
+    margin: 0 0 0.5rem 0.5rem;
     cursor: pointer;
 
     &__error {
