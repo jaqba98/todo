@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, ElementRef, Input, ViewChild, forwardRef } from "@angular/core";
+import { Component, ElementRef, HostListener, Input, ViewChild, forwardRef } from "@angular/core";
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
@@ -29,7 +29,11 @@ import { ButtonComponent } from "../button/button.component";
   ]
 })
 export class SelectComponent {
+  @ViewChild("labelRef", { static: false }) labelRef!: ElementRef<HTMLElement>;
+
   @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
+
+  @ViewChild("selectOptionsContent", { static: false }) selectOptionsContent!: ElementRef<HTMLElement>;
   
   @Input() id = "";
 
@@ -51,6 +55,14 @@ export class SelectComponent {
   }
 
   onBlur() {
+    // this.isOpened = false;
+  }
+
+  @HostListener("click", ["$event"])
+  onClick2(event: MouseEvent) {
+    if (event.target === this.selectOptionsContent.nativeElement) return;
+    if (event.target === this.button.nativeElement) return;
+    if (event.target === this.labelRef.nativeElement) return;
     this.isOpened = false;
   }
 
