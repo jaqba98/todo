@@ -29,7 +29,7 @@ import { ButtonComponent } from "../button/button.component";
   ]
 })
 export class SelectComponent {
-  @ViewChild("myButton", { static: true }) myButton!: ElementRef<HTMLButtonElement>;
+  @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
   
   @Input() id = "";
 
@@ -45,9 +45,9 @@ export class SelectComponent {
 
   onClick() {
     this.isOpened = !this.isOpened;
-    if (this.isOpened) {
-      this.myButton.nativeElement.focus();
-    }
+    this.isOpened ?
+      this.button.nativeElement.focus():
+      this.button.nativeElement.blur();
   }
 
   onBlur() {

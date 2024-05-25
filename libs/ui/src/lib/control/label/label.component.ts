@@ -11,9 +11,9 @@ export class LabelComponent {
 
   @Input() isError = false;
 
-  @Output() event = new EventEmitter();
+  @Output() eventClick = new EventEmitter();
 
   onClick() {
-    this.event.emit();
+    this.eventClick.emit();
   }
 }

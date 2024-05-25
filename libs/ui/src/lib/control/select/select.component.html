@@ -1,21 +1,15 @@
 <div class="select">
        <lib-label [value]="label"
-                  (event)="onClick()"></lib-label>
-       <lib-button value="aaa"></lib-button>
+                  (eventClick)="onClick()"></lib-label>
+       <lib-button #button
+                   [value]="value"
+                   [fullSize]="true"
+                   [rightIconVisible]="true"
+                   rightIconSrc="assets/arrow_down.svg"
+                   rightIconAlt="Arrow Down"
+                   (eventClick)="onClick()"
+                   (eventBlur)="onBlur()"></lib-button>
        <!-- TODO: I am here -->
-       <!-- <button
-              #myButton
-              [id]="id"
-              type="button"
-              class="select__header select__container"
-              (click)="onClick()"
-              (blur)="onBlur()"
-       >
-              <div class="select__header-value">Value</div>
-              <div class="select__header-icon">
-                     <img src="assets/arrow_down.svg" alt="arrow_down">
-              </div>
-       </button> -->
        <ng-container *ngIf="isOpened">
               <div class="select__options select__container">
                      <button class="select__option">Option 1</button>
