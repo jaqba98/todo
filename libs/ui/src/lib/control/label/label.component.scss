@@ -2,12 +2,12 @@
 
 .label {
     display: inline-block;
-    color: const.$color__plain-text;
+    color: const.$control__color-plain;
     font-size: 1em;
     margin: 0 0 0.5rem 0.5rem;
     cursor: pointer;
 
     &__error {
-        color: const.$color__error-text;
+        color: const.$control__color-error;
     }
 }

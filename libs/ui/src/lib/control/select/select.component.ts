@@ -4,11 +4,17 @@ import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 import { LabelComponent } from "../label/label.component";
+import { ButtonComponent } from "../button/button.component";
 
 @Component({
   selector: "lib-select",
   standalone: true,
-  imports: [CommonModule, FormsModule, LabelComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LabelComponent,
+    ButtonComponent
+  ],
   templateUrl: "./select.component.html",
   styleUrls: [
     "../control.scss",

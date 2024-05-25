@@ -1,3 +1,17 @@
 // Text colors
-$color__plain-text: #333333;
-$color__error-text: #dc143c;
+$control__color-plain: #333333;
+$control__color-error: #dc143c;
+
+// Backgrounds
+$control__background-plain: #f5f5f5;
+$control__background-plain--darken: darken(#f5f5f5, 5%);
+
+// Sizes
+$control__radius: 5px;
+$control__padding: 1rem;
+
+// Borders
+$control__border-plain: 1px solid #d3d3d3;
+
+// Outlines
+$control__outline-selected: 1px solid darken(#f5f5f5, 15%);

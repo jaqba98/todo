@@ -1,6 +1,16 @@
-<button class="button-control"
-        [class.button-control__small]="size === 'small'"
-        [class.button-control__big]="size === 'big'"
-        [class.button-control__full-size]="fullSize === true"
+<button class="button"
+        [class.button__value-center]="!leftIconVisible && !rightIconVisible"
+        [class.button__full-size]="fullSize"
         [type]="type"
-        (click)="onClick()">{{value}}</button>
+        (click)="onClick()"
+        (blur)="onBlur()">
+        <p *ngIf="leftIconVisible" class="button__icon">
+                <img [src]="leftIconSrc"
+                     [alt]="leftIconAlt">
+        </p>
+        <p class="button__value">{{value}}</p>
+        <p *ngIf="rightIconVisible" class="button__icon">
+                <img [src]="rightIconSrc"
+                     [alt]="rightIconAlt">
+        </p>
+</button>

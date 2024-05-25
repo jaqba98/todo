@@ -1,7 +1,9 @@
 <div class="select">
-       <lib-label [value]="label" (event)="onClick()"></lib-label>
+       <lib-label [value]="label"
+                  (event)="onClick()"></lib-label>
+       <lib-button value="aaa"></lib-button>
        <!-- TODO: I am here -->
-       <button
+       <!-- <button
               #myButton
               [id]="id"
               type="button"
@@ -13,7 +15,7 @@
               <div class="select__header-icon">
                      <img src="assets/arrow_down.svg" alt="arrow_down">
               </div>
-       </button>
+       </button> -->
        <ng-container *ngIf="isOpened">
               <div class="select__options select__container">
                      <button class="select__option">Option 1</button>
