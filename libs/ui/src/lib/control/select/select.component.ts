@@ -1,6 +1,14 @@
 import { CommonModule } from "@angular/common";
-import { Component, ElementRef, HostListener, Input, ViewChild, forwardRef } from "@angular/core";
-import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  ViewChild,
+  forwardRef
+} from "@angular/core";
+import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 import { LabelComponent } from "../label/label.component";
@@ -11,15 +19,11 @@ import { ButtonComponent } from "../button/button.component";
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
     LabelComponent,
     ButtonComponent
   ],
   templateUrl: "./select.component.html",
-  styleUrls: [
-    "../control.scss",
-    "./select.component.scss"
-  ],
+  styleUrl: "./select.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -28,28 +32,31 @@ import { ButtonComponent } from "../button/button.component";
     }
   ]
 })
-export class SelectComponent {
+export class SelectComponent implements AfterViewInit {
   @ViewChild("button", { static: false })
   button!: ElementRef<HTMLElement>;
 
   @ViewChild("selectOptionsContent", { static: false })
   selectOptionsContent!: ElementRef<HTMLElement>;
   
-  @Input() id = "";
-
   @Input() label = "";
-
-  @Input() options: string[] = [];
 
   @Input() value = "";
 
-  isSelected = false;
+  @Input() options: string[] = [];
 
   isOpened = false;
 
-  mouseX = 0;
+  private mouseX = 0;
   
-  mouseY = 0;
+  private mouseY = 0;
+
+  private rect!: DOMRect;
+
+  ngAfterViewInit() {
+    const element = this.selectOptionsContent.nativeElement;
+    this.rect = element.getBoundingClientRect();
+  }
 
   @HostListener("mousemove", ["$event"])
   onMouseMove(event: MouseEvent): void {
@@ -63,10 +70,8 @@ export class SelectComponent {
   }
 
   onBlur() {
-    const element = this.selectOptionsContent.nativeElement;
-    const rect = element.getBoundingClientRect();
-    if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
-      if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
+    if (this.mouseX >= this.rect.left && this.mouseX <= this.rect.right) {
+      if (this.mouseY >= this.rect.top && this.mouseY <= this.rect.bottom) {
         this.button.nativeElement.focus();
         return;
       } 
@@ -78,6 +83,8 @@ export class SelectComponent {
     this.value = option;
     this.isOpened = false;
   }
+
+  // TODO: I am here
 
   onChange: OnChangeType<string> = (_value: string) => {};
 
