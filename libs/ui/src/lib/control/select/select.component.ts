@@ -50,7 +50,7 @@ export class SelectComponent {
   
   private mouseY = 0;
 
-  @HostListener("mousemove", ["$event"])
+  @HostListener("document:mousemove", ["$event"])
   onMouseMove(event: MouseEvent): void {
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
