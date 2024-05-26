@@ -1,18 +1,20 @@
-<button
-        #button
+<!-- TODO: I am here -->
+<button #button
         class="button"
         [class.button__value-center]="!leftIconVisible && !rightIconVisible"
         [class.button__full-size]="fullSize"
         [type]="type"
         (click)="onClick()"
         (blur)="onBlur()">
-        <img
-                *ngIf="leftIconVisible"
-                [src]="leftIconSrc"
-                [alt]="leftIconAlt">
+        <lib-icon [visible]="leftIconVisible"
+                  [src]="leftIconSrc"
+                  [alt]="leftIconAlt"
+                  [width]="20"
+                  [height]="20"></lib-icon>
         <p>{{value}}</p>
-        <img
-                *ngIf="rightIconVisible"
-                [src]="rightIconSrc"
-                [alt]="rightIconAlt">
+        <lib-icon [visible]="rightIconVisible"
+                  [src]="rightIconSrc"
+                  [alt]="rightIconAlt"
+                  [width]="20"
+                  [height]="20"></lib-icon>
 </button>

@@ -13,11 +13,15 @@ import {
 import {
   ButtonType
 } from "../../type/control.type";
+import { IconComponent } from "../icon/icon.component";
 
 @Component({
   selector: "lib-button",
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    IconComponent
+  ],
   templateUrl: "./button.component.html",
   styleUrl: "./button.component.scss"
 })
