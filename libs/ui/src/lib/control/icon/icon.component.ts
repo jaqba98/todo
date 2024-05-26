@@ -8,13 +8,13 @@ import { Component, Input } from "@angular/core";
   templateUrl: "./icon.component.html"
 })
 export class IconComponent {
-  @Input() visible?: boolean;
+  @Input({ required: true }) visible!: boolean;
 
-  @Input() src?: string;
+  @Input({ required: true }) src!: string;
 
-  @Input() alt?: string;
+  @Input({ required: true }) alt!: string;
 
-  @Input() width?: number;
+  @Input({ required: true }) width!: number;
 
-  @Input() height?: number;
+  @Input({ required: true }) height!: number;
 }
