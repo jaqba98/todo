@@ -9,56 +9,45 @@ const meta: Meta<ButtonComponent> = {
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
+const defaultArgs: Story["args"] = {
+  type: "button",
+  value: "Click me!",
+  fullSize: false,
+  leftIconVisible: false,
+  leftIconSrc: "",
+  leftIconAlt: "",
+  rightIconVisible: false,
+  rightIconSrc: "",
+  rightIconAlt: ""
+};
+
 export const Default: Story = {
   args: {
-    type: "button",
-    value: "Click me!",
-    fullSize: false,
-    leftIconVisible: false,
-    leftIconSrc: "",
-    leftIconAlt: "",
-    rightIconVisible: false,
-    rightIconSrc: "",
-    rightIconAlt: "",
+    ...defaultArgs
   }
 };
 
 export const FullSize: Story = {
   args: {
-    type: "button",
-    value: "Click me!",
-    fullSize: true,
-    leftIconVisible: false,
-    leftIconSrc: "",
-    leftIconAlt: "",
-    rightIconVisible: false,
-    rightIconSrc: "",
-    rightIconAlt: ""
+    ...defaultArgs,
+    fullSize: true
   }
 };
 
 export const FullSizeWidhLeftIcon: Story = {
   args: {
-    type: "button",
-    value: "Click me!",
+    ...defaultArgs,
     fullSize: true,
     leftIconVisible: true,
     leftIconSrc: "assets/arrow_down.svg",
-    leftIconAlt: "Arrow Down Left",
-    rightIconVisible: false,
-    rightIconSrc: "",
-    rightIconAlt: ""
+    leftIconAlt: "Arrow Down Left"
   }
 };
 
 export const FullSizeWidhRightIcon: Story = {
   args: {
-    type: "button",
-    value: "Click me!",
+    ...defaultArgs,
     fullSize: true,
-    leftIconVisible: false,
-    leftIconSrc: "",
-    leftIconAlt: "",
     rightIconVisible: true,
     rightIconSrc: "assets/arrow_down.svg",
     rightIconAlt: "Arrow Down Right"
@@ -67,9 +56,20 @@ export const FullSizeWidhRightIcon: Story = {
 
 export const FullSizeWidhBothIcons: Story = {
   args: {
-    type: "button",
-    value: "Click me!",
+    ...defaultArgs,
     fullSize: true,
+    leftIconVisible: true,
+    leftIconSrc: "assets/arrow_down.svg",
+    leftIconAlt: "Arrow Down Left",
+    rightIconVisible: true,
+    rightIconSrc: "assets/arrow_down.svg",
+    rightIconAlt: "Arrow Down Right"
+  }
+};
+
+export const NormalWidhBothIcons: Story = {
+  args: {
+    ...defaultArgs,
     leftIconVisible: true,
     leftIconSrc: "assets/arrow_down.svg",
     leftIconAlt: "Arrow Down Left",

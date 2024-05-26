@@ -1,34 +1,18 @@
-@use "../const";
+@use "../../styles";
 
 .button {
+    @include styles.control__default;
+    @include styles.control__active;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: const.$control__radius;
-    padding: const.$control__padding;
-    background-color: const.$control__background-plain;
-    border: const.$control__border-plain;
-    cursor: pointer;
-
-    &__value {
-        color: const.$control__color-plain;
-        font-size: 1em;
-    }
-
-    &__icon {
-        display: inline-block;
-    }
+    gap: 1rem;
 
     &__full-size {
-        width: 100%;
+        @include styles.control__full-width;
     }
 
     &__value-center {
         justify-content: center;
-    }
-
-    &:active {
-        outline: const.$control__outline-selected;
-        background-color: const.$control__background-plain--darken;
     }
 }

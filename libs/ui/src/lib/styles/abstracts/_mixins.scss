@@ -1,0 +1,21 @@
+@mixin control__default {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    background-color: #ffffff;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+};
+
+@mixin control__active {
+    &:active {
+        border-color: #cccccc;
+        background-color: #e6e6e6;
+    }
+}
+
+@mixin control__full-width {
+    width: 100%;
+}

@@ -6,9 +6,13 @@ import {
   Output,
   ViewChild
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import {
+  CommonModule
+} from "@angular/common";
 
-import { ButtonType } from "../../type/control.type";
+import {
+  ButtonType
+} from "../../type/control.type";
 
 @Component({
   selector: "lib-button",
@@ -19,10 +23,10 @@ import { ButtonType } from "../../type/control.type";
 })
 export class ButtonComponent {
   @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
-  
+
   @Input() type: ButtonType = "button";
 
-  @Input({ required: true }) value = "";
+  @Input() value = "";
 
   @Input() fullSize = false;
 

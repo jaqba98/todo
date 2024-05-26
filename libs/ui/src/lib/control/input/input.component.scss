@@ -1,23 +1,11 @@
+@use "../../styles";
+
 .input {
     &__label {
-        display: block;
-        margin-bottom: 0.5em;
-        color: grey;
-
-        &--selected {
-            color: #7360Df;
-        }
+        display: inline-block;
     }
-
+    
     &__control {
-        width: 100%;
-        border: 1px solid grey;
-        outline: none;
-        color: grey;
-        
-        &--selected {
-            border-color: #7360Df;
-            color: #7360Df;
-        }
+        @include styles.control__default;
     }
 }

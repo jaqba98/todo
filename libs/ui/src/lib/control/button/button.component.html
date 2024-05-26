@@ -8,13 +8,11 @@
         (blur)="onBlur()">
         <img
                 *ngIf="leftIconVisible"
-                class="button__icon"
                 [src]="leftIconSrc"
                 [alt]="leftIconAlt">
-        <p class="button__value">{{value}}</p>
+        <p>{{value}}</p>
         <img
                 *ngIf="rightIconVisible"
-                class="button__icon"
                 [src]="rightIconSrc"
                 [alt]="rightIconAlt">
 </button>

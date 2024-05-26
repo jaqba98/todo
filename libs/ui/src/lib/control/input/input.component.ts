@@ -14,11 +14,15 @@ import {
   OnChangeType,
   OnTouchType
 } from "../../type/accessor.type";
+import { LabelComponent } from "../label/label.component";
 
 @Component({
   selector: "lib-input",
   standalone: true,
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    LabelComponent
+  ],
   templateUrl: "./input.component.html",
   styleUrls: [
     "../control.scss",
