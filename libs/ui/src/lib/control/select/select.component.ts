@@ -74,7 +74,8 @@ export class SelectComponent {
     this.isOpened = false;
   }
 
-  onClickOption() {
+  onClickOption(option: string) {
+    this.value = option;
     this.isOpened = false;
   }
 
