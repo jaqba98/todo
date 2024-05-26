@@ -1,0 +1,10 @@
+@mixin control__default {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+};
