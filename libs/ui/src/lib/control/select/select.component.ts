@@ -1,6 +1,5 @@
 import { CommonModule } from "@angular/common";
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
@@ -32,7 +31,7 @@ import { ButtonComponent } from "../button/button.component";
     }
   ]
 })
-export class SelectComponent implements AfterViewInit {
+export class SelectComponent {
   @ViewChild("button", { static: false })
   button!: ElementRef<HTMLElement>;
 
@@ -51,13 +50,6 @@ export class SelectComponent implements AfterViewInit {
   
   private mouseY = 0;
 
-  private rect!: DOMRect;
-
-  ngAfterViewInit() {
-    const element = this.selectOptionsContent.nativeElement;
-    this.rect = element.getBoundingClientRect();
-  }
-
   @HostListener("mousemove", ["$event"])
   onMouseMove(event: MouseEvent): void {
     this.mouseX = event.clientX;
@@ -70,8 +62,10 @@ export class SelectComponent implements AfterViewInit {
   }
 
   onBlur() {
-    if (this.mouseX >= this.rect.left && this.mouseX <= this.rect.right) {
-      if (this.mouseY >= this.rect.top && this.mouseY <= this.rect.bottom) {
+    const element = this.selectOptionsContent.nativeElement;
+    const rect = element.getBoundingClientRect();
+    if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
+      if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
         this.button.nativeElement.focus();
         return;
       } 
@@ -84,26 +78,19 @@ export class SelectComponent implements AfterViewInit {
     this.isOpened = false;
   }
 
-  // TODO: I am here
-
   onChange: OnChangeType<string> = (_value: string) => {};
 
   onTouch: OnTouchType = () => {};
-
+ 
   writeValue(value: string) {
     this.value = value;
   }
-  
+
   registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
-  
+
   registerOnTouched(fn: OnTouchType): void {
     this.onTouch = fn;
-  }
-
-  onSelect(event: Event): void {
-    const select = event.target as HTMLSelectElement;
-    this.onChange(select.value);
   }
 }
