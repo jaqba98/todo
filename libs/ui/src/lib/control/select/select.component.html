@@ -2,7 +2,6 @@
        <lib-label
               [value]="label"
               (eventClick)="onClick()"></lib-label>
-       <!-- TODO: I am here -->
        <lib-button
               #button
               [value]="value"
@@ -12,7 +11,19 @@
               rightIconAlt="Arrow Down"
               (eventClick)="onClick()"
               (eventBlur)="onBlur()"></lib-button>
-       <div *ngIf="isOpened" class="select__options">
-              <div #selectOptionsContent class="select__options-content"></div>
-       </div>
+       <ng-container *ngIf="isOpened">
+              <div class="select__options-container">
+                     <div
+                            #selectOptionsContent
+                            class="select__options-content">
+                            <!-- TODO: I am here -->
+                            <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8]">
+                                   <lib-button
+                                          value="Option {{i}}"
+                                          [fullSize]="true"
+                                          (eventClick)="onClickOption()"></lib-button>
+                            </ng-container>
+                     </div>
+              </div>
+       </ng-container>
 </div>

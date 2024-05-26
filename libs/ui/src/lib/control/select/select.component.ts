@@ -58,10 +58,8 @@ export class SelectComponent {
   }
 
   onClick() {
-    this.isOpened = !this.isOpened;
-    this.isOpened ?
-      this.button.nativeElement.focus():
-      this.button.nativeElement.blur();
+    this.isOpened = true;
+    this.button.nativeElement.focus();
   }
 
   onBlur() {
@@ -73,6 +71,10 @@ export class SelectComponent {
         return;
       } 
     }
+    this.isOpened = false;
+  }
+
+  onClickOption() {
     this.isOpened = false;
   }
 
