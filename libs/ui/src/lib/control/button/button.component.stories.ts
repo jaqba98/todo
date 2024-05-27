@@ -39,8 +39,8 @@ export const FullSizeWidhLeftIcon: Story = {
     ...defaultArgs,
     fullSize: true,
     leftIconVisible: true,
-    leftIconSrc: "assets/arrow_down.svg",
-    leftIconAlt: "Arrow Down Left"
+    leftIconSrc: "assets/home.svg",
+    leftIconAlt: "Home Left"
   }
 };
 
@@ -49,8 +49,8 @@ export const FullSizeWidhRightIcon: Story = {
     ...defaultArgs,
     fullSize: true,
     rightIconVisible: true,
-    rightIconSrc: "assets/arrow_down.svg",
-    rightIconAlt: "Arrow Down Right"
+    rightIconSrc: "assets/home.svg",
+    rightIconAlt: "Home Right"
   }
 };
 
@@ -59,11 +59,11 @@ export const FullSizeWidhBothIcons: Story = {
     ...defaultArgs,
     fullSize: true,
     leftIconVisible: true,
-    leftIconSrc: "assets/arrow_down.svg",
-    leftIconAlt: "Arrow Down Left",
+    leftIconSrc: "assets/home.svg",
+    leftIconAlt: "Home Left",
     rightIconVisible: true,
-    rightIconSrc: "assets/arrow_down.svg",
-    rightIconAlt: "Arrow Down Right"
+    rightIconSrc: "assets/home.svg",
+    rightIconAlt: "Home Right"
   }
 };
 
@@ -71,10 +71,10 @@ export const NormalWidhBothIcons: Story = {
   args: {
     ...defaultArgs,
     leftIconVisible: true,
-    leftIconSrc: "assets/arrow_down.svg",
-    leftIconAlt: "Arrow Down Left",
+    leftIconSrc: "assets/home.svg",
+    leftIconAlt: "Home Left",
     rightIconVisible: true,
-    rightIconSrc: "assets/arrow_down.svg",
-    rightIconAlt: "Arrow Down Right"
+    rightIconSrc: "assets/home.svg",
+    rightIconAlt: "Home Right"
   }
 };

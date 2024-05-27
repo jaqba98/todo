@@ -8,4 +8,6 @@ import { Component, Input } from "@angular/core";
 })
 export class TextComponent {
   @Input({ required: true }) value!: string;
+
+  @Input() isPrimary = false;
 }

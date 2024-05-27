@@ -14,3 +14,10 @@ export const Default: Story = {
     value: "Lorem ipsum"
   }
 };
+
+export const Primary: Story = {
+  args: {
+    value: "Lorem ipsum",
+    isPrimary: true
+  }
+};

@@ -2,4 +2,8 @@
 
 .text {
     @include styles.control__default-font;
+
+    &__primary {
+        @include styles.control__primary-font;
+    }
 }
