@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild
 } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 import {
   ButtonType
@@ -17,6 +18,7 @@ import { TextComponent } from "../text/text.component";
   selector: "lib-button",
   standalone: true,
   imports: [
+    CommonModule,
     IconComponent,
     TextComponent
   ],

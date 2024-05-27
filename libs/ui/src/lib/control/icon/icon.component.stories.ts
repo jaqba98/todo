@@ -11,7 +11,6 @@ type Story = StoryObj<IconComponent>;
 
 export const Default: Story = {
   args: {
-    visible: true,
     src: "assets/arrow_down.svg",
     alt: "Arrow down",
     width: 20,
