@@ -1,6 +1,8 @@
 @use "../const";
 
 .select {
+    position: relative;
+
     &__options {
         &-container {
             position: fixed;
@@ -34,10 +36,11 @@
     .select {
         &__options {
             &-container {
-                position: static;
+                position: absolute;
                 background-color: transparent;
                 width: 100%;
                 height: auto;
+                top: 100%;
             }
     
             &-content {
