@@ -1,6 +1,8 @@
 import {
   Component,
+  ElementRef,
   Input,
+  ViewChild,
   forwardRef
 } from "@angular/core";
 import {
@@ -24,10 +26,7 @@ import { LabelComponent } from "../label/label.component";
     LabelComponent
   ],
   templateUrl: "./input.component.html",
-  styleUrls: [
-    "../control.scss",
-    "./input.component.scss"
-  ],
+  styleUrl: "./input.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -37,6 +36,8 @@ import { LabelComponent } from "../label/label.component";
   ]
 })
 export class InputComponent implements ControlValueAccessor {
+  @ViewChild("input", { static: false }) input!: ElementRef<HTMLElement>;
+  
   @Input() type: InputType = "text";
 
   @Input() label = "";
@@ -63,5 +64,10 @@ export class InputComponent implements ControlValueAccessor {
 
   onInput() {
     this.onChange(this.value);
+  }
+
+  onClick() {
+    this.input.nativeElement.focus();
+    this.isSelected = true;
   }
 }

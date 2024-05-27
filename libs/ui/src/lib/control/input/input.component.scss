@@ -1,11 +1,9 @@
 @use "../../styles";
 
 .input {
-    &__label {
-        display: inline-block;
-    }
-    
     &__control {
+        @include styles.control__default-font;
         @include styles.control__default;
+        @include styles.full-width;
     }
 }
