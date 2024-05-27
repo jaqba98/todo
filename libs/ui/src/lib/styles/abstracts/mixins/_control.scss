@@ -8,7 +8,14 @@
     color: #fff;
 }
 
+@mixin control__error-font {
+    font-size: 1rem;
+    color: #dc143c;
+}
+
 @mixin control__active {
+    cursor: pointer;
+    
     &:active {
         filter: brightness(0.9);
     }

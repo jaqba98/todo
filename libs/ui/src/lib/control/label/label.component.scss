@@ -1,13 +1,12 @@
-@use "../const";
+@use "../../styles";
 
 .label {
     display: inline-block;
-    color: const.$control__color-plain;
-    font-size: 1em;
-    margin: 0 0 0.5rem 0;
-    cursor: pointer;
+    @include styles.control__default-font;
+    @include styles.control__active;
+    margin-bottom: 0.5rem;
 
     &__error {
-        color: const.$control__color-error;
+        @include styles.control__error-font;
     }
 }
