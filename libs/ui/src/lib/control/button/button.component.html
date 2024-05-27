@@ -1,7 +1,6 @@
-<!-- TODO: I am here -->
 <button #button
         class="button"
-        [class.button__value-center]="!leftIconVisible && !rightIconVisible"
+        [class.button__value-center]="disabledIcons()"
         [class.button__full-size]="fullSize"
         [type]="type"
         (click)="onClick()"
@@ -11,7 +10,7 @@
                   [alt]="leftIconAlt"
                   [width]="20"
                   [height]="20"></lib-icon>
-        <p>{{value}}</p>
+        <lib-text [value]="value"></lib-text>
         <lib-icon [visible]="rightIconVisible"
                   [src]="rightIconSrc"
                   [alt]="rightIconAlt"

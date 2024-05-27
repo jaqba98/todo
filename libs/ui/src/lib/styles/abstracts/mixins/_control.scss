@@ -1,10 +1,15 @@
-@mixin control__default {
+@mixin control__default-font {
     font-size: 1rem;
+    color: #444;
+}
+
+@mixin control__default {
+    @include control__default-font;
+    height: 55px;
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid #e6e6e6;
     background-color: #fff;
-    color: #555;
     outline: none;
     cursor: pointer;
 };

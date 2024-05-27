@@ -6,21 +6,19 @@ import {
   Output,
   ViewChild
 } from "@angular/core";
-import {
-  CommonModule
-} from "@angular/common";
 
 import {
   ButtonType
 } from "../../type/control.type";
 import { IconComponent } from "../icon/icon.component";
+import { TextComponent } from "../text/text.component";
 
 @Component({
   selector: "lib-button",
   standalone: true,
   imports: [
-    CommonModule,
-    IconComponent
+    IconComponent,
+    TextComponent
   ],
   templateUrl: "./button.component.html",
   styleUrl: "./button.component.scss"
@@ -30,7 +28,7 @@ export class ButtonComponent {
 
   @Input() type: ButtonType = "button";
 
-  @Input() value = "";
+  @Input({ required: true }) value!: string;
 
   @Input() fullSize = false;
 
@@ -60,5 +58,9 @@ export class ButtonComponent {
 
   onBlur() {
     this.eventBlur.emit();
+  }
+
+  disabledIcons() {
+    return !this.leftIconVisible && !this.rightIconVisible;
   }
 }

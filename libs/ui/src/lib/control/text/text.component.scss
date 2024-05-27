@@ -1,0 +1,5 @@
+@use "../../styles";
+
+.text {
+    @include styles.control__default-font;
+}
