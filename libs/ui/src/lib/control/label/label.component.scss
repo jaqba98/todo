@@ -4,7 +4,6 @@
     display: inline-block;
     @include styles.control__default-font;
     @include styles.control__active;
-    margin-bottom: 0.5rem;
 
     &__error {
         @include styles.control__error-font;
