@@ -80,7 +80,7 @@ export const NormalWidhBothIcons: Story = {
   }
 };
 
-export const Small: Story = {
+export const Secondary: Story = {
   args: {
     ...defaultArgs,
     isPrimary: false
