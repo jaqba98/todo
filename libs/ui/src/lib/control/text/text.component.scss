@@ -7,3 +7,19 @@
         @include styles.control__primary-font;
     }
 }
+
+.error {
+    color: #ff0000;
+}
+
+.warning {
+    color: #ffa500;
+}
+
+.success {
+    color: #008000;
+}
+
+.info {
+    color: #808080;
+}
