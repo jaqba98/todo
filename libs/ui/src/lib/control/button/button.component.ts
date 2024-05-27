@@ -44,6 +44,8 @@ export class ButtonComponent {
 
   @Input() rightIconAlt = "";
 
+  @Input() isPrimary = false;
+
   @Output() eventClick = new EventEmitter();
 
   @Output() eventBlur = new EventEmitter();

@@ -2,6 +2,7 @@
         class="button"
         [class.button__value-center]="disabledIcons()"
         [class.button__full-size]="fullSize"
+        [class.button__primary]="isPrimary"
         [type]="type"
         (click)="onClick()"
         (blur)="onBlur()">
@@ -10,7 +11,7 @@
                   [alt]="leftIconAlt"
                   [width]="20"
                   [height]="20"></lib-icon>
-        <lib-text [value]="value" [isPrimary]="true"></lib-text>
+        <lib-text [value]="value" [isPrimary]="isPrimary"></lib-text>
         <lib-icon [visible]="rightIconVisible"
                   [src]="rightIconSrc"
                   [alt]="rightIconAlt"

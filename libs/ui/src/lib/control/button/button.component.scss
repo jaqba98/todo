@@ -1,8 +1,13 @@
 @use "../../styles";
 
 .button {
-    @include styles.control__primary;
+    @include styles.control__default;
+    @include styles.control__active;
     @include styles.flex(center, space-between, 1rem);
+
+    &__primary {
+        @include styles.control__primary;
+    }
 
     &__full-size {
         @include styles.full-width;

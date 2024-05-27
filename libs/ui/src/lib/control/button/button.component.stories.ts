@@ -18,7 +18,8 @@ const defaultArgs: Story["args"] = {
   leftIconAlt: "",
   rightIconVisible: false,
   rightIconSrc: "",
-  rightIconAlt: ""
+  rightIconAlt: "",
+  isPrimary: true
 };
 
 export const Default: Story = {
@@ -76,5 +77,12 @@ export const NormalWidhBothIcons: Story = {
     rightIconVisible: true,
     rightIconSrc: "assets/home.svg",
     rightIconAlt: "Home Right"
+  }
+};
+
+export const Small: Story = {
+  args: {
+    ...defaultArgs,
+    isPrimary: false
   }
 };

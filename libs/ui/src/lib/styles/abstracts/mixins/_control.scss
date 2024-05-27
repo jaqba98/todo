@@ -8,6 +8,12 @@
     color: #fff;
 }
 
+@mixin control__active {
+    &:active {
+        filter: brightness(0.9);
+    }
+}
+
 @mixin control__default {
     @include control__default-font;
     height: 55px;
@@ -20,7 +26,6 @@
 };
 
 @mixin control__primary {
-    @include control__default;
     @include control__primary-font;
     border: 1px solid #24a0ed;
     background-color: #24a0ed;
