@@ -1,8 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { MessageStatusType } from "../../type/control.type";
 import { TextComponent } from "../text/text.component";
+import { StatusEnum } from "../../enum/status.enum";
 
 @Component({
   selector: "lib-message-status",
@@ -15,7 +15,7 @@ import { TextComponent } from "../text/text.component";
   styleUrl: "./message-status.component.scss"
 })
 export class MessageStatusComponent {
-  @Input() type: MessageStatusType = "info";
+  @Input() type: StatusEnum = StatusEnum.info;
 
   @Input({ required: true }) value = "";
 }

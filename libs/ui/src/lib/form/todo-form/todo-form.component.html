@@ -4,34 +4,34 @@
     <div class="todo-form__controls">
       <!-- name -->
       <lib-input label="Name" formControlName="name"></lib-input>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                           value="Error name!"
-                          *ngIf="isNotValidField('name')"></lib-message-status>
+                          *ngIf="isNotValidField('name')"></lib-message-status> -->
       <!-- description -->
       <lib-input label="Description" formControlName="description"></lib-input>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                           value="Error description!"
-                          *ngIf="isNotValidField('description')"></lib-message-status>
+                          *ngIf="isNotValidField('description')"></lib-message-status> -->
       <!-- range -->
       <lib-range formControlName="range"></lib-range>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                       value="Error range!"
-                      *ngIf="isNotValidField('range')"></lib-message-status>
+                      *ngIf="isNotValidField('range')"></lib-message-status> -->
       <!-- deadline -->
       <lib-input type="date" label="Deadline"  formControlName="deadline"></lib-input>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                           value="Error deadline!"
-                          *ngIf="isNotValidField('deadline')"></lib-message-status>
+                          *ngIf="isNotValidField('deadline')"></lib-message-status> -->
       <!-- priority -->
       <lib-select id="priority" label="Priority" [options]="priority.getArray()" formControlName="priority"></lib-select>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                           value="Error priority!"
-                          *ngIf="isNotValidField('priority')"></lib-message-status>
+                          *ngIf="isNotValidField('priority')"></lib-message-status> -->
       <!-- tags -->
       <lib-input label="Tags" formControlName="tags"></lib-input>
-      <lib-message-status type="error"
+      <!-- <lib-message-status type="error"
                           value="Error tags!"
-                          *ngIf="isNotValidField('tags')"></lib-message-status>
+                          *ngIf="isNotValidField('tags')"></lib-message-status> -->
     </div>
     <lib-button type="submit" [value]="submitButton" [fullSize]="true" [isPrimary]="true"></lib-button>
     <lib-button value="Back" (click)="onClick()" [fullSize]="true"></lib-button>
