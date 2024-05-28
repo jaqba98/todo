@@ -5,14 +5,14 @@ import { ButtonAddViewStoreModel } from "../../model/view/button-add-view-store.
 
 @Injectable({ providedIn: "root" })
 export class ButtonAddViewStoreService extends BaseStoreService<ButtonAddViewStoreModel> {
-    constructor() {
-        super({
-            isOpened: false
-        });
-    }
+  constructor() {
+    super({
+      isOpened: false
+    });
+  }
 
-    switchIsOpened() {
-        this.model.isOpened = !this.model.isOpened;
-        this.setModel(this.model);
-    }
+  switchIsOpened() {
+    this.model.isOpened = !this.model.isOpened;
+    this.setModel(this.model);
+  }
 }

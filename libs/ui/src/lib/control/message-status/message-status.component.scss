@@ -1,7 +1,7 @@
-@use "../../styles";
+@use "../../../../../style";
 
 .message-status {
-       @include styles.control__default;
+       @include style.control__default;
 }
 
 .error {

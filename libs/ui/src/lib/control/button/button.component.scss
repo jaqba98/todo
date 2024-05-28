@@ -1,19 +1,19 @@
-@use "../../styles";
+@use "../../../../../style";
 
 .button {
-    @include styles.control__default;
-    @include styles.control__active;
-    @include styles.flex(center, space-between, 1rem);
+    @include style.control__default;
+    @include style.control__active;
+    @include style.flex(center, space-between, 1rem);
 
     &__primary {
-        @include styles.control__primary;
+        @include style.control__primary;
     }
 
     &__full-size {
-        @include styles.full-width;
+        @include style.full-width;
     }
 
     &__value-center {
-        @include styles.justify-content(center);
+        @include style.justify-content(center);
     }
 }

@@ -6,14 +6,14 @@ import { EditTodoFormStoreModel } from "../../model/form/edit-todo-form-store.mo
 
 @Injectable({ providedIn: "root" })
 export class EditTodoFormStoreService extends BaseStoreService<EditTodoFormStoreModel> {
-    constructor() {
-        super({
-            name: "",
-            description: "",
-            range: 0,
-            deadline: new Date(),
-            priority: PriorityEnum.low,
-            tags: ""
-        });
-    }
+  constructor() {
+    super({
+      name: "",
+      description: "",
+      range: 0,
+      deadline: new Date(),
+      priority: PriorityEnum.low,
+      tags: ""
+    });
+  }
 }

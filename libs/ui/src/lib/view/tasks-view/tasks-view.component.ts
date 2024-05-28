@@ -18,7 +18,7 @@ import { Subscription } from "rxjs";
 })
 export class TasksViewComponent implements OnDestroy {
   @Input()
-  isOpened = false;
+    isOpened = false;
 
   subscription: Subscription;
   

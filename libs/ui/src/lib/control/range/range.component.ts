@@ -8,10 +8,7 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
   standalone: true,
   imports: [FormsModule],
   templateUrl: "./range.component.html",
-  styleUrls: [
-    "../control.scss",
-    "./range.component.scss"
-  ],
+  styleUrl: "./range.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -22,7 +19,7 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 })
 export class RangeComponent {
   @Input()
-  value = "";
+    value = "";
 
   onChange: OnChangeType<string> = (_value: string) => {};
 
@@ -31,11 +28,11 @@ export class RangeComponent {
   writeValue(value: string) {
     this.value = value;
   }
-  
+
   registerOnChange(fn: OnChangeType<string>): void {
     this.onChange = fn;
   }
-  
+
   registerOnTouched(fn: OnTouchType): void {
     this.onTouch = fn;
   }

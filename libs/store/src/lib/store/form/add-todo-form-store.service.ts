@@ -6,14 +6,14 @@ import { BaseStoreService } from "../base/base-store.service";
 
 @Injectable({ providedIn: "root" })
 export class AddTodoFormStoreService extends BaseStoreService<AddTodoFormStoreModel> {
-    constructor() {
-        super({
-            name: "",
-            description: "",
-            range: 0,
-            deadline: new Date(),
-            priority: PriorityEnum.low,
-            tags: ""
-        });
-    }
+  constructor() {
+    super({
+      name: "",
+      description: "",
+      range: 0,
+      deadline: new Date(),
+      priority: PriorityEnum.low,
+      tags: ""
+    });
+  }
 }

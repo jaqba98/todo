@@ -5,14 +5,14 @@ import { ToastViewStoreModel } from "../../model/view/toast-view-store.model";
 
 @Injectable({ providedIn: "root" })
 export class ToastViewStoreService extends BaseStoreService<ToastViewStoreModel> {
-    constructor() {
-        super({
-            isVisible: false
-        });
-    }
+  constructor() {
+    super({
+      isVisible: false
+    });
+  }
 
-    switchIsVisible() {
-        this.model.isVisible = !this.model.isVisible;
-        this.setModel(this.model);
-    }
+  switchIsVisible() {
+    this.model.isVisible = !this.model.isVisible;
+    this.setModel(this.model);
+  }
 }

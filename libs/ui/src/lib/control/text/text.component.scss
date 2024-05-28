@@ -1,25 +1,19 @@
-@use "../../styles";
-
 .text {
-    @include styles.control__default-font;
+  font-size: 1rem;
 
-    &__primary {
-        @include styles.control__primary-font;
-    }
-}
+  &__error {
+    color: red;
+  }
 
-.error {
-    color: #ff0000;
-}
+  &__warning {
+    color: orange;
+  }
 
-.warning {
-    color: #ffa500;
-}
+  &__success {
+    color: green;
+  }
 
-.success {
-    color: #008000;
-}
-
-.info {
-    color: #808080;
+  &__info {
+    color: grey;
+  }
 }

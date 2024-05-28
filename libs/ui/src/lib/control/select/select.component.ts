@@ -33,10 +33,10 @@ import { ButtonComponent } from "../button/button.component";
 })
 export class SelectComponent {
   @ViewChild("button", { static: false })
-  button!: ElementRef<HTMLElement>;
+    button!: ElementRef<HTMLElement>;
 
   @ViewChild("selectOptionsContent", { static: false })
-  selectOptionsContent!: ElementRef<HTMLElement>;
+    selectOptionsContent!: ElementRef<HTMLElement>;
   
   @Input() label = "";
 

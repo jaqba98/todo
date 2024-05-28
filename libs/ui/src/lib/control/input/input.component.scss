@@ -1,9 +1,9 @@
-@use "../../styles";
+@use "../../../../../style";
 
 .input {
     &__control {
-        @include styles.control__default-font;
-        @include styles.control__default;
-        @include styles.full-width;
+        @include style.control__default-font;
+        @include style.control__default;
+        @include style.full-width;
     }
 }
