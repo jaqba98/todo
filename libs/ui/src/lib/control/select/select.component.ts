@@ -32,65 +32,65 @@ import { ButtonComponent } from "../button/button.component";
   ]
 })
 export class SelectComponent {
-  @ViewChild("button", { static: false })
-    button!: ElementRef<HTMLElement>;
+    @ViewChild("button", { static: false })
+      button!: ElementRef<HTMLElement>;
 
-  @ViewChild("selectOptionsContent", { static: false })
-    selectOptionsContent!: ElementRef<HTMLElement>;
+    @ViewChild("selectOptionsContent", { static: false })
+      selectOptionsContent!: ElementRef<HTMLElement>;
   
-  @Input() label = "";
+    @Input() label = "";
 
-  @Input() value = "";
+    @Input() value = "";
 
-  @Input() options: string[] = [];
+    @Input() options: string[] = [];
 
-  isOpened = false;
+    isOpened = false;
 
-  private mouseX = 0;
+    private mouseX = 0;
   
-  private mouseY = 0;
+    private mouseY = 0;
 
-  @HostListener("document:mousemove", ["$event"])
-  onMouseMove(event: MouseEvent): void {
-    this.mouseX = event.clientX;
-    this.mouseY = event.clientY;
-  }
-
-  onClick() {
-    this.isOpened = true;
-    this.button.nativeElement.focus();
-  }
-
-  onBlur() {
-    const element = this.selectOptionsContent.nativeElement;
-    const rect = element.getBoundingClientRect();
-    if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
-      if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
-        this.button.nativeElement.focus();
-        return;
-      } 
+    @HostListener("document:mousemove", ["$event"])
+    onMouseMove(event: MouseEvent): void {
+      this.mouseX = event.clientX;
+      this.mouseY = event.clientY;
     }
-    this.isOpened = false;
-  }
 
-  onClickOption(option: string) {
-    this.value = option;
-    this.isOpened = false;
-  }
+    onClick() {
+      this.isOpened = true;
+      this.button.nativeElement.focus();
+    }
 
-  onChange: OnChangeType<string> = (_value: string) => {};
+    onBlur() {
+      const element = this.selectOptionsContent.nativeElement;
+      const rect = element.getBoundingClientRect();
+      if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
+        if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
+          this.button.nativeElement.focus();
+          return;
+        } 
+      }
+      this.isOpened = false;
+    }
 
-  onTouch: OnTouchType = () => {};
+    onClickOption(option: string) {
+      this.value = option;
+      this.isOpened = false;
+    }
+
+    onChange: OnChangeType<string> = (_value: string) => {};
+
+    onTouch: OnTouchType = () => {};
  
-  writeValue(value: string) {
-    this.value = value;
-  }
+    writeValue(value: string) {
+      this.value = value;
+    }
 
-  registerOnChange(fn: OnChangeType<string>): void {
-    this.onChange = fn;
-  }
+    registerOnChange(fn: OnChangeType<string>): void {
+      this.onChange = fn;
+    }
 
-  registerOnTouched(fn: OnTouchType): void {
-    this.onTouch = fn;
-  }
+    registerOnTouched(fn: OnTouchType): void {
+      this.onTouch = fn;
+    }
 }

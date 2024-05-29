@@ -12,6 +12,6 @@ type Story = StoryObj<TodoListViewComponent>;
 export const Primary: Story = {
   args: {
     title: ""
-  },
+  }
 };
 

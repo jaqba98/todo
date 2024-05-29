@@ -1,3 +1,3 @@
 export interface ButtonAddViewStoreModel {
-  isOpened: boolean;
+    isOpened: boolean;
 }

@@ -14,35 +14,35 @@ import { StatusEnum } from "../../enum/status.enum";
   styleUrl: "./toast-view.component.scss"
 })
 export class ToastViewComponent implements OnDestroy {
-  @Input() value = "";
+    @Input() value = "";
 
-  @Input() isVisible = true;
+    @Input() isVisible = true;
 
-  @Input() status: StatusEnum = StatusEnum.success;
+    @Input() status: StatusEnum = StatusEnum.success;
 
-  subscription: Subscription;
+    subscription: Subscription;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  timer: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    timer: any;
 
-  constructor(private readonly toastStore: ToastViewStoreService) {
-    this.subscription = this.toastStore.getModel().subscribe(model => {
-      this.isVisible = model.isVisible;
-      if (this.isVisible) {
-        this.timer = setInterval(() => {
-          this.toastStore.switchIsVisible();
-          clearInterval(this.timer);
-        }, 3000);
-      }
-    });
-  }
+    constructor(private readonly toastStore: ToastViewStoreService) {
+      this.subscription = this.toastStore.getModel().subscribe(model => {
+        this.isVisible = model.isVisible;
+        if (this.isVisible) {
+          this.timer = setInterval(() => {
+            this.toastStore.switchIsVisible();
+            clearInterval(this.timer);
+          }, 3000);
+        }
+      });
+    }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+    ngOnDestroy() {
+      this.subscription.unsubscribe();
+    }
 
-  onClick() {
-    this.toastStore.switchIsVisible();
-    clearInterval(this.timer);
-  }
+    onClick() {
+      this.toastStore.switchIsVisible();
+      clearInterval(this.timer);
+    }
 }

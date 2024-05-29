@@ -25,12 +25,15 @@
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
+        "indent": ["error", 2],
+        "comma-dangle": ["error", "never"],
         "@typescript-eslint/no-unused-vars": [
           "error",
           {
             "argsIgnorePattern": "^_"
           }
         ],
+        "@typescript-eslint/indent": "off",
         "@typescript-eslint/semi": "error",
         "@typescript-eslint/quotes": "error",
         "@typescript-eslint/no-empty-function": "off",

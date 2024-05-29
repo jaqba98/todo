@@ -13,5 +13,5 @@ export const Primary: Story = {
   args: {
     type: "error",
     value: "Lorem ipsum"
-  },
+  }
 };

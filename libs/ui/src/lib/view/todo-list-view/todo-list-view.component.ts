@@ -26,23 +26,23 @@ export class TodoListViewComponent implements OnDestroy {
 
   subscription: Subscription;
 
-  @Input({ required: true }) title = "";
+    @Input({ required: true }) title = "";
 
-  constructor(private readonly coreStore: TodoCoreStoreService) {
-    this.subscription = this.coreStore.getModel().subscribe(model => {
-      this.model = cloneDeep(model);
-    });
-  }
+    constructor(private readonly coreStore: TodoCoreStoreService) {
+      this.subscription = this.coreStore.getModel().subscribe(model => {
+        this.model = cloneDeep(model);
+      });
+    }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+    ngOnDestroy() {
+      this.subscription.unsubscribe();
+    }
 
-  onRemove(id: string) {
-    this.coreStore.deleteTodo(id);
-  }
+    onRemove(id: string) {
+      this.coreStore.deleteTodo(id);
+    }
 
-  onEdit(id: string) {
-    this.coreStore.switchEditMode(id);
-  }
+    onEdit(id: string) {
+      this.coreStore.switchEditMode(id);
+    }
 }

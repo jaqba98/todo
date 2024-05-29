@@ -1,3 +1,3 @@
 export interface ToastViewStoreModel {
-  isVisible: boolean;
+    isVisible: boolean;
 }

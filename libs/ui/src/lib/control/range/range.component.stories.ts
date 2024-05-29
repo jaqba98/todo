@@ -4,7 +4,7 @@ import { RangeComponent } from "./range.component";
 
 const meta: Meta<RangeComponent> = {
   component: RangeComponent,
-  title: "Control/RangeComponent",
+  title: "Control/RangeComponent"
 };
 export default meta;
 type Story = StoryObj<RangeComponent>;

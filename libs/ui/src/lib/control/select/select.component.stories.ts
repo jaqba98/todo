@@ -14,5 +14,5 @@ export const Primary: Story = {
     label: "Colors",
     value: "Red",
     options: ["Red", "Blue", "Green"]
-  },
+  }
 };

@@ -11,8 +11,8 @@ export class BaseFormService<TForm extends object, TStore extends object> {
   protected isSubmitted = false;
 
   constructor(
-    private readonly form: TForm,
-    protected readonly store: BaseStoreService<TStore>
+        private readonly form: TForm,
+        protected readonly store: BaseStoreService<TStore>
   ) {
     this.formGroup = new FormBuilder().group(form);
     this.store.setModel(this.formGroup.value);
