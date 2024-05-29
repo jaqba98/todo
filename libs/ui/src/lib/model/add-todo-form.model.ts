@@ -1,4 +1,3 @@
 import { BaseTodoFormModel } from "./base-todo-form.model";
 
-export interface AddTodoFormModel extends BaseTodoFormModel {
-}
+export type AddTodoFormModel = BaseTodoFormModel;
