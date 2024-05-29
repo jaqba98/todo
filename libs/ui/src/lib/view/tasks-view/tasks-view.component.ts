@@ -17,18 +17,18 @@ import { Subscription } from "rxjs";
   styleUrl: "./tasks-view.component.scss"
 })
 export class TasksViewComponent implements OnDestroy {
-    @Input()
-      isOpened = false;
+  @Input()
+    isOpened = false;
 
-    subscription: Subscription;
+  subscription: Subscription;
   
-    constructor(private readonly store: ButtonAddViewStoreService) {
-      this.subscription = this.store.getModel().subscribe(model => {
-        this.isOpened = model.isOpened;
-      });
-    }
+  constructor(private readonly store: ButtonAddViewStoreService) {
+    this.subscription = this.store.getModel().subscribe(model => {
+      this.isOpened = model.isOpened;
+    });
+  }
 
-    ngOnDestroy(): void {
-      this.subscription.unsubscribe();
-    }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

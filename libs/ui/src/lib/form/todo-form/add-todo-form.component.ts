@@ -46,10 +46,10 @@ export class AddTodoFormComponent
   
   constructor(
     store: AddTodoFormStoreService,
-        readonly priority: GetPriorityService,
-        private readonly coreStore: TodoCoreStoreService,
-        private readonly buttonStore: ButtonAddViewStoreService,
-        private readonly toastStore: ToastViewStoreService
+    readonly priority: GetPriorityService,
+    private readonly coreStore: TodoCoreStoreService,
+    private readonly buttonStore: ButtonAddViewStoreService,
+    private readonly toastStore: ToastViewStoreService
   ) {
     super({
       name: ["", Validators.required],

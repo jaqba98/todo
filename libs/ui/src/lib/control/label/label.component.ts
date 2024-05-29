@@ -14,19 +14,19 @@ import {
   styleUrl: "./label.component.scss"
 })
 export class LabelComponent {
-    @ViewChild("label", { static: false }) label!: ElementRef<HTMLElement>;
+  @ViewChild("label", { static: false }) label!: ElementRef<HTMLElement>;
 
-    @Input({ required: true }) value = "";
+  @Input({ required: true }) value = "";
 
-    @Input() isError = false;
+  @Input() isError = false;
 
-    @Output() eventClick = new EventEmitter();
+  @Output() eventClick = new EventEmitter();
 
-    get nativeElement(): HTMLElement {
-      return this.label.nativeElement;
-    }
+  get nativeElement(): HTMLElement {
+    return this.label.nativeElement;
+  }
 
-    onClick() {
-      this.eventClick.emit();
-    }
+  onClick() {
+    this.eventClick.emit();
+  }
 }

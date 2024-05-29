@@ -18,22 +18,22 @@ import { OnChangeType, OnTouchType } from "../../type/accessor.type";
   ]
 })
 export class RangeComponent {
-    @Input()
-      value = "";
+  @Input()
+    value = "";
 
-    onChange: OnChangeType<string> = (_value: string) => {};
+  onChange: OnChangeType<string> = (_value: string) => {};
 
-    onTouch: OnTouchType = () => {};
+  onTouch: OnTouchType = () => {};
 
-    writeValue(value: string) {
-      this.value = value;
-    }
+  writeValue(value: string) {
+    this.value = value;
+  }
 
-    registerOnChange(fn: OnChangeType<string>): void {
-      this.onChange = fn;
-    }
+  registerOnChange(fn: OnChangeType<string>): void {
+    this.onChange = fn;
+  }
 
-    registerOnTouched(fn: OnTouchType): void {
-      this.onTouch = fn;
-    }
+  registerOnTouched(fn: OnTouchType): void {
+    this.onTouch = fn;
+  }
 }

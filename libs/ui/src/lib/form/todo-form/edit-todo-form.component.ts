@@ -33,47 +33,47 @@ export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
   implements OnInit, OnDestroy {
 
-    @Input() id = "";
+  @Input() id = "";
 
-    coreSubscription!: Subscription;
+  coreSubscription!: Subscription;
 
-    readonly title = "Edit Panel";
+  readonly title = "Edit Panel";
 
-    readonly submitButton = "Edit";
+  readonly submitButton = "Edit";
 
-    constructor(
-      store: EditTodoFormStoreService,
-        readonly priority: GetPriorityService,
-        private readonly coreStore: TodoCoreStoreService,
-        private readonly buttonStore: ButtonAddViewStoreService
-    ) {
-      super({
-        name: ["", Validators.required],
-        description: ["", Validators.required],
-        range: [0, Validators.required],
-        deadline: [format(new Date(), "yyyy-MM-dd"), Validators.required],
-        priority: [PriorityEnum.low, Validators.required],
-        tags: ["", Validators.required]
-      }, store);
-    }
+  constructor(
+    store: EditTodoFormStoreService,
+    readonly priority: GetPriorityService,
+    private readonly coreStore: TodoCoreStoreService,
+    private readonly buttonStore: ButtonAddViewStoreService
+  ) {
+    super({
+      name: ["", Validators.required],
+      description: ["", Validators.required],
+      range: [0, Validators.required],
+      deadline: [format(new Date(), "yyyy-MM-dd"), Validators.required],
+      priority: [PriorityEnum.low, Validators.required],
+      tags: ["", Validators.required]
+    }, store);
+  }
 
-    ngOnInit() {
-      this.coreSubscription = this.coreStore.getModel().subscribe(model => {
-        const todo = model.todos.get(this.id);
-        if (todo) this.store.setModel(todo);
-      });
-    }
+  ngOnInit() {
+    this.coreSubscription = this.coreStore.getModel().subscribe(model => {
+      const todo = model.todos.get(this.id);
+      if (todo) this.store.setModel(todo);
+    });
+  }
 
-    ngOnDestroy() {
-      this.unsubscribeFormGroup();
-    }
+  ngOnDestroy() {
+    this.unsubscribeFormGroup();
+  }
 
-    onSubmit() {
-      const value = this.getValue();
-      this.coreStore.editTodo(this.id, { ...value, isEdited: false });
-    }
+  onSubmit() {
+    const value = this.getValue();
+    this.coreStore.editTodo(this.id, { ...value, isEdited: false });
+  }
 
-    onClick() {
-      this.coreStore.switchEditMode(this.id);
-    }
+  onClick() {
+    this.coreStore.switchEditMode(this.id);
+  }
 }

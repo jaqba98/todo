@@ -36,38 +36,38 @@ import { LabelComponent } from "../label/label.component";
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-    @ViewChild("input", { static: false }) input!: ElementRef<HTMLElement>;
+  @ViewChild("input", { static: false }) input!: ElementRef<HTMLElement>;
   
-    @Input() type: InputType = "text";
+  @Input() type: InputType = "text";
 
-    @Input() label = "";
+  @Input() label = "";
 
-    @Input() value = "";
+  @Input() value = "";
 
-    isSelected = false;
+  isSelected = false;
 
-    onChange: OnChangeType<string> = (_value: string) => {};
+  onChange: OnChangeType<string> = (_value: string) => {};
 
-    onTouch: OnTouchType = () => {};
+  onTouch: OnTouchType = () => {};
 
-    writeValue(value: string) {
-      this.value = value;
-    }
+  writeValue(value: string) {
+    this.value = value;
+  }
   
-    registerOnChange(fn: OnChangeType<string>): void {
-      this.onChange = fn;
-    }
+  registerOnChange(fn: OnChangeType<string>): void {
+    this.onChange = fn;
+  }
   
-    registerOnTouched(fn: OnTouchType): void {
-      this.onTouch = fn;
-    }
+  registerOnTouched(fn: OnTouchType): void {
+    this.onTouch = fn;
+  }
 
-    onInput() {
-      this.onChange(this.value);
-    }
+  onInput() {
+    this.onChange(this.value);
+  }
 
-    onClick() {
-      this.input.nativeElement.focus();
-      this.isSelected = true;
-    }
+  onClick() {
+    this.input.nativeElement.focus();
+    this.isSelected = true;
+  }
 }

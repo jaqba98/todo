@@ -15,7 +15,7 @@ import { StatusEnum } from "../../enum/status.enum";
   styleUrl: "./message-status.component.scss"
 })
 export class MessageStatusComponent {
-    @Input() type: StatusEnum = StatusEnum.info;
+  @Input() type: StatusEnum = StatusEnum.info;
 
-    @Input({ required: true }) value = "";
+  @Input({ required: true }) value = "";
 }

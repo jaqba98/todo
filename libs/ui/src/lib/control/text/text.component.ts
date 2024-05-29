@@ -10,13 +10,13 @@ import { StatusEnum } from "../../enum/status.enum";
   styleUrl: "./text.component.scss"
 })
 export class TextComponent {
-    @Input({ required: true }) value!: string;
+  @Input({ required: true }) value!: string;
 
-    @Input() type!: StatusEnum;
+  @Input() type!: StatusEnum;
 
-    @Input() isPrimary = false;
+  @Input() isPrimary = false;
 
-    getTextColor(): string {
-      return `text__${this.type}`;
-    }
+  getTextColor(): string {
+    return `text__${this.type}`;
+  }
 }

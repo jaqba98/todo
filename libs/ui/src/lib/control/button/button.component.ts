@@ -26,45 +26,45 @@ import { TextComponent } from "../text/text.component";
   styleUrl: "./button.component.scss"
 })
 export class ButtonComponent {
-    @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
+  @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
 
-    @Input() type: ButtonType = "button";
+  @Input() type: ButtonType = "button";
 
-    @Input({ required: true }) value!: string;
+  @Input({ required: true }) value!: string;
 
-    @Input() fullSize = false;
+  @Input() fullSize = false;
 
-    @Input() leftIconVisible = false;
+  @Input() leftIconVisible = false;
 
-    @Input() leftIconSrc = "";
+  @Input() leftIconSrc = "";
 
-    @Input() leftIconAlt = "";
+  @Input() leftIconAlt = "";
 
-    @Input() rightIconVisible = false;
+  @Input() rightIconVisible = false;
 
-    @Input() rightIconSrc = "";
+  @Input() rightIconSrc = "";
 
-    @Input() rightIconAlt = "";
+  @Input() rightIconAlt = "";
 
-    @Input() isPrimary = false;
+  @Input() isPrimary = false;
 
-    @Output() eventClick = new EventEmitter();
+  @Output() eventClick = new EventEmitter();
 
-    @Output() eventBlur = new EventEmitter();
+  @Output() eventBlur = new EventEmitter();
 
-    get nativeElement(): HTMLElement {
-      return this.button.nativeElement;
-    }
+  get nativeElement(): HTMLElement {
+    return this.button.nativeElement;
+  }
 
-    onClick() {
-      this.eventClick.emit();
-    }
+  onClick() {
+    this.eventClick.emit();
+  }
 
-    onBlur() {
-      this.eventBlur.emit();
-    }
+  onBlur() {
+    this.eventBlur.emit();
+  }
 
-    disabledIcons() {
-      return !this.leftIconVisible && !this.rightIconVisible;
-    }
+  disabledIcons() {
+    return !this.leftIconVisible && !this.rightIconVisible;
+  }
 }
