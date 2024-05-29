@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { v4 } from "uuid";
 
-import { TodoCoreElementStoreModel, TodoCoreStoreModel } from "../../model/core/todo-core-store.model";
+import { TodoCoreElementStoreModel, TodosCoreStoreModel } from "../../model/core/todos-core-store.model";
 import { BaseStoreService } from "../base/base-store.service";
 
 @Injectable({ providedIn: "root" })
-export class TodoCoreStoreService extends BaseStoreService<TodoCoreStoreModel> {
+export class TodoCoreStoreService extends BaseStoreService<TodosCoreStoreModel> {
   constructor() {
     super({ todos: new Map() });
   }

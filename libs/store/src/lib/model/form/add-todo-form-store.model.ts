@@ -1,3 +1,3 @@
-import { BaseTodoFormStoreModel } from "../base/base-todo-form-store.model";
+import { TodoBaseStoreModel } from "../base/todo-base-store.model";
 
-export type AddTodoFormStoreModel = BaseTodoFormStoreModel;
+export type AddTodoFormStoreModel = TodoBaseStoreModel;
