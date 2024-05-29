@@ -1,18 +1,16 @@
 import { Injectable } from "@angular/core";
 
-import { BaseStoreService } from "../base/base-store.service";
 import { ButtonAddViewStoreModel } from "../../model/view/button-add-view-store.model";
+import { BaseStoreService } from "../base/base-store.service";
 
 @Injectable({ providedIn: "root" })
 export class ButtonAddViewStoreService extends BaseStoreService<ButtonAddViewStoreModel> {
   constructor() {
-    super({
-      isOpened: false
-    });
+    super({ isOpened: false });
   }
 
-  switchIsOpened() {
-    this.model.isOpened = !this.model.isOpened;
-    this.setModel(this.model);
+  changeIsOpened(isOpened: boolean) {
+    this.model.isOpened = isOpened;
+    this.emitModel();
   }
 }
