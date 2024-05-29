@@ -26,9 +26,10 @@
       "extends": ["plugin:@nx/typescript"],
       "rules": {
         "indent": "off",
-        "comma-dangle": ["error", "never"],
+        "comma-dangle": "off",
         "eol-last": ["error", "always"],
         "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/comma-dangle": ["error", "never"],
         "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "^_"}],
         "@typescript-eslint/semi": "error",
         "@typescript-eslint/quotes": "error"
