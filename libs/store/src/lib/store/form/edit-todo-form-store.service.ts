@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 
 import { PriorityEnum } from "../../enum/priority.enum";
-import { BaseStoreService } from "../base/base-store.service";
 import { EditTodoFormStoreModel } from "../../model/form/edit-todo-form-store.model";
+import { BaseStoreService } from "../base/base-store.service";
 
 @Injectable({ providedIn: "root" })
 export class EditTodoFormStoreService extends BaseStoreService<EditTodoFormStoreModel> {
@@ -12,7 +12,7 @@ export class EditTodoFormStoreService extends BaseStoreService<EditTodoFormStore
       description: "",
       range: 0,
       deadline: new Date(),
-      priority: PriorityEnum.low,
+      priority: PriorityEnum.doItFirst,
       tags: ""
     });
   }

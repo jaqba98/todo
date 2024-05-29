@@ -12,7 +12,7 @@ export class AddTodoFormStoreService extends BaseStoreService<AddTodoFormStoreMo
       description: "",
       range: 0,
       deadline: new Date(),
-      priority: PriorityEnum.low,
+      priority: PriorityEnum.doItFirst,
       tags: ""
     });
   }
