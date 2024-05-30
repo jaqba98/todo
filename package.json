@@ -29,6 +29,7 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
+    "@todo/style": "link:libs/style",
     "@angular-devkit/build-angular": "~17.3.0",
     "@angular-devkit/core": "~17.3.0",
     "@angular-devkit/schematics": "~17.3.0",
