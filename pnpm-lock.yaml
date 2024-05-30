@@ -190,6 +190,9 @@ devDependencies:
   prettier:
     specifier: ^2.6.2
     version: 2.8.8
+  storybook:
+    specifier: 7.6.19
+    version: 7.6.19
   ts-jest:
     specifier: ^29.1.0
     version: 29.1.4(@babel/core@7.24.6)(esbuild@0.18.20)(jest@29.7.0)(typescript@5.4.5)
@@ -15341,6 +15344,18 @@ packages:
 
   /store2@2.14.3:
     resolution: {integrity: sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==}
+    dev: true
+
+  /storybook@7.6.19:
+    resolution: {integrity: sha512-xWD1C4vD/4KMffCrBBrUpsLUO/9uNpm8BVW8+Vcb30gkQDfficZ0oziWkmLexpT53VSioa24iazGXMwBqllYjQ==}
+    hasBin: true
+    dependencies:
+      '@storybook/cli': 7.6.19
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
     dev: true
 
   /stream-shift@1.0.3:
