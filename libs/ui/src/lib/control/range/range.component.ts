@@ -21,8 +21,10 @@ export class RangeComponent {
   @Input()
     value = "";
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: OnChangeType<string> = (_value: string) => {};
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouch: OnTouchType = () => {};
 
   writeValue(value: string) {

@@ -46,8 +46,10 @@ export class InputComponent implements ControlValueAccessor {
 
   isSelected = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: OnChangeType<string> = (_value: string) => {};
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouch: OnTouchType = () => {};
 
   writeValue(value: string) {
