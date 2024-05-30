@@ -10,7 +10,7 @@ import { CommonModule } from "@angular/common";
 
 import {
   ButtonType
-} from "../../../../ui/src/lib/type/control.type";
+} from "../type/control.type";
 import { IconComponent } from "../icon/icon.component";
 import { TextComponent } from "../text/text.component";
 

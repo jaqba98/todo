@@ -1,11 +1,11 @@
-@use "../../../../../style";
+// @use "../../../../../style";
 
-.label {
-    display: inline-block;
-    @include style.control__default-font;
-    @include style.control__active;
+// .label {
+//     display: inline-block;
+//     @include style.control__default-font;
+//     @include style.control__active;
 
-    &__error {
-        @include style.control__error-font;
-    }
-}
+//     &__error {
+//         @include style.control__error-font;
+//     }
+// }

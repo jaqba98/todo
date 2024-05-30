@@ -1,21 +1,21 @@
-@use "../../../../../style";
+// @use "../../../../../style";
 
-.message-status {
-       @include style.control__default;
-}
+// .message-status {
+//        @include style.control__default;
+// }
 
-.error {
-       background-color: #ff000035;
-}
+// .error {
+//        background-color: #ff000035;
+// }
 
-.warning {
-       background-color: #ffa50035;
-}
+// .warning {
+//        background-color: #ffa50035;
+// }
 
-.success {
-       background-color: #00800035;
-}
+// .success {
+//        background-color: #00800035;
+// }
 
-.info {
-       background-color: #80808035;
-}
+// .info {
+//        background-color: #80808035;
+// }

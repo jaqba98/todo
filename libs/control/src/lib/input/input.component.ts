@@ -11,11 +11,11 @@ import {
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
 
-import { InputType } from "../../../../ui/src/lib/type/control.type";
+import { InputType } from "../type/control.type";
 import {
   OnChangeType,
   OnTouchType
-} from "../../../../ui/src/lib/type/accessor.type";
+} from "../type/accessor.type";
 import { LabelComponent } from "../label/label.component";
 
 @Component({

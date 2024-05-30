@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 
 import { ToastViewStoreService } from "@todo/store";
 
-import { StatusEnum } from "../../enum/status.enum";
+import { StatusEnum } from "../../../../../control/src/lib/enum/status.enum";
 
 @Component({
   selector: "lib-toast-view",
