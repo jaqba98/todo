@@ -1,5 +1,29 @@
 @use "@todo/style";
 
 .text {
-  color: style.$text;
+  font-size: 1rem;
+
+  &__default {
+    color: style.$color__default;
+  }
+
+  &__primary {
+    color: style.$color__primary;
+  }
+
+  &__success {
+    color: style.$color__success;
+  }
+
+  &__error {
+    color: style.$color__error;
+  }
+
+  &__warning {
+    color: style.$color__warning;
+  }
+
+  &__info {
+    color: style.$color__info;
+  }
 }

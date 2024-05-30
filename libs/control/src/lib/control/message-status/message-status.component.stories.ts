@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/angular";
 
 import { MessageStatusComponent } from "./message-status.component";
-import { StatusEnum } from "../../enum/status.enum";
+import { ColorEnum } from "../../enum/color.enum";
 
 const meta: Meta<MessageStatusComponent> = {
   component: MessageStatusComponent,
@@ -12,7 +12,7 @@ type Story = StoryObj<MessageStatusComponent>;
 
 export const Primary: Story = {
   args: {
-    type: StatusEnum.error,
+    type: ColorEnum.color__error,
     value: "Lorem ipsum"
   }
 };

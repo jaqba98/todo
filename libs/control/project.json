@@ -37,6 +37,9 @@
         "outputDir": "dist/storybook/control",
         "configDir": "libs/control/.storybook",
         "browserTarget": "control:build-storybook",
+        "styles": [
+          "apps/todo/src/styles.scss"
+        ],
         "compodoc": false
       },
       "configurations": {

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/angular";
 
 import { TextComponent } from "./text.component";
-import { StatusEnum } from "../../enum/status.enum";
+import { ColorEnum } from "../../enum/color.enum";
 
 const meta: Meta<TextComponent> = {
   component: TextComponent,
   title: "Control/TextComponent",
   argTypes: {
-    type: {
-      options: Object.values(StatusEnum),
+    color: {
+      options: Object.values(ColorEnum),
       control: { type: "select" }
     }
   }
@@ -19,7 +19,7 @@ type Story = StoryObj<TextComponent>;
 export const Default: Story = {
   args: {
     value: "Lorem ipsum",
-    type: StatusEnum.info
+    color: ColorEnum.color__default
   }
 };
 
