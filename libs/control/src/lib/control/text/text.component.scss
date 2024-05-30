@@ -1,19 +1,5 @@
-// .text {
-//   font-size: 1rem;
+@use "@todo/style";
 
-//   &__error {
-//     color: red;
-//   }
-
-//   &__warning {
-//     color: orange;
-//   }
-
-//   &__success {
-//     color: green;
-//   }
-
-//   &__info {
-//     color: grey;
-//   }
-// }
+.text {
+  color: style.$text;
+}
