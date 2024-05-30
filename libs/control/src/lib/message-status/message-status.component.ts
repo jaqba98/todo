@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { TextComponent } from "../text/text.component";
-import { StatusEnum } from "../../enum/status.enum";
+import { StatusEnum } from "../../../../ui/src/lib/enum/status.enum";
 
 @Component({
   selector: "lib-message-status",

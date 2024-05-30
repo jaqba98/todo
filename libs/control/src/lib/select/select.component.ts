@@ -9,7 +9,7 @@ import {
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR } from "@angular/forms";
 
-import { OnChangeType, OnTouchType } from "../../type/accessor.type";
+import { OnChangeType, OnTouchType } from "../../../../ui/src/lib/type/accessor.type";
 import { LabelComponent } from "../label/label.component";
 import { ButtonComponent } from "../button/button.component";
 
