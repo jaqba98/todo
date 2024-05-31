@@ -9,7 +9,8 @@ import { BaseStoreService } from "../base/base-store.service";
 import { cloneDeep } from "lodash";
 
 @Injectable({ providedIn: "root" })
-export class TodosCoreStoreService extends BaseStoreService<TodosCoreStoreModel> {
+export class TodosCoreStoreService
+  extends BaseStoreService<TodosCoreStoreModel> {
   constructor() {
     super({ todos: new Map() });
   }
@@ -52,6 +53,6 @@ export class TodosCoreStoreService extends BaseStoreService<TodosCoreStoreModel>
 
   private checkTodoNotExist(id: string) {
     if (!this.model.todos.has(id)) return;
-    throw new Error(`There is already a task with the given id: ${id}`);
+    throw new Error(`There is already a task with the id: ${id}`);
   }
 }

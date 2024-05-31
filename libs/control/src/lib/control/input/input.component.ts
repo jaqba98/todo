@@ -5,17 +5,10 @@ import {
   ViewChild,
   forwardRef
 } from "@angular/core";
-import {
-  ControlValueAccessor,
-  FormsModule,
-  NG_VALUE_ACCESSOR
-} from "@angular/forms";
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 import { InputType } from "../../type/control.type";
-import {
-  OnChangeType,
-  OnTouchType
-} from "../../type/accessor.type";
+import { OnChangeType, OnTouchType } from "../../type/accessor.type";
 import { LabelComponent } from "../label/label.component";
 
 @Component({

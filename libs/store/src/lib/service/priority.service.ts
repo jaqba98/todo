@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 
-import { PriorityEnum, PriorityHeaderEnum } from "../enum/priority.enum";
+import {
+  PriorityEnum,
+  PriorityHeaderEnum
+} from "../enum/priority.enum";
 
 @Injectable({ providedIn: "root" })
 export class PriorityService {
