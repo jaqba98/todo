@@ -22,20 +22,22 @@ const meta: Meta<TextComponent> = {
 export default meta;
 type Story = StoryObj<TextComponent>;
 
+const textDefault = {
+  value: "Hello",
+  color: ColorEnum.colorDefault,
+  isUnderline: false,
+  isClickable: false
+};
+
 export const Default: Story = {
   args: {
-    value: "Hello",
-    color: ColorEnum.colorDefault,
-    isUnderline: false,
-    isClickable: false
+    ...textDefault
   }
 };
 
 export const Function: Story = {
   args: {
-    value: "Hello",
-    color: ColorEnum.colorDefault,
-    isUnderline: false,
+    ...textDefault,
     isClickable: true
   },
   play: async ({ canvasElement }) => {
