@@ -3,27 +3,37 @@
 .text {
   font-size: 1rem;
 
-  &__default {
-    color: style.$color__default;
+  &__color {
+    &--default {
+      @include style.text--color("default");
+    }
+
+    &--primary {
+      @include style.text--color("primary");
+    }
+
+    &--success {
+      @include style.text--color("success");
+    }
+
+    &--error {
+      @include style.text--color("error");
+    }
+
+    &--warning {
+      @include style.text--color("warning");
+    }
+
+    &--info {
+      @include style.text--color("info");
+    }
   }
 
-  &__primary {
-    color: style.$color__primary;
+  &--underline {
+    @include style.text--underline;
   }
 
-  &__success {
-    color: style.$color__success;
-  }
-
-  &__error {
-    color: style.$color__error;
-  }
-
-  &__warning {
-    color: style.$color__warning;
-  }
-
-  &__info {
-    color: style.$color__info;
+  &--clickable {
+    @include style.text--clickable;
   }
 }

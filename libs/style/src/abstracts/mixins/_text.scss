@@ -1,0 +1,27 @@
+@use "../variables/colors";
+
+@mixin text--color($color) {
+  @if $color == "default" {
+    color: colors.$color__default;
+  } @else if $color == "primary" {
+    color: colors.$color__primary;
+  } @else if $color == "success" {
+    color: colors.$color__success;
+  } @else if $color == "error" {
+    color: colors.$color__error;
+  } @else if $color == "warning" {
+    color: colors.$color__warning;
+  } @else if $color == "info" {
+    color: colors.$color__info;
+  } @else {
+    @error "Not supported text color: #{$color}";
+  }
+}
+
+@mixin text--underline {
+  text-decoration: underline;
+}
+
+@mixin text--clickable {
+  cursor: pointer;
+}

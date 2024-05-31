@@ -12,7 +12,7 @@ type Story = StoryObj<MessageStatusComponent>;
 
 export const Primary: Story = {
   args: {
-    type: ColorEnum.color__error,
+    type: ColorEnum.colorError,
     value: "Lorem ipsum"
   }
 };

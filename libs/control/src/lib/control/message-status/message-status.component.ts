@@ -15,7 +15,7 @@ import { ColorEnum } from "../../enum/color.enum";
   styleUrl: "./message-status.component.scss"
 })
 export class MessageStatusComponent {
-  @Input() type: ColorEnum = ColorEnum.color__info;
+  @Input() type: ColorEnum = ColorEnum.colorDefault;
 
   @Input({ required: true }) value = "";
 }

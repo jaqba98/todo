@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+
 import { ColorEnum } from "../../enum/color.enum";
 
 @Component({
@@ -10,28 +11,31 @@ import { ColorEnum } from "../../enum/color.enum";
   styleUrl: "./text.component.scss"
 })
 export class TextComponent {
-  @Input({ required: true }) value!: string;
+  @Input() value: string;
 
-  @Input() color!: ColorEnum;
+  @Input() color: ColorEnum;
+  
+  @Input() isUnderline: boolean;
+  
+  @Input() isClickable: boolean;
 
-  @Input() isPrimary = false;
+  @Output() event: EventEmitter<boolean>;
+
+  constructor() {
+    this.value = "";
+    this.color = ColorEnum.colorDefault;
+    this.isUnderline = false;
+    this.isClickable = false;
+    this.event = new EventEmitter<boolean>();
+  }
+
+  onClick() {
+    if (!this.isClickable) return;
+    this.event.emit(true);
+    return true;
+  }
 
   getTextColor(): string {
-    switch(this.color) {
-      case ColorEnum.color__default:
-        return "text__default";
-      case ColorEnum.color__primary:
-        return "text__primary";
-      case ColorEnum.color__success:
-        return "text__success";
-      case ColorEnum.color__error:
-        return "text__error";
-      case ColorEnum.color__warning:
-        return "text__warning";
-      case ColorEnum.color__info:
-        return "text__info";
-      default:
-        throw new Error("");
-    }
+    return `text__${this.color}`;
   }
 }

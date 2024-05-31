@@ -1,3 +1,6 @@
-<!-- todo: I am here -->
 <p class="text"
-   [ngClass]="getTextColor()">{{value}}</p>
+   role="text"
+   [ngClass]="getTextColor()"
+   [class.text--underline]="isUnderline"
+   [class.text--clickable]="isClickable"
+   (click)="onClick()">{{value}}</p>

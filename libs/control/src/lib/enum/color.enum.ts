@@ -1,8 +1,8 @@
 export enum ColorEnum {
-  color__default = "color__default",
-  color__primary = "color__primary",
-  color__success = "color__success",
-  color__error = "color__error",
-  color__warning = "color__warning",
-  color__info = "color__info"
+  colorDefault = "color--default",
+  colorPrimary = "color--primary",
+  colorSuccess = "color--success",
+  colorError = "color--error",
+  colorWarning = "color--warning",
+  colorInfo = "color--info"
 }
