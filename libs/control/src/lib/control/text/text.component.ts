@@ -1,5 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from "@angular/core";
 
 import { ColorEnum } from "../../enum/color.enum";
 

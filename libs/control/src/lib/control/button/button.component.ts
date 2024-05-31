@@ -8,9 +8,7 @@ import {
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import {
-  ButtonType
-} from "../../type/control.type";
+import { ButtonType } from "../../type/control.type";
 import { IconComponent } from "../icon/icon.component";
 import { TextComponent } from "../text/text.component";
 
@@ -26,7 +24,8 @@ import { TextComponent } from "../text/text.component";
   styleUrl: "./button.component.scss"
 })
 export class ButtonComponent {
-  @ViewChild("button", { static: false }) button!: ElementRef<HTMLElement>;
+  @ViewChild("button", { static: false })
+    button!: ElementRef<HTMLElement>;
 
   @Input() type: ButtonType = "button";
 

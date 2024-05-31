@@ -1,4 +1,8 @@
-import { Component, Input, forwardRef } from "@angular/core";
+import {
+  Component,
+  Input,
+  forwardRef
+} from "@angular/core";
 
 import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";

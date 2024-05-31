@@ -27,7 +27,13 @@
       "rules": {
         "indent": "off",
         "comma-dangle": "off",
-        "max-len": ["error", 70],
+        "max-len": [
+          "error",
+          {
+            "code": 70,
+            "ignoreComments": true
+          }
+        ],
         "eol-last": ["error", "always"],
         "@typescript-eslint/indent": ["error", 2],
         "@typescript-eslint/comma-dangle": ["error", "never"],

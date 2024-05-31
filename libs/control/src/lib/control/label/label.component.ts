@@ -1,4 +1,9 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter
+} from "@angular/core";
 
 import { TextComponent } from "../text/text.component";
 import { ColorEnum } from "../../enum/color.enum";
