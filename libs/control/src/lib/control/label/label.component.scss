@@ -1,6 +1,10 @@
 @use "@todo/style";
 
 .label {
-  @include style.display--inline-block;
-  @include style.box-model--margin($bottom: 5px);
+  @include style.display--block;
+
+  &__text {
+    @include style.display--inline-block;
+    @include style.box-model--margin($bottom: 5px);
+  }
 }
