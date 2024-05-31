@@ -11,7 +11,7 @@ import { ColorEnum } from "../../enum/color.enum";
   styleUrl: "./text.component.scss"
 })
 export class TextComponent {
-  @Input() value: string;
+  @Input({ required: true }) value: string;
 
   @Input() color: ColorEnum;
   

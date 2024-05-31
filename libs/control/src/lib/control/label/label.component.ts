@@ -1,32 +1,35 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild
-} from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+
+import { TextComponent } from "../text/text.component";
+import { ColorEnum } from "../../enum/color.enum";
 
 @Component({
   selector: "lib-label",
   standalone: true,
+  imports: [TextComponent],
   templateUrl: "./label.component.html",
   styleUrl: "./label.component.scss"
 })
 export class LabelComponent {
-  @ViewChild("label", { static: false }) label!: ElementRef<HTMLElement>;
+  @Input() value: string;
 
-  @Input({ required: true }) value = "";
+  @Input() isError: boolean;
 
-  @Input() isError = false;
+  @Output() event: EventEmitter<boolean>;
 
-  @Output() eventClick = new EventEmitter();
-
-  get nativeElement(): HTMLElement {
-    return this.label.nativeElement;
+  constructor() {
+    this.value = "";
+    this.isError = false;
+    this.event = new EventEmitter<boolean>();
   }
 
-  onClick() {
-    this.eventClick.emit();
+  onClick(event: boolean) {
+    this.event.emit(event);
+  }
+
+  getLabelColor() {
+    return this.isError
+      ? ColorEnum.colorError
+      : ColorEnum.colorDefault;
   }
 }

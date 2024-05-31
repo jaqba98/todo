@@ -1,28 +1,45 @@
-import type { Meta, StoryObj } from "@storybook/angular";
+import { Meta, StoryObj } from "@storybook/angular";
+import { within, userEvent } from "@storybook/test";
 
 import { LabelComponent } from "./label.component";
 
 const meta: Meta<LabelComponent> = {
   component: LabelComponent,
-  title: "Control/LabelComponent"
+  title: "control/label",
+  argTypes: {
+    event: {
+      action: "event"
+    }
+  }
 };
 export default meta;
 type Story = StoryObj<LabelComponent>;
 
-const baseArgs = {
-  value: "Login"
+const labelDefault = {
+  value: "Hello",
+  isError: false
 };
 
 export const Default: Story = {
   args: {
-    ...baseArgs,
-    isError: false
+    ...labelDefault
   }
 };
 
 export const Error: Story = {
   args: {
-    ...baseArgs,
+    ...labelDefault,
     isError: true
+  }
+};
+
+export const Function: Story = {
+  args: {
+    ...labelDefault
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const text = await canvas.getByRole("text");
+    await userEvent.click(text);
   }
 };

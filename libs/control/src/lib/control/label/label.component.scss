@@ -1,11 +1,6 @@
-// @use "../../../../../style";
+@use "@todo/style";
 
-// .label {
-//     display: inline-block;
-//     @include style.control__default-font;
-//     @include style.control__active;
-
-//     &__error {
-//         @include style.control__error-font;
-//     }
-// }
+.label {
+  @include style.display--inline-block;
+  @include style.box-model--margin($bottom: 5px);
+}
