@@ -1,3 +1,6 @@
 <lib-label [value]="label"
            (event)="onClick()"></lib-label>
-<input class="input">
+<input #input
+       class="input"
+       [type]="type"
+       [(ngModel)]="value">

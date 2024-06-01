@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/angular";
+import { Meta, StoryObj } from "@storybook/angular";
 
 import { InputComponent } from "./input.component";
 
 const meta: Meta<InputComponent> = {
   component: InputComponent,
-  title: "Control/InputComponent"
+  title: "control/input"
 };
 export default meta;
 type Story = StoryObj<InputComponent>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     type: "text",
     label: "Login",
-    value: "admin"
+    value: ""
   }
 };

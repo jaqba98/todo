@@ -2,4 +2,5 @@
 
 .input {
   @include style.control--default;
+  @include style.control--input;
 }

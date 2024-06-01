@@ -1,27 +1,24 @@
 import {
   Component,
-  ElementRef,
-  Input,
+  forwardRef,
   ViewChild,
-  forwardRef
+  ElementRef,
+  Input
 } from "@angular/core";
 import {
-  ControlValueAccessor,
   FormsModule,
-  NG_VALUE_ACCESSOR
+  NG_VALUE_ACCESSOR,
+  ControlValueAccessor
 } from "@angular/forms";
 
-import { InputType } from "../../type/control.type";
 import { OnChangeType, OnTouchType } from "../../type/accessor.type";
+import { InputType } from "../../type/control.type";
 import { LabelComponent } from "../label/label.component";
 
 @Component({
   selector: "lib-input",
   standalone: true,
-  imports: [
-    FormsModule,
-    LabelComponent
-  ],
+  imports: [FormsModule, LabelComponent],
   templateUrl: "./input.component.html",
   styleUrl: "./input.component.scss",
   providers: [
@@ -35,12 +32,20 @@ import { LabelComponent } from "../label/label.component";
 export class InputComponent implements ControlValueAccessor {
   @ViewChild("input", { static: false })
     input!: ElementRef<HTMLElement>;
-  
-  @Input() type: InputType = "text";
 
-  @Input() label = "";
+  @Input() type: InputType;
 
-  @Input() value = "";
+  @Input({ required: true }) label: string;
+
+  @Input() value: string;
+
+  constructor() {
+    this.type = "text";
+    this.label = "";
+    this.value = "";
+  }
+
+  // TODO: I am here
 
   isSelected = false;
 

@@ -6,7 +6,6 @@
 @use "outline";
 
 @mixin control--default {
-  @include size.width--full;
   @include box-model.box-model--padding(1rem, 1rem, 1rem, 1rem);
   @include border.border;
   @include border.border--color("white--dark");
@@ -15,4 +14,8 @@
   @include text.text--color("default");
   @include text.text--size;
   @include outline.outline--none;
+}
+
+@mixin control--input {
+  @include size.width--full;
 }
