@@ -1,7 +1,9 @@
-@use "./size";
-@use "./box-model";
-@use "./border";
-@use "./bg";
+@use "size";
+@use "box-model";
+@use "border";
+@use "bg";
+@use "text";
+@use "outline";
 
 @mixin control--default {
   @include size.width--full;
@@ -10,5 +12,7 @@
   @include border.border--color("white--dark");
   @include border.border--radius(5px);
   @include bg.bg--color("white");
-  outline: none;
+  @include text.text--color("default");
+  @include text.text--size;
+  @include outline.outline--none;
 }

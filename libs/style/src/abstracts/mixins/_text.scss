@@ -29,3 +29,7 @@
 @mixin text--clickable {
   cursor: pointer;
 }
+
+@mixin text--size {
+  font-size: 1rem;
+}
