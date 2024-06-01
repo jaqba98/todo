@@ -1,6 +1,8 @@
 <lib-label [value]="label"
+           [isError]="isError"
            (event)="onClick()"></lib-label>
 <input #input
        class="input"
        [type]="type"
+       [class.input__error]="isError"
        [(ngModel)]="value">

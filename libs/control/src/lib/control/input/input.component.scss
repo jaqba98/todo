@@ -3,4 +3,8 @@
 .input {
   @include style.control--default;
   @include style.control--input;
+
+  &__error {
+    @include style.border--color("error");
+  }
 }

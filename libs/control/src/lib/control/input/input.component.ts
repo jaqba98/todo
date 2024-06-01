@@ -39,10 +39,13 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input() value: string;
 
+  @Input() isError: boolean;
+
   constructor() {
     this.type = "text";
     this.label = "";
     this.value = "";
+    this.isError = false;
   }
 
   // TODO: I am here

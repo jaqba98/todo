@@ -13,6 +13,7 @@ export const Default: Story = {
   args: {
     type: "text",
     label: "Login",
-    value: ""
+    value: "",
+    isError: false
   }
 };
