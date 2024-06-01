@@ -1,14 +1,7 @@
-@mixin box-model--margin($top: null, $right: null, $bottom: null, $left: null) {
-  @if $top != null {
-    margin-top: $top;
-  }
-  @if $right != null {
-    margin-right: $right;
-  }
-  @if $bottom != null {
-    margin-bottom: $bottom;
-  }
-  @if $left != null {
-    margin-left: $left;
-  }
+@mixin box-model--margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin: $top $right $bottom $left;
+}
+
+@mixin box-model--padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding: $top $right $bottom $left;
 }

@@ -1,12 +1,3 @@
-<!-- TODO: I am here -->
-<div class="input">
-       <lib-label [value]="label"
-                  (click)="onClick()"></lib-label>
-       <input #input
-              class="input__control"
-              [type]="type"
-              [(ngModel)]="value"
-              (input)="onInput()"
-              (focus)="isSelected = true"
-              (blur)="isSelected = false">
-</div>
+<lib-label [value]="label"
+           (event)="onClick()"></lib-label>
+<input class="input">

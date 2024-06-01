@@ -1,0 +1,14 @@
+@use "./size";
+@use "./box-model";
+@use "./border";
+@use "./bg";
+
+@mixin control--default {
+  @include size.width--full;
+  @include box-model.box-model--padding(1rem, 1rem, 1rem, 1rem);
+  @include border.border;
+  @include border.border--color("white--dark");
+  @include border.border--radius(5px);
+  @include bg.bg--color("white");
+  outline: none;
+}

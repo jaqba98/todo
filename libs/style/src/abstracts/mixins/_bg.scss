@@ -1,0 +1,23 @@
+@use "../variables/colors";
+
+@mixin bg--color($color) {
+  @if $color == "white" {
+    background-color: colors.$color__white;
+  } @else if $color == "white--dark" {
+    background-color: colors.$color__white--dark;
+  } @else if $color == "default" {
+    background-color: colors.$color__default;
+  } @else if $color == "primary" {
+    background-color: colors.$color__primary;
+  } @else if $color == "success" {
+    background-color: colors.$color__success;
+  } @else if $color == "error" {
+    background-color: colors.$color__error;
+  } @else if $color == "warning" {
+    background-color: colors.$color__warning;
+  } @else if $color == "info" {
+    background-color: colors.$color__info;
+  } @else {
+    @error "Not supported bg color: #{$color}";
+  }
+}

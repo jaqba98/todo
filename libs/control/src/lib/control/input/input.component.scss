@@ -1,9 +1,5 @@
-// @use "../../../../../style";
+@use "@todo/style";
 
-// .input {
-//     &__control {
-//         @include style.control__default-font;
-//         @include style.control__default;
-//         @include style.full-width;
-//     }
-// }
+.input {
+  @include style.control--default;
+}

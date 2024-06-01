@@ -1,7 +1,11 @@
 @use "../variables/colors";
 
 @mixin text--color($color) {
-  @if $color == "default" {
+  @if $color == "white" {
+    color: colors.$color__white;
+  } @else if $color == "white-dark" {
+    color: colors.$color__white--dark;
+  } @else if $color == "default" {
     color: colors.$color__default;
   } @else if $color == "primary" {
     color: colors.$color__primary;

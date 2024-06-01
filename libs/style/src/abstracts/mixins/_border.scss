@@ -1,0 +1,31 @@
+@use "../variables/colors";
+
+@mixin border--color($color) {
+  @if $color == "white" {
+    border-color: colors.$color__white;
+  } @else if $color == "white--dark" {
+    border-color: colors.$color__white--dark;
+  } @else if $color == "default" {
+    border-color: colors.$color__default;
+  } @else if $color == "primary" {
+    border-color: colors.$color__primary;
+  } @else if $color == "success" {
+    border-color: colors.$color__success;
+  } @else if $color == "error" {
+    border-color: colors.$color__error;
+  } @else if $color == "warning" {
+    border-color: colors.$color__warning;
+  } @else if $color == "info" {
+    border-color: colors.$color__info;
+  } @else {
+    @error "Not supported border color: #{$color}";
+  }
+}
+
+@mixin border {
+  border: 1px solid;
+}
+
+@mixin border--radius($radius) {
+  border-radius: $radius;
+}
