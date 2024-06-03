@@ -1,10 +1,19 @@
 import { Meta, StoryObj } from "@storybook/angular";
 
 import { InputComponent } from "./input.component";
+import { InputEnum } from "../../enum/input.enum";
 
 const meta: Meta<InputComponent> = {
   component: InputComponent,
-  title: "control/input"
+  title: "control/input",
+  argTypes: {
+    type: {
+      options: Object.values(InputEnum),
+      control: {
+        type: "select"
+      }
+    }
+  }
 };
 export default meta;
 type Story = StoryObj<InputComponent>;
