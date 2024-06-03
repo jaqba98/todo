@@ -1,19 +1,28 @@
-// @use "../../../../../style";
+@use "@todo/style";
 
-// .button {
-//     @include style.control__default;
-//     @include style.control__active;
-//     @include style.flex(center, space-between, 1rem);
+.button {
+  @include style.control--default;
+  @include style.control--button;
 
-//     &__primary {
-//         @include style.control__primary;
-//     }
+  &:active {
+    @include style.control--button__selected-default;
+  }
 
-//     &__full-size {
-//         @include style.full-width;
-//     }
+  &__primary {
+    @include style.control--button__primary;
+  }
 
-//     &__value-center {
-//         @include style.justify-content(center);
-//     }
-// }
+  &__full-size {
+    @include style.width--full;
+  }
+
+  &__value-center {
+    @include style.justify-content(center);
+  }
+}
+
+.button__primary {
+  &:active {
+    @include style.control--button__selected-primary;
+  }
+}

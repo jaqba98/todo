@@ -4,7 +4,7 @@ import { ButtonComponent } from "./button.component";
 
 const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
-  title: "Control/ButtonComponent"
+  title: "control/button"
 };
 export default meta;
 type Story = StoryObj<ButtonComponent>;

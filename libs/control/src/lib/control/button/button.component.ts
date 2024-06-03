@@ -11,6 +11,7 @@ import { CommonModule } from "@angular/common";
 import { ButtonType } from "../../type/control.type";
 import { IconComponent } from "../icon/icon.component";
 import { TextComponent } from "../text/text.component";
+import { ColorEnum } from "../../enum/color.enum";
 
 @Component({
   selector: "lib-button",
@@ -27,32 +28,53 @@ export class ButtonComponent {
   @ViewChild("button", { static: false })
     button!: ElementRef<HTMLElement>;
 
-  @Input() type: ButtonType = "button";
+  @Input() type: ButtonType;
 
-  @Input({ required: true }) value!: string;
+  @Input({ required: true }) value: string;
 
-  @Input() fullSize = false;
+  @Input() fullSize: boolean;
 
-  @Input() leftIconVisible = false;
+  @Input() leftIconVisible: boolean;
 
-  @Input() leftIconSrc = "";
+  @Input() leftIconSrc: string;
 
-  @Input() leftIconAlt = "";
+  @Input() leftIconAlt: string;
 
-  @Input() rightIconVisible = false;
+  @Input() rightIconVisible: boolean;
 
-  @Input() rightIconSrc = "";
+  @Input() rightIconSrc: string;
 
-  @Input() rightIconAlt = "";
+  @Input() rightIconAlt: string;
 
-  @Input() isPrimary = false;
+  @Input() isPrimary: boolean;
 
-  @Output() eventClick = new EventEmitter();
+  @Output() eventClick: EventEmitter<boolean>;
 
-  @Output() eventBlur = new EventEmitter();
+  @Output() eventBlur: EventEmitter<boolean>;
+
+  constructor() {
+    this.type = "button";
+    this.value = "";
+    this.fullSize = false;
+    this.leftIconVisible = false;
+    this.leftIconSrc = "";
+    this.leftIconAlt = "";
+    this.rightIconVisible = false;
+    this.rightIconSrc = "";
+    this.rightIconAlt = "";
+    this.isPrimary = false;
+    this.eventClick = new EventEmitter<boolean>();
+    this.eventBlur = new EventEmitter<boolean>();
+  }
 
   get nativeElement(): HTMLElement {
     return this.button.nativeElement;
+  }
+
+  getTextColor(): ColorEnum {
+    return this.isPrimary ?
+      ColorEnum.colorWhite :
+      ColorEnum.colorDefault;
   }
 
   onClick() {
@@ -64,6 +86,7 @@ export class ButtonComponent {
   }
 
   disabledIcons() {
-    return !this.leftIconVisible && !this.rightIconVisible;
+    return !this.leftIconVisible
+        && !this.rightIconVisible;
   }
 }

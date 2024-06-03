@@ -4,6 +4,8 @@
 @use "bg";
 @use "text";
 @use "outline";
+@use "cursor";
+@use "flex";
 
 @mixin control--default {
   @include box-model.box-model--padding(1rem, 1rem, 1rem, 1rem);
@@ -18,4 +20,26 @@
 
 @mixin control--input {
   @include size.width--full;
+}
+
+@mixin control--button {
+  @include cursor.set-cursor(pointer);
+  @include flex.flex(center, space-between, 1rem);
+}
+
+@mixin control--button__primary {
+  @include border.border--color("primary");
+  @include bg.bg--color("primary");
+}
+
+@mixin control--button__selected-default {
+  outline: 2px solid;
+  @include outline.outline-color("white--dark");
+  outline-offset: 2px;
+}
+
+@mixin control--button__selected-primary {
+  outline: 2px solid;
+  @include outline.outline-color("primary");
+  outline-offset: 2px;
 }

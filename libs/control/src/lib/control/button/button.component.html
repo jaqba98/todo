@@ -6,17 +6,18 @@
         [type]="type"
         (click)="onClick()"
         (blur)="onBlur()">
-        <ng-container *ngIf="leftIconVisible">
-                <lib-icon [src]="leftIconSrc"
-                          [alt]="leftIconAlt"
-                          [width]="20"
-                          [height]="20"></lib-icon>
-        </ng-container>
-        <lib-text [value]="value"></lib-text>
-        <ng-container *ngIf="rightIconVisible">
-                <lib-icon [src]="rightIconSrc"
-                          [alt]="rightIconAlt"
-                          [width]="20"
-                          [height]="20"></lib-icon>
-        </ng-container>
+          <ng-container *ngIf="leftIconVisible">
+            <lib-icon [src]="leftIconSrc"
+                      [alt]="leftIconAlt"
+                      [width]="20"
+                      [height]="20"></lib-icon>
+          </ng-container>
+          <lib-text [value]="value"
+                    [color]="getTextColor()"></lib-text>
+          <ng-container *ngIf="rightIconVisible">
+            <lib-icon [src]="rightIconSrc"
+                      [alt]="rightIconAlt"
+                      [width]="20"
+                      [height]="20"></lib-icon>
+          </ng-container>
 </button>
