@@ -4,6 +4,10 @@
   @include style.control--default;
   @include style.control--input;
 
+  &__selected {
+    @include style.border--color("grey"); 
+  }
+
   &__error {
     @include style.border--color("error");
   }

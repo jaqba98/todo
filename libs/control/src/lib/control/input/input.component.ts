@@ -39,24 +39,25 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input() value: string;
 
+  @Input() isSelected: boolean;
+
   @Input() isError: boolean;
+
+  onChange: OnChangeType<string> = (value: string) => {
+    return value;
+  };
+
+  onTouch: OnTouchType = () => {
+    return;
+  };
 
   constructor() {
     this.type = "text";
     this.label = "";
     this.value = "";
+    this.isSelected = false;
     this.isError = false;
   }
-
-  // TODO: I am here
-
-  isSelected = false;
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: OnChangeType<string> = (_value: string) => {};
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onTouch: OnTouchType = () => {};
 
   writeValue(value: string) {
     this.value = value;
@@ -77,5 +78,9 @@ export class InputComponent implements ControlValueAccessor {
   onClick() {
     this.input.nativeElement.focus();
     this.isSelected = true;
+  }
+
+  onBlur() {
+    this.isSelected = false; 
   }
 }

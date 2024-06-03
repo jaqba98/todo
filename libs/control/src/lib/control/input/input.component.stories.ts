@@ -14,6 +14,7 @@ export const Default: Story = {
     type: "text",
     label: "Login",
     value: "",
+    isSelected: false,
     isError: false
   }
 };

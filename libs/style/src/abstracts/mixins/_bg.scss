@@ -5,6 +5,8 @@
     background-color: colors.$color__white;
   } @else if $color == "white--dark" {
     background-color: colors.$color__white--dark;
+  } @else if $color == "grey" {
+    background-color: colors.$color__grey;
   } @else if $color == "default" {
     background-color: colors.$color__default;
   } @else if $color == "primary" {

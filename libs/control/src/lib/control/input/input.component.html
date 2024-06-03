@@ -4,5 +4,9 @@
 <input #input
        class="input"
        [type]="type"
+       [class.input__selected]="isSelected"
        [class.input__error]="isError"
-       [(ngModel)]="value">
+       [(ngModel)]="value"
+       (focus)="onClick()"
+       (blur)="onBlur()"
+       (input)="onInput()">

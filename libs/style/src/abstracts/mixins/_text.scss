@@ -5,6 +5,8 @@
     color: colors.$color__white;
   } @else if $color == "white-dark" {
     color: colors.$color__white--dark;
+  } @else if $color == "white-darker" {
+    color: colors.$color__white--darker;
   } @else if $color == "default" {
     color: colors.$color__default;
   } @else if $color == "primary" {

@@ -5,6 +5,8 @@
     border-color: colors.$color__white;
   } @else if $color == "white--dark" {
     border-color: colors.$color__white--dark;
+  } @else if $color == "grey" {
+    border-color: colors.$color__grey;
   } @else if $color == "default" {
     border-color: colors.$color__default;
   } @else if $color == "primary" {
