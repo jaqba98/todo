@@ -9,7 +9,8 @@ const config: StorybookConfig = {
   framework: {
     name: "@storybook/angular",
     options: {}
-  }
+  },
+  staticDirs: ["../../../apps/todo/src"]
 };
 
 export default config;
