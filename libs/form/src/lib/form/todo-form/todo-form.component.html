@@ -23,7 +23,7 @@
                           value="Error deadline!"
                           *ngIf="isNotValidField('deadline')"></lib-message-status> -->
       <!-- priority -->
-      <lib-select id="priority" label="Priority" [options]="priority.getArray()" formControlName="priority"></lib-select>
+      <lib-select id="priority" label="Priority" [options]="priority.getHeaders()" formControlName="priority"></lib-select>
       <!-- <lib-message-status type="error"
                           value="Error priority!"
                           *ngIf="isNotValidField('priority')"></lib-message-status> -->

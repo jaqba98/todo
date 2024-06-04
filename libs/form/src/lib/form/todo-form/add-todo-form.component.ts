@@ -7,19 +7,21 @@ import {
   AddTodoFormStoreModel,
   AddTodoFormStoreService,
   ButtonAddViewStoreService,
-  GetPriorityService,
+  PriorityService,
   PriorityEnum,
   ToastViewStoreService,
-  TodoCoreStoreService
+  TodosCoreStoreService
 } from "@todo/store";
 
 import { BaseFormService } from "../base/base-form.service";
+import {
+  InputComponent,
+  MessageStatusComponent,
+  RangeComponent,
+  SelectComponent,
+  ButtonComponent
+} from "@todo/control";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
-import { InputComponent } from "../../control/input/input.component";
-import { MessageStatusComponent } from "../../control/message-status/message-status.component";
-import { RangeComponent } from "../../control/range/range.component";
-import { SelectComponent } from "../../control/select/select.component";
-import { ButtonComponent } from "../../control/button/button.component";
 
 @Component({
   selector: "lib-add-todo-form",
@@ -46,8 +48,8 @@ export class AddTodoFormComponent
   
   constructor(
     store: AddTodoFormStoreService,
-    readonly priority: GetPriorityService,
-    private readonly coreStore: TodoCoreStoreService,
+    readonly priority: PriorityService,
+    private readonly coreStore: TodosCoreStoreService,
     private readonly buttonStore: ButtonAddViewStoreService,
     private readonly toastStore: ToastViewStoreService
   ) {
@@ -55,8 +57,10 @@ export class AddTodoFormComponent
       name: ["", Validators.required],
       description: ["", Validators.required],
       range: [0, Validators.required],
-      deadline: [format(new Date(), "yyyy-MM-dd"), Validators.required],
-      priority: [PriorityEnum.low, Validators.required],
+      deadline: [
+        format(new Date(), "yyyy-MM-dd"), Validators.required
+      ],
+      priority: [PriorityEnum.doNotDo, Validators.required],
       tags: ["", Validators.required]
     }, store);
   }
@@ -72,11 +76,11 @@ export class AddTodoFormComponent
     const value = this.getValue();
     this.coreStore.addTodo({ ...value, isEdited: false });
     this.store.cleanModel();
-    this.toastStore.switchIsVisible();
+    this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
   }
 
   onClick() {
-    this.buttonStore.switchIsOpened();
+    this.buttonStore.changeIsOpened(false);
   }
 }
