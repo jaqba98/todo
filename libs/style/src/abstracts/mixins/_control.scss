@@ -10,7 +10,7 @@
 @mixin control--default {
   @include box-model.box-model--padding(1rem, 1rem, 1rem, 1rem);
   @include border.border;
-  @include border.border--color("white--dark");
+  @include border.border--color("white-dark");
   @include border.border--radius(5px);
   @include bg.bg--color("white");
   @include text.text--color("default");
@@ -34,7 +34,7 @@
 
 @mixin control--button__selected-default {
   outline: 2px solid;
-  @include outline.outline-color("white--dark");
+  @include outline.outline-color("white-dark");
   outline-offset: 2px;
 }
 

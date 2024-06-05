@@ -1,3 +1,3 @@
-<div class="message-status" [ngClass]="type">
-    <lib-text [value]="value" [type]="type"></lib-text>
+<div class="message-status" [ngClass]="getMessageStatusColor()">
+  <lib-text [value]="value" [color]="color"></lib-text>
 </div>

@@ -7,7 +7,7 @@
 @mixin outline-color($color) {
   @if $color == "white" {
     outline-color: colors.$color__white;
-  } @else if $color == "white--dark" {
+  } @else if $color == "white-dark" {
     outline-color: colors.$color__white--dark;
   } @else if $color == "grey" {
     outline-color: colors.$color__grey;

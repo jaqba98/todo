@@ -5,7 +5,7 @@
   @include style.control--input;
 
   &__selected {
-    @include style.border--color("grey"); 
+    @include style.border--color("white-darker"); 
   }
 
   &__error {

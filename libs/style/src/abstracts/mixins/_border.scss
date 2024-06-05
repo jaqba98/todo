@@ -1,24 +1,28 @@
 @use "../variables/colors";
 
-@mixin border--color($color) {
+@function _border--color($color, $alpha) {
+  @return rgba(red($color), green($color), blue($color), $alpha);
+}
+
+@mixin border--color($color, $alpha: 1) {
   @if $color == "white" {
-    border-color: colors.$color__white;
-  } @else if $color == "white--dark" {
-    border-color: colors.$color__white--dark;
-  } @else if $color == "grey" {
-    border-color: colors.$color__grey;
+    border-color: _border--color(colors.$color__white, $alpha);
+  } @else if $color == "white-dark" {
+    border-color: _border--color(colors.$color__white--dark, $alpha);
+  } @else if $color == "white-darker" {
+    border-color: _border--color(colors.$color__white--darker, $alpha);
   } @else if $color == "default" {
-    border-color: colors.$color__default;
+    border-color: _border--color(colors.$color__default, $alpha);
   } @else if $color == "primary" {
-    border-color: colors.$color__primary;
+    border-color: _border--color(colors.$color__primary, $alpha);
   } @else if $color == "success" {
-    border-color: colors.$color__success;
+    border-color: _border--color(colors.$color__success, $alpha);
   } @else if $color == "error" {
-    border-color: colors.$color__error;
+    border-color: _border--color(colors.$color__error, $alpha);
   } @else if $color == "warning" {
-    border-color: colors.$color__warning;
+    border-color: _border--color(colors.$color__warning, $alpha);
   } @else if $color == "info" {
-    border-color: colors.$color__info;
+    border-color: _border--color(colors.$color__info, $alpha);
   } @else {
     @error "Not supported border color: #{$color}";
   }

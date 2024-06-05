@@ -1,8 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { TextComponent } from "../text/text.component";
 import { ColorEnum } from "../../enum/color.enum";
+import { TextComponent } from "../text/text.component";
 
 @Component({
   selector: "lib-message-status",
@@ -15,7 +15,16 @@ import { ColorEnum } from "../../enum/color.enum";
   styleUrl: "./message-status.component.scss"
 })
 export class MessageStatusComponent {
-  @Input() type: ColorEnum = ColorEnum.colorDefault;
+  @Input() value: string;
 
-  @Input({ required: true }) value = "";
+  @Input() color: ColorEnum;
+
+  constructor() {
+    this.value = "";
+    this.color = ColorEnum.colorDefault;
+  }
+
+  getMessageStatusColor(): string {
+    return `message-status__${this.color}`;
+  }
 }
