@@ -1,5 +1,7 @@
 export * from "./lib/store/base/base-store.service";
 export * from "./lib/store/core/todos-core-store.service";
+export * from "./lib/model/core/todos-core-store.model";
+export * from "./lib/model/base/todo-base-store.model";
 export * from "./lib/store/view/button-add-view-store.service";
 export * from "./lib/store/view/toast-view-store.service";
 export * from "./lib/store/form/add-todo-form-store.service";

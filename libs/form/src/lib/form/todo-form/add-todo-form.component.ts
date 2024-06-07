@@ -1,4 +1,9 @@
-import { Component, OnDestroy } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  Output
+} from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { format } from "date-fns";
 
@@ -15,7 +20,8 @@ import {
   TodosCoreStoreService,
   ToastViewStoreService,
   PriorityEnum,
-  ButtonAddViewStoreService
+  ButtonAddViewStoreService,
+  TodoBaseStoreModel
 } from "@todo/store";
 import { BaseFormService } from "../../base/base-form.service";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
@@ -36,6 +42,7 @@ import { AddTodoFormModel } from "../../model/add-todo-form.model";
 export class AddTodoFormComponent
   extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel>
   implements OnDestroy {
+  @Output() event: EventEmitter<TodoBaseStoreModel>;
   
   constructor(
     protected override readonly store: AddTodoFormStoreService,
@@ -54,6 +61,7 @@ export class AddTodoFormComponent
       priority: [PriorityEnum.doItFirst, Validators.required],
       tags: ["", Validators.required]
     }, store);
+    this.event = new EventEmitter<TodoBaseStoreModel>();
   }
 
   ngOnDestroy(): void {
@@ -69,6 +77,7 @@ export class AddTodoFormComponent
     this.store.cleanModel();
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.event.emit(value);
   }
 
   onClick() {

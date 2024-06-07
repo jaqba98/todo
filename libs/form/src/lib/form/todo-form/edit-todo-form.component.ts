@@ -1,7 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
-  OnDestroy
+  OnDestroy,
+  OnInit,
+  Output
 } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
 import { format } from "date-fns";
@@ -20,7 +23,8 @@ import {
   TodosCoreStoreService,
   PriorityEnum,
   ButtonAddViewStoreService,
-  ToastViewStoreService
+  ToastViewStoreService,
+  TodoCoreStoreModel
 } from "@todo/store";
 import { BaseFormService } from "../../base/base-form.service";
 import { EditTodoFormModel } from "../../model/edit-todo-form.model";
@@ -40,11 +44,12 @@ import { EditTodoFormModel } from "../../model/edit-todo-form.model";
 })
 export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
-  implements OnDestroy {
-
+  implements OnInit, OnDestroy {
   @Input() id = "";
+  
+  @Output() event: EventEmitter<TodoCoreStoreModel>;
 
-  private coreSub: Subscription;
+  private coreSub!: Subscription;
 
   constructor(
     protected override readonly store: EditTodoFormStoreService,
@@ -63,6 +68,10 @@ export class EditTodoFormComponent
       priority: [PriorityEnum.doItFirst, Validators.required],
       tags: ["", Validators.required]
     }, store);
+    this.event = new EventEmitter<TodoCoreStoreModel>();
+  }
+
+  ngOnInit() {
     this.coreSub = this.coreStore.getModel().subscribe(model => {
       const todo = model.todos.get(this.id);
       if (!todo)
@@ -81,9 +90,11 @@ export class EditTodoFormComponent
     const { invalid } = this.getFormGroup();
     if (invalid) return;
     const value = this.getFormGroupValue();
-    this.coreStore.editTodo(this.id, { ...value, isEdited: false });
+    const todo = { ...value, isEdited: false };
+    this.coreStore.editTodo(this.id, todo);
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.event.emit(todo);
   }
 
   onClick() {
