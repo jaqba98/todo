@@ -1,9 +1,0 @@
-<ng-container *ngIf="isVisible">
-    <div class="toast-view"
-         [class.toast-view__success]="status === 'success'"
-         [class.toast-view__error]="status === 'error'"
-         [class.toast-view__warning]="status === 'warning'">
-        <p>{{value}}</p>
-        <button (click)="onClick()">X</button>
-    </div>
-</ng-container>
