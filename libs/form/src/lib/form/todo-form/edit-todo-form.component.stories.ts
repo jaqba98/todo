@@ -3,7 +3,6 @@ import {
   type Meta,
   type StoryObj
 } from "@storybook/angular";
-import { action } from "@storybook/addon-actions";
 
 import { EditTodoFormComponent } from "./edit-todo-form.component";
 import { PriorityEnum, TodosCoreStoreService } from "@todo/store";
@@ -34,16 +33,14 @@ const meta: Meta<EditTodoFormComponent> = {
         useClass: MockTodosCoreStoreService
       }]
     })
-  ]
+  ],
+  argTypes: {
+    event: { action: "event" }
+  }
 };
 export default meta;
 type Story = StoryObj<EditTodoFormComponent>;
 
 export const Primary: Story = {
-  args: {
-    id: "1"
-  },
-  parameters: {
-    onSubmit: action("event")
-  }
+  args: { id: "1" }
 };
