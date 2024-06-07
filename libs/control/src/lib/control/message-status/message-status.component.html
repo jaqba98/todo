@@ -1,3 +1,5 @@
-<div class="message-status" [ngClass]="getMessageStatusColor()">
-  <lib-text [value]="value" [color]="color"></lib-text>
-</div>
+<ng-container *ngIf="isVisible">
+  <div class="message-status" [ngClass]="getMessageStatusColor()">
+    <lib-text [value]="value" [color]="color"></lib-text>
+  </div>
+</ng-container>

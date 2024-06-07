@@ -6,3 +6,4 @@ export * from "./lib/control/message-status/message-status.component";
 export * from "./lib/control/range/range.component";
 export * from "./lib/control/select/select.component";
 export * from "./lib/control/text/text.component";
+export * from "./lib/enum/color.enum";

@@ -4,11 +4,9 @@ import { AddTodoFormComponent } from "./add-todo-form.component";
 
 const meta: Meta<AddTodoFormComponent> = {
   component: AddTodoFormComponent,
-  title: "Form/AddTodoFormComponent"
+  title: "form/add-todo"
 };
 export default meta;
 type Story = StoryObj<AddTodoFormComponent>;
 
-export const Primary: Story = {
-  args: {}
-};
+export const Primary: Story = {};

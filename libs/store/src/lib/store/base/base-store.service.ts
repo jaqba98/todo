@@ -10,7 +10,8 @@ export class BaseStoreService<TModel> {
     this.baseModel = cloneDeep(model);
   }
 
-  emitModel() {
+  emitModel(model?: TModel) {
+    if (model) this.model = cloneDeep(model);
     this.subject.next(this.model);
   }
 

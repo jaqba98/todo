@@ -1,39 +1,41 @@
-<form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()" class="todo-form">
-  <div class="todo-form__container">
-    <h2 class="todo-form__title">{{title}}</h2>
-    <div class="todo-form__controls">
+<form [formGroup]="getFormGroup()"
+      (ngSubmit)="onSubmit()">
       <!-- name -->
-      <lib-input label="Name" formControlName="name"></lib-input>
-      <!-- <lib-message-status type="error"
-                          value="Error name!"
-                          *ngIf="isNotValidField('name')"></lib-message-status> -->
+      <lib-input label="Name"
+                 formControlName="name"></lib-input>
+      <lib-message-status [color]="getColorError()"
+                          [isVisible]="isFieldNotValid('name') && isSubmitted"
+                          value="Error name!"></lib-message-status>
       <!-- description -->
-      <lib-input label="Description" formControlName="description"></lib-input>
-      <!-- <lib-message-status type="error"
-                          value="Error description!"
-                          *ngIf="isNotValidField('description')"></lib-message-status> -->
+      <lib-input label="Description"
+                 formControlName="description"></lib-input>
+      <lib-message-status [color]="getColorError()"
+                          [isVisible]="isFieldNotValid('description') && isSubmitted"
+                          value="Error description!"></lib-message-status>
       <!-- range -->
-      <lib-range formControlName="range"></lib-range>
-      <!-- <lib-message-status type="error"
-                      value="Error range!"
-                      *ngIf="isNotValidField('range')"></lib-message-status> -->
+      <lib-range label="Range"
+                 formControlName="range"></lib-range>
+      <lib-message-status [color]="getColorError()"
+                          [isVisible]="isFieldNotValid('range') && isSubmitted"
+                          value="Error range!"></lib-message-status>
       <!-- deadline -->
-      <lib-input type="date" label="Deadline"  formControlName="deadline"></lib-input>
-      <!-- <lib-message-status type="error"
-                          value="Error deadline!"
-                          *ngIf="isNotValidField('deadline')"></lib-message-status> -->
+      <lib-input type="date"
+                 label="Deadline"
+                 formControlName="deadline"></lib-input>
+      <lib-message-status [color]="getColorError()"
+                          [isVisible]="isFieldNotValid('deadline') && isSubmitted"
+                          value="Error deadline"></lib-message-status>
       <!-- priority -->
-      <lib-select id="priority" label="Priority" [options]="priority.getHeaders()" formControlName="priority"></lib-select>
-      <!-- <lib-message-status type="error"
-                          value="Error priority!"
-                          *ngIf="isNotValidField('priority')"></lib-message-status> -->
       <!-- tags -->
-      <lib-input label="Tags" formControlName="tags"></lib-input>
-      <!-- <lib-message-status type="error"
-                          value="Error tags!"
-                          *ngIf="isNotValidField('tags')"></lib-message-status> -->
-    </div>
-    <lib-button type="submit" [value]="submitButton" [fullSize]="true" [isPrimary]="true"></lib-button>
-    <lib-button value="Back" (click)="onClick()" [fullSize]="true"></lib-button>
-  </div>
+      <lib-input label="Tags"
+                 formControlName="tags"></lib-input>
+      <lib-message-status [color]="getColorError()"
+                    [isVisible]="isFieldNotValid('tags') && isSubmitted"
+                    value="Error tags!"></lib-message-status>
+      <!-- buttons -->
+      <lib-button type="submit"
+                  value="Add"
+                  [isPrimary]="true"></lib-button>
+      <lib-button value="Back"
+                  (click)="onClick()"></lib-button>
 </form>

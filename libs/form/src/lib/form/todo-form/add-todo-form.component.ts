@@ -1,19 +1,7 @@
 import { Component, OnDestroy } from "@angular/core";
 import { ReactiveFormsModule, Validators } from "@angular/forms";
-import { CommonModule } from "@angular/common";
 import { format } from "date-fns";
 
-import {
-  AddTodoFormStoreModel,
-  AddTodoFormStoreService,
-  ButtonAddViewStoreService,
-  PriorityService,
-  PriorityEnum,
-  ToastViewStoreService,
-  TodosCoreStoreService
-} from "@todo/store";
-
-import { BaseFormService } from "../base/base-form.service";
 import {
   InputComponent,
   MessageStatusComponent,
@@ -21,13 +9,21 @@ import {
   SelectComponent,
   ButtonComponent
 } from "@todo/control";
+import {
+  AddTodoFormStoreModel,
+  AddTodoFormStoreService,
+  TodosCoreStoreService,
+  ToastViewStoreService,
+  PriorityEnum,
+  ButtonAddViewStoreService
+} from "@todo/store";
+import { BaseFormService } from "../../base/base-form.service";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
 
 @Component({
   selector: "lib-add-todo-form",
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     InputComponent,
     MessageStatusComponent,
@@ -35,37 +31,32 @@ import { AddTodoFormModel } from "../../model/add-todo-form.model";
     SelectComponent,
     ButtonComponent
   ],
-  templateUrl: "./todo-form.component.html",
-  styleUrl: "./todo-form.component.scss"
+  templateUrl: "./todo-form.component.html"
 })
 export class AddTodoFormComponent
   extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel>
   implements OnDestroy {
-
-  readonly title = "Add Todo";
-
-  readonly submitButton = "Add";
   
   constructor(
-    store: AddTodoFormStoreService,
-    readonly priority: PriorityService,
+    protected override readonly store: AddTodoFormStoreService,
     private readonly coreStore: TodosCoreStoreService,
-    private readonly buttonStore: ButtonAddViewStoreService,
-    private readonly toastStore: ToastViewStoreService
+    private readonly toastStore: ToastViewStoreService,
+    private readonly buttonAddStore: ButtonAddViewStoreService
   ) {
     super({
       name: ["", Validators.required],
       description: ["", Validators.required],
       range: [0, Validators.required],
       deadline: [
-        format(new Date(), "yyyy-MM-dd"), Validators.required
+        format(new Date(), "yyyy-MM-dd"),
+        Validators.required
       ],
-      priority: [PriorityEnum.doNotDo, Validators.required],
+      priority: [PriorityEnum.doItFirst, Validators.required],
       tags: ["", Validators.required]
     }, store);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsubscribeFormGroup();
   }
 
@@ -73,7 +64,7 @@ export class AddTodoFormComponent
     this.isSubmitted = true;
     const { invalid } = this.getFormGroup();
     if (invalid) return;
-    const value = this.getValue();
+    const value = this.getFormGroupValue();
     this.coreStore.addTodo({ ...value, isEdited: false });
     this.store.cleanModel();
     this.toastStore.changeIsVisible(true);
@@ -81,6 +72,6 @@ export class AddTodoFormComponent
   }
 
   onClick() {
-    this.buttonStore.changeIsOpened(false);
+    this.buttonAddStore.changeIsOpened(false);
   }
 }

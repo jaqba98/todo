@@ -17,10 +17,13 @@ import { TextComponent } from "../text/text.component";
 export class MessageStatusComponent {
   @Input() value: string;
 
+  @Input() isVisible: boolean;
+
   @Input() color: ColorEnum;
 
   constructor() {
     this.value = "";
+    this.isVisible = true;
     this.color = ColorEnum.colorDefault;
   }
 
