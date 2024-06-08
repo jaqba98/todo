@@ -1,0 +1,5 @@
+@use "@todo/style";
+
+.flex-view {
+  @include style.flex(stretch, stretch, 0);
+}
