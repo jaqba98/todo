@@ -8,6 +8,7 @@
   class="textarea"
   [class.textarea__selected]="isSelected"
   [class.textarea__error]="isError"
+  [style.height]="height"
   [(ngModel)]="value"
   (focus)="onClick()"
   (blur)="onBlur()"

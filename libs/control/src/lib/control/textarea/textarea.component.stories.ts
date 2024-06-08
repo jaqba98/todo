@@ -14,6 +14,7 @@ export const Default: Story = {
     label: "Lorem ipsum",
     value: "",
     isSelected: false,
-    isError: false
+    isError: false,
+    height: "100px"
   }
 };

@@ -9,12 +9,11 @@
         [value]="getFieldErrorMessage('name')">
       </lib-message-status>
       <!-- Description -->
-      <lib-textarea label="Description" formControlName="description"></lib-textarea>
-      <lib-message-status
-        [color]="getColorError()"
-        [isVisible]="isFieldNotValid('description') && isSubmitted"
-        [value]="getFieldErrorMessage('description')">
-      </lib-message-status>
+      <lib-textarea
+        label="Description"
+        formControlName="description"
+        height="150px">
+      </lib-textarea>
       <!-- TODO: I am here -->
       <!-- range -->
       <!-- <lib-range label="Range"
