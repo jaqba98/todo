@@ -5,10 +5,7 @@
   "scripts": {
     "build-storybook": "nx run todo-storybook:build-storybook",
     "chromatic": "dotenv -e .env -- pnpx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN",
-    "deploy": "rm -rf dist && rm -rf docs && nx run todo:build && cp -r dist/apps/todo docs && git add -A",
-    "docker:build": "sudo docker build -t todo .",
-    "docker:run": "sudo docker run -it --rm -v .:/app todo",
-    "docker:clean": "sudo docker rmi todo:latest ubuntu:rolling" 
+    "deploy": "rm -rf dist && rm -rf docs && nx run todo:build && cp -r dist/apps/todo docs && git add -A"
   },
   "private": true,
   "dependencies": {
