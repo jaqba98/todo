@@ -6,17 +6,10 @@ import {
   OnInit,
   Output
 } from "@angular/core";
-import { ReactiveFormsModule, Validators } from "@angular/forms";
+import { Validators } from "@angular/forms";
 import { format } from "date-fns";
 import { Subscription } from "rxjs";
 
-import {
-  InputComponent,
-  MessageStatusComponent,
-  RangeComponent,
-  SelectComponent,
-  ButtonComponent
-} from "@todo/control";
 import {
   EditTodoFormStoreModel,
   EditTodoFormStoreService,
@@ -28,20 +21,11 @@ import {
 } from "@todo/store";
 import { BaseFormService } from "../../base/base-form.service";
 import { EditTodoFormModel } from "../../model/edit-todo-form.model";
-import { FlexViewComponent } from "@todo/view";
 
 @Component({
   selector: "lib-edit-todo-form",
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    InputComponent,
-    MessageStatusComponent,
-    RangeComponent,
-    SelectComponent,
-    ButtonComponent,
-    FlexViewComponent
-  ],
+  imports: BaseFormService.imports(),
   templateUrl: "./todo-form.component.html"
 })
 export class EditTodoFormComponent

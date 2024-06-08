@@ -1,8 +1,21 @@
-import { FormGroup, FormBuilder } from "@angular/forms";
+import {
+  FormGroup,
+  FormBuilder,
+  ReactiveFormsModule
+} from "@angular/forms";
 import { Subscription } from "rxjs";
 
 import { BaseStoreService } from "@todo/store";
-import { ColorEnum } from "@todo/control";
+import {
+  ButtonComponent,
+  ColorEnum,
+  InputComponent,
+  MessageStatusComponent,
+  RangeComponent,
+  SelectComponent,
+  TextareaComponent
+} from "@todo/control";
+import { FlexViewComponent } from "@todo/view";
 
 export class BaseFormService<
   TForm extends object,
@@ -23,6 +36,19 @@ export class BaseFormService<
     this.sub = this.store.getModel()
       .subscribe(model => this.formGroup.patchValue(model));
     this.isSubmitted = false;
+  }
+
+  static imports() {
+    return [
+      ReactiveFormsModule,
+      InputComponent,
+      MessageStatusComponent,
+      RangeComponent,
+      SelectComponent,
+      ButtonComponent,
+      TextareaComponent,
+      FlexViewComponent
+    ];
   }
 
   getFormGroup() {

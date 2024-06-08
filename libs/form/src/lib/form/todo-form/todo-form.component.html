@@ -9,7 +9,7 @@
         [value]="getFieldErrorMessage('name')">
       </lib-message-status>
       <!-- Description -->
-      <lib-input label="Description" formControlName="description"></lib-input>
+      <lib-textarea label="Description" formControlName="description"></lib-textarea>
       <lib-message-status
         [color]="getColorError()"
         [isVisible]="isFieldNotValid('description') && isSubmitted"
