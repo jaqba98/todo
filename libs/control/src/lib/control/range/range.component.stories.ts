@@ -4,13 +4,9 @@ import { RangeComponent } from "./range.component";
 
 const meta: Meta<RangeComponent> = {
   component: RangeComponent,
-  title: "Control/RangeComponent"
+  title: "control/range"
 };
 export default meta;
 type Story = StoryObj<RangeComponent>;
 
-export const Primary: Story = {
-  args: {
-    value: "50"
-  }
-};
+export const Primary: Story = {};
