@@ -1,6 +1,6 @@
 export enum FlexDirectionEnum {
-  row = "row",
-  rowReverse = "row-reverse",
-  column = "column",
-  columnReverse = "column-reverse"
+  "row" = "row",
+  "row-reverse" = "row-reverse",
+  "column" = "column",
+  "column-reverse" = "column-reverse"
 }

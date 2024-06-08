@@ -25,6 +25,7 @@ import {
 } from "@todo/store";
 import { BaseFormService } from "../../base/base-form.service";
 import { AddTodoFormModel } from "../../model/add-todo-form.model";
+import { FlexViewComponent } from "@todo/view";
 
 @Component({
   selector: "lib-add-todo-form",
@@ -35,7 +36,8 @@ import { AddTodoFormModel } from "../../model/add-todo-form.model";
     MessageStatusComponent,
     RangeComponent,
     SelectComponent,
-    ButtonComponent
+    ButtonComponent,
+    FlexViewComponent
   ],
   templateUrl: "./todo-form.component.html"
 })
