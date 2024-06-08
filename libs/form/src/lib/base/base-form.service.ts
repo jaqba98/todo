@@ -48,4 +48,13 @@ export class BaseFormService<
   getColorError() {
     return ColorEnum.colorError;
   }
+
+  getFieldErrorMessage(field: string) {
+    const errors = this.getFormGroup().get(field)?.errors;
+    if (!errors) return "";
+    if (errors["required"]) {
+      return `The ${field} field cannot be empty`;
+    }
+    return "Unexpected error!";
+  }
 }

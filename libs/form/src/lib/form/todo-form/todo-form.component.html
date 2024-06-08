@@ -1,25 +1,27 @@
 <form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
   <lib-flex-view flexDirection="column" gap="2rem">
     <lib-flex-view flexDirection="column" gap="0.5rem">
+      <!-- Name -->
+      <lib-input label="Name" formControlName="name"></lib-input>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('name') && isSubmitted"
+        [value]="getFieldErrorMessage('name')">
+      </lib-message-status>
+      <!-- Description -->
+      <lib-input label="Description" formControlName="description"></lib-input>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('description') && isSubmitted"
+        [value]="getFieldErrorMessage('description')">
+      </lib-message-status>
       <!-- TODO: I am here -->
-      <!-- name -->
-      <lib-input label="Name"
-      formControlName="name"></lib-input>
-      <lib-message-status [color]="getColorError()"
-      [isVisible]="isFieldNotValid('name') && isSubmitted"
-      value="Error name!"></lib-message-status>
-      <!-- description -->
-      <lib-input label="Description"
-      formControlName="description"></lib-input>
-      <lib-message-status [color]="getColorError()"
-      [isVisible]="isFieldNotValid('description') && isSubmitted"
-      value="Error description!"></lib-message-status>
       <!-- range -->
-      <lib-range label="Range"
+      <!-- <lib-range label="Range"
       formControlName="range"></lib-range>
       <lib-message-status [color]="getColorError()"
       [isVisible]="isFieldNotValid('range') && isSubmitted"
-      value="Error range!"></lib-message-status>
+      value="Error range!"></lib-message-status> -->
       <!-- deadline -->
       <lib-input type="date"
       label="Deadline"
@@ -35,7 +37,7 @@
       [isVisible]="isFieldNotValid('tags') && isSubmitted"
       value="Error tags!"></lib-message-status>
     </lib-flex-view>
-    <lib-flex-view flexDirection="column" gap="0.5rem">
+    <lib-flex-view flexDirection="row" gap="0.5rem">
       <!-- TODO: I am here -->
       <!-- buttons -->
       <lib-button type="submit"
