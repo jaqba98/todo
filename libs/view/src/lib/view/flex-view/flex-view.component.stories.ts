@@ -29,6 +29,21 @@ export default meta;
 type Story = StoryObj<FlexViewComponent>;
 
 export const Primary: Story = {
+  render: arg => {
+    console.log(arg);
+    return {
+      template: `
+        <lib-flex-view
+          flexDirection="${arg.flexDirection}"
+          gap="${arg.gap}"
+        >
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </lib-flex-view>
+      `
+    };
+  },
   args: {
     flexDirection: "row",
     gap: "0"
