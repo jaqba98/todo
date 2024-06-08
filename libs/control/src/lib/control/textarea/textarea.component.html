@@ -1,0 +1,15 @@
+<lib-label
+  [value]="label"
+  [isError]="isError"
+  (event)="onClick()">
+</lib-label>
+<textarea
+  #textarea
+  class="textarea"
+  [class.input__selected]="isSelected"
+  [class.input__error]="isError"
+  [(ngModel)]="value"
+  (focus)="onClick()"
+  (blur)="onBlur()"
+  (input)="onInput()">
+</textarea>
