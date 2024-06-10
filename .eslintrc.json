@@ -37,23 +37,33 @@
         "eol-last": ["error", "always"],
         "@typescript-eslint/indent": ["error", 2],
         "@typescript-eslint/comma-dangle": ["error", "never"],
-        "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "^_"}],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_"
+          }
+        ],
         "@typescript-eslint/semi": "error",
         "@typescript-eslint/quotes": "error",
         "import-newlines/enforce": [
-          "error", 
+          "error",
           {
             "items": 2,
             "max-len": 70,
             "semi": true
           }
-        ]
+        ],
+        "@typescript-eslint/no-extra-semi": "error",
+        "no-extra-semi": "off"
       }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/no-extra-semi": "error",
+        "no-extra-semi": "off"
+      }
     },
     {
       "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
