@@ -1,1 +1,10 @@
-<p>range welcome!</p>
+<lib-label
+  [value]="getLabel()"
+  [isError]="isError">
+</lib-label>
+<input
+  class="range"
+  type="range"
+  min="0"
+  max="100"
+  [(ngModel)]="value">

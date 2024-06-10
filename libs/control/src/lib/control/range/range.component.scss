@@ -1,0 +1,6 @@
+@use "@todo/style";
+
+.range {
+  @include style.width--full;
+  @include style.accent--color("default");
+}

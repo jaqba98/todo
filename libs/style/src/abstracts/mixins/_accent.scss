@@ -1,0 +1,25 @@
+@use "../variables/colors";
+
+@mixin accent--color($color) {
+  @if $color == "white" {
+    accent-color: colors.$color__white;
+  } @else if $color == "white-dark" {
+    accent-color: colors.$color__white--dark;
+  } @else if $color == "white-darker" {
+    accent-color: colors.$color__white--darker;
+  } @else if $color == "default" {
+    accent-color: colors.$color__default;
+  } @else if $color == "primary" {
+    accent-color: colors.$color__primary;
+  } @else if $color == "success" {
+    accent-color: colors.$color__success;
+  } @else if $color == "error" {
+    accent-color: colors.$color__error;
+  } @else if $color == "warning" {
+    accent-color: colors.$color__warning;
+  } @else if $color == "info" {
+    accent-color: colors.$color__info;
+  } @else {
+    @error "Not supported bg color: #{$color}";
+  }
+}
