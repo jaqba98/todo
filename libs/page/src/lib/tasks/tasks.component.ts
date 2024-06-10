@@ -1,22 +1,17 @@
 import { Component } from "@angular/core";
 
 import {
-  TasksViewComponent,
-  ButtonAddViewComponent,
-  TodoListViewComponent,
-  ToastViewComponent
-} from "@todo/ui";
+  AddTodoFormComponent,
+  EditTodoFormComponent
+} from "@todo/form";
 
 @Component({
   selector: "lib-tasks",
   standalone: true,
   imports: [
-    ButtonAddViewComponent,
-    TasksViewComponent,
-    TodoListViewComponent,
-    ToastViewComponent
+    AddTodoFormComponent,
+    EditTodoFormComponent
   ],
-  templateUrl: "./tasks.component.html",
-  styleUrl: "./tesk.component.scss"
+  templateUrl: "./tasks.component.html"
 })
 export class TasksComponent {}
