@@ -39,7 +39,7 @@ export class AddTodoFormComponent
     super({
       name: ["", Validators.required],
       description: ["", []],
-      range: [0, Validators.required],
+      completion: [0, Validators.required],
       deadline: [
         format(new Date(), "yyyy-MM-dd"),
         Validators.required

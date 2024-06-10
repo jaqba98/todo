@@ -3,7 +3,7 @@ import { PriorityEnum } from "../../enum/priority.enum";
 export interface TodoBaseStoreModel {
   name: string;
   description: string;
-  range: number;
+  completion: number;
   deadline: Date;
   priority: PriorityEnum;
   tags: string;

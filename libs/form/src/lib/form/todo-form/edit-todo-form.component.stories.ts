@@ -13,7 +13,7 @@ class MockTodosCoreStoreService extends TodosCoreStoreService {
     this.model.todos.set("1", {
       name: "Name",
       description: "Description",
-      range: 50,
+      completion: 50,
       deadline: new Date(),
       priority: PriorityEnum.doItFirst,
       tags: "Tag1, Tag2",

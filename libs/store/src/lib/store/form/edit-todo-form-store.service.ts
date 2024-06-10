@@ -13,7 +13,7 @@ export class EditTodoFormStoreService
     super({
       name: "",
       description: "",
-      range: 0,
+      completion: 0,
       deadline: new Date(),
       priority: PriorityEnum.doItFirst,
       tags: ""
