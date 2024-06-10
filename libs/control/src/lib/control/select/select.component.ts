@@ -100,7 +100,6 @@ export class SelectComponent {
   onClickOption(option: string) {
     this.value = option;
     this.isOpened = false;
-    this.button.nativeElement.blur();
   }
  
   writeValue(value: string) {
