@@ -15,36 +15,50 @@
         height="150px">
       </lib-textarea>
       <!-- Completion -->
-      <lib-range label="Completion"></lib-range>
-      <!-- TODO: I am here -->
-      <!-- <lib-range label="Range"
-      formControlName="range"></lib-range>
-      <lib-message-status [color]="getColorError()"
-      [isVisible]="isFieldNotValid('range') && isSubmitted"
-      value="Error range!"></lib-message-status> -->
+      <lib-range label="Completion" formControlName="completion"></lib-range>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('completion') && isSubmitted"
+        [value]="getFieldErrorMessage('completion')">
+      </lib-message-status>
       <!-- deadline -->
-      <lib-input type="date"
-      label="Deadline"
-      formControlName="deadline"></lib-input>
-      <lib-message-status [color]="getColorError()"
-      [isVisible]="isFieldNotValid('deadline') && isSubmitted"
-      value="Error deadline"></lib-message-status>
+      <lib-input
+        type="date"
+        label="Deadline"
+        formControlName="deadline">
+      </lib-input>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('deadline') && isSubmitted"
+        [value]="getFieldErrorMessage('deadline')">
+      </lib-message-status>
       <!-- priority -->
+      <lib-select
+        label="Priority"
+        formControlName="priority"
+        value=""
+        [options]="getOptions()">
+      </lib-select>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('priority') && isSubmitted"
+        [value]="getFieldErrorMessage('priority')">
+      </lib-message-status>
       <!-- tags -->
-      <lib-input label="Tags"
-      formControlName="tags"></lib-input>
-      <lib-message-status [color]="getColorError()"
-      [isVisible]="isFieldNotValid('tags') && isSubmitted"
-      value="Error tags!"></lib-message-status>
+      <lib-input
+        label="Tags"
+        formControlName="tags"></lib-input>
     </lib-flex-view>
     <lib-flex-view flexDirection="row" gap="0.5rem">
-      <!-- TODO: I am here -->
-      <!-- buttons -->
-      <lib-button type="submit"
-      value="Add"
-      [isPrimary]="true"></lib-button>
-      <lib-button value="Back"
-      (click)="onClick()"></lib-button>
+      <lib-button
+        type="submit"
+        value="Add"
+        [isPrimary]="true">
+      </lib-button>
+      <lib-button
+        value="Back"
+        (click)="onClick()">
+      </lib-button>
     </lib-flex-view>
   </lib-flex-view>
 </form>

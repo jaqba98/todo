@@ -45,7 +45,7 @@ export class AddTodoFormComponent
         Validators.required
       ],
       priority: [PriorityEnum.doItFirst, Validators.required],
-      tags: ["", Validators.required]
+      tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoBaseStoreModel>();
   }
@@ -68,5 +68,9 @@ export class AddTodoFormComponent
 
   onClick() {
     this.buttonAddStore.changeIsOpened(false);
+  }
+
+  getOptions() {
+    return Object.values(PriorityEnum);
   }
 }

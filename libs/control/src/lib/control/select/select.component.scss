@@ -26,7 +26,6 @@
       @include style.position__relative;
       &-buttons {
         @include style.control--default;
-        @include style.position__absolute;
         @include style.position(8px, auto, auto, auto);
         @include style.height--auto;
       }

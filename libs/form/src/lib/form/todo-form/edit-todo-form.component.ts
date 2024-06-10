@@ -52,7 +52,7 @@ export class EditTodoFormComponent
         Validators.required
       ],
       priority: [PriorityEnum.doItFirst, Validators.required],
-      tags: ["", Validators.required]
+      tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoCoreStoreModel>();
   }
@@ -85,5 +85,9 @@ export class EditTodoFormComponent
 
   onClick() {
     this.buttonAddStore.changeIsOpened(false);
+  }
+
+  getOptions() {
+    return Object.values(PriorityEnum);
   }
 }
