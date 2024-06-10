@@ -1,0 +1,28 @@
+@use "@todo/style";
+
+.button {
+  @include style.control--default;
+  @include style.control--button;
+
+  &:active {
+    @include style.control--button__selected-default;
+  }
+
+  &__primary {
+    @include style.control--button__primary;
+  }
+
+  &__full-size {
+    @include style.width--full;
+  }
+
+  &__value-center {
+    @include style.justify-content(center);
+  }
+}
+
+.button__primary {
+  &:active {
+    @include style.control--button__selected-primary;
+  }
+}

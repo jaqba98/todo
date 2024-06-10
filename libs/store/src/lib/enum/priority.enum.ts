@@ -1,5 +1,6 @@
 export enum PriorityEnum {
-    high = "high",
-    medium = "medium",
-    low = "low"
+  doItFirst = "Do this first",
+  planIt = "Plan it",
+  delegate = "Delegate",
+  doNotDo = "Do not do this"
 }

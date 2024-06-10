@@ -1,0 +1,14 @@
+@use "@todo/style";
+
+.input {
+  @include style.control--default;
+  @include style.control--input;
+
+  &__selected {
+    @include style.border--color("white-darker"); 
+  }
+
+  &__error {
+    @include style.border--color("error");
+  }
+}

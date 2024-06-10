@@ -1,0 +1,29 @@
+@use "../variables/colors";
+
+@mixin outline--none {
+  outline: none;
+}
+
+@mixin outline-color($color) {
+  @if $color == "white" {
+    outline-color: colors.$color__white;
+  } @else if $color == "white-dark" {
+    outline-color: colors.$color__white--dark;
+  } @else if $color == "grey" {
+    outline-color: colors.$color__grey;
+  } @else if $color == "default" {
+    outline-color: colors.$color__default;
+  } @else if $color == "primary" {
+    outline-color: colors.$color__primary;
+  } @else if $color == "success" {
+    outline-color: colors.$color__success;
+  } @else if $color == "error" {
+    outline-color: colors.$color__error;
+  } @else if $color == "warning" {
+    outline-color: colors.$color__warning;
+  } @else if $color == "info" {
+    outline-color: colors.$color__info;
+  } @else {
+    @error "Not supported outline color: #{$color}";
+  }
+}

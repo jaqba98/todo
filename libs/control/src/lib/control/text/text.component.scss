@@ -1,0 +1,47 @@
+@use "@todo/style";
+
+.text {
+  @include style.text--size;
+
+  &__color {
+    &--white {
+      @include style.text--color("white");
+    }
+
+    &--white-dark {
+      @include style.text--color("white-dark");
+    }
+    
+    &--default {
+      @include style.text--color("default");
+    }
+
+    &--primary {
+      @include style.text--color("primary");
+    }
+
+    &--success {
+      @include style.text--color("success");
+    }
+
+    &--error {
+      @include style.text--color("error");
+    }
+
+    &--warning {
+      @include style.text--color("warning");
+    }
+
+    &--info {
+      @include style.text--color("info");
+    }
+  }
+
+  &--underline {
+    @include style.text--underline;
+  }
+
+  &--clickable {
+    @include style.text--clickable;
+  }
+}

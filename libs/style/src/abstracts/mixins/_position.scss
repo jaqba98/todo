@@ -1,0 +1,18 @@
+@mixin position__relative() {
+  position: relative;
+}
+
+@mixin position__fixed() {
+  position: fixed;
+}
+
+@mixin position__absolute() {
+  position: absolute;
+}
+
+@mixin position($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

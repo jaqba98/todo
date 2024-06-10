@@ -37,10 +37,7 @@
         "outputDir": "dist/storybook/page",
         "configDir": "libs/page/.storybook",
         "browserTarget": "page:build-storybook",
-        "compodoc": false,
-        "styles": [
-          "apps/todo/src/styles.scss"
-        ]
+        "compodoc": false
       },
       "configurations": {
         "ci": {

@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "import-newlines"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -25,16 +25,29 @@
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
       "rules": {
-        "@typescript-eslint/no-unused-vars": [
+        "indent": "off",
+        "comma-dangle": "off",
+        "max-len": [
           "error",
           {
-            "argsIgnorePattern": "^_"
+            "code": 70,
+            "ignoreComments": true
           }
         ],
+        "eol-last": ["error", "always"],
+        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/comma-dangle": ["error", "never"],
+        "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "^_"}],
         "@typescript-eslint/semi": "error",
         "@typescript-eslint/quotes": "error",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/no-empty-interface": "off"
+        "import-newlines/enforce": [
+          "error", 
+          {
+            "items": 2,
+            "max-len": 70,
+            "semi": true
+          }
+        ]
       }
     },
     {

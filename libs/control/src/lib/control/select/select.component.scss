@@ -1,0 +1,34 @@
+@use "@todo/style";
+
+.select {
+  @include style.position__relative;
+
+  &__options {
+    @include style.position__fixed;
+    @include style.position;
+    @include style.bg--color("white");
+    @include style.flex(center, center, 0);
+
+    &-buttons {
+      @include style.width--full;
+      @include style.height--full;
+      @include style.flex(stretch, center, 0.5rem);
+      @include style.flexDirectionColumn();
+      @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+      @include style.overflow_y--auto;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .select {
+    &__options {
+      @include style.position__relative;
+      &-buttons {
+        @include style.control--default;
+        @include style.position(8px, auto, auto, auto);
+        @include style.height--auto;
+      }
+    }
+  }
+}

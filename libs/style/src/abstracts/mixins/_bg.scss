@@ -1,0 +1,29 @@
+@use "../variables/colors";
+
+@function _bg--color($color, $alpha) {
+  @return rgba(red($color), green($color), blue($color), $alpha);
+}
+
+@mixin bg--color($color, $alpha: 1) {
+  @if $color == "white" {
+    background-color: _bg--color(colors.$color__white, $alpha);
+  } @else if $color == "white-dark" {
+    background-color: _bg--color(colors.$color__white--dark, $alpha);
+  } @else if $color == "white-darker" {
+    background-color: _bg--color(colors.$color__white--darker, $alpha);
+  } @else if $color == "default" {
+    background-color: _bg--color(colors.$color__default, $alpha);
+  } @else if $color == "primary" {
+    background-color: _bg--color(colors.$color__primary, $alpha);
+  } @else if $color == "success" {
+    background-color: _bg--color(colors.$color__success, $alpha);
+  } @else if $color == "error" {
+    background-color: _bg--color(colors.$color__error, $alpha);
+  } @else if $color == "warning" {
+    background-color: _bg--color(colors.$color__warning, $alpha);
+  } @else if $color == "info" {
+    background-color: _bg--color(colors.$color__info, $alpha);
+  } @else {
+    @error "Not supported bg color: #{$color}";
+  }
+}

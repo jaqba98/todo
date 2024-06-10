@@ -4,11 +4,9 @@ import { TasksComponent } from "./tasks.component";
 
 const meta: Meta<TasksComponent> = {
   component: TasksComponent,
-  title: "View/TasksComponent",
+  title: "page/task"
 };
 export default meta;
 type Story = StoryObj<TasksComponent>;
 
-export const Primary: Story = {
-  args: {}
-};
+export const Default: Story = {};

@@ -16,10 +16,12 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@todo/control": ["libs/control/src/index.ts"],
       "@todo/fe": ["libs/fe/src/index.ts"],
+      "@todo/form": ["libs/form/src/index.ts"],
       "@todo/page": ["libs/page/src/index.ts"],
       "@todo/store": ["libs/store/src/index.ts"],
-      "@todo/ui": ["libs/ui/src/index.ts"]
+      "@todo/view": ["libs/view/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

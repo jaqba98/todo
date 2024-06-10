@@ -1,9 +1,0 @@
-<div class="input-control" [class.input-control__selected]="isSelected">
-    <label class="input-control__label">{{label}}</label>
-    <input class="input-control__input"
-           [type]="type"
-           [(ngModel)]="value"
-           (input)="onInput()"
-           (focus)="isSelected = true"
-           (blur)="isSelected = false">
-</div>

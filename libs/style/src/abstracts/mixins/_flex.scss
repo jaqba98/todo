@@ -1,0 +1,22 @@
+@mixin align-items($alignItems) {
+  align-items: $alignItems;
+}
+
+@mixin justify-content($justifyContent) {
+  justify-content: $justifyContent;
+}
+
+@mixin gap($gap) {
+  gap: $gap;
+}
+
+@mixin flexDirectionColumn() {
+  flex-direction: column;
+}
+
+@mixin flex($alignItems, $justifyContent, $gap) {
+  display: flex;
+  @include align-items($alignItems);
+  @include justify-content($justifyContent);
+  @include gap($gap);
+}

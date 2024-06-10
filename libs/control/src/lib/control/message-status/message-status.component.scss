@@ -1,0 +1,52 @@
+@use "@todo/style";
+
+.message-status {
+  @include style.control--default;
+
+  &__color {
+    &--white {
+      @include style.bg--color("white", style.$bigAlpha);
+      @include style.border--color("white", style.$middleAlpha);
+    }
+
+    &--white-dark {
+      @include style.bg--color("white-dark", style.$bigAlpha);
+      @include style.border--color("white-dark", style.$middleAlpha);
+    }
+
+    &--white-darker {
+      @include style.bg--color("white-darker", style.$bigAlpha);
+      @include style.border--color("white-darker", style.$middleAlpha);
+    }
+    
+    &--default {
+      @include style.bg--color("default", style.$bigAlpha);
+      @include style.border--color("default", style.$middleAlpha);
+    }
+
+    &--primary {
+      @include style.bg--color("primary", style.$bigAlpha);
+      @include style.border--color("primary", style.$middleAlpha);
+    }
+
+    &--success {
+      @include style.bg--color("success", style.$bigAlpha);
+      @include style.border--color("success", style.$middleAlpha);
+    }
+
+    &--error {
+      @include style.bg--color("error", style.$bigAlpha);
+      @include style.border--color("error", style.$middleAlpha);
+    }
+
+    &--warning {
+      @include style.bg--color("warning", style.$bigAlpha);
+      @include style.border--color("warning", style.$middleAlpha);
+    }
+
+    &--info {
+      @include style.bg--color("info", style.$bigAlpha);
+      @include style.border--color("info", style.$middleAlpha);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<p class="text"
+   role="text"
+   [ngClass]="getTextColor()"
+   [class.text--underline]="isUnderline"
+   [class.text--clickable]="isClickable"
+   (click)="onClick()">{{value}}</p>

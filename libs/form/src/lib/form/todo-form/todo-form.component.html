@@ -1,0 +1,64 @@
+<form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
+  <lib-flex-view flexDirection="column" gap="2rem">
+    <lib-flex-view flexDirection="column" gap="0.5rem">
+      <!-- Name -->
+      <lib-input label="Name" formControlName="name"></lib-input>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('name') && isSubmitted"
+        [value]="getFieldErrorMessage('name')">
+      </lib-message-status>
+      <!-- Description -->
+      <lib-textarea
+        label="Description"
+        formControlName="description"
+        height="150px">
+      </lib-textarea>
+      <!-- Completion -->
+      <lib-range label="Completion" formControlName="completion"></lib-range>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('completion') && isSubmitted"
+        [value]="getFieldErrorMessage('completion')">
+      </lib-message-status>
+      <!-- deadline -->
+      <lib-input
+        type="date"
+        label="Deadline"
+        formControlName="deadline">
+      </lib-input>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('deadline') && isSubmitted"
+        [value]="getFieldErrorMessage('deadline')">
+      </lib-message-status>
+      <!-- priority -->
+      <lib-select
+        label="Priority"
+        formControlName="priority"
+        value=""
+        [options]="getOptions()">
+      </lib-select>
+      <lib-message-status
+        [color]="getColorError()"
+        [isVisible]="isFieldNotValid('priority') && isSubmitted"
+        [value]="getFieldErrorMessage('priority')">
+      </lib-message-status>
+      <!-- tags -->
+      <lib-input
+        label="Tags"
+        formControlName="tags"></lib-input>
+    </lib-flex-view>
+    <lib-flex-view flexDirection="row" gap="0.5rem">
+      <lib-button
+        type="submit"
+        value="Add"
+        [isPrimary]="true">
+      </lib-button>
+      <lib-button
+        value="Back"
+        (click)="onClick()">
+      </lib-button>
+    </lib-flex-view>
+  </lib-flex-view>
+</form>
