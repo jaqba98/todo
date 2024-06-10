@@ -4,14 +4,15 @@ import { SelectComponent } from "./select.component";
 
 const meta: Meta<SelectComponent> = {
   component: SelectComponent,
-  title: "Control/SelectComponent"
+  title: "control/select"
 };
 export default meta;
 type Story = StoryObj<SelectComponent>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     label: "Colors",
+    isError: false,
     value: "Red",
     options: ["Red", "Blue", "Green"]
   }

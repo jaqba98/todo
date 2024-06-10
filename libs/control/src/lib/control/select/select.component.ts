@@ -35,20 +35,40 @@ export class SelectComponent {
   @ViewChild("button", { static: false })
     button!: ElementRef<HTMLElement>;
 
-  @ViewChild("selectOptionsContent", { static: false })
-    selectOptionsContent!: ElementRef<HTMLElement>;
+  @ViewChild("selectOptionsButtons", { static: false })
+    selectOptionsButtons!: ElementRef<HTMLElement>;
   
-  @Input() label = "";
+  @Input() label: string;
 
-  @Input() value = "";
+  @Input() isError: boolean;
 
-  @Input() options: string[] = [];
+  @Input() value: string;
 
-  isOpened = false;
+  @Input() options: string[];
 
-  private mouseX = 0;
+  isOpened: boolean;
+
+  private mouseX: number;
   
-  private mouseY = 0;
+  private mouseY: number;
+
+  onChange: OnChangeType<string> = (value: string) => {
+    return value;
+  };
+
+  onTouch: OnTouchType = () => {
+    return;
+  };
+
+  constructor() {
+    this.label = "";
+    this.isError = false;
+    this.value = "";
+    this.options = [];
+    this.isOpened = false;
+    this.mouseX = 0;
+    this.mouseY = 0;
+  }
 
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(event: MouseEvent): void {
@@ -57,32 +77,31 @@ export class SelectComponent {
   }
 
   onClick() {
-    this.isOpened = true;
-    this.button.nativeElement.focus();
+    this.isOpened = !this.isOpened;
+    this.isOpened ?
+      this.button.nativeElement.focus() :
+      this.button.nativeElement.blur();
   }
 
   onBlur() {
-    const element = this.selectOptionsContent.nativeElement;
+    const element = this.selectOptionsButtons.nativeElement;
     const rect = element.getBoundingClientRect();
     if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
       if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
+        this.isOpened = true;
         this.button.nativeElement.focus();
         return;
-      } 
+      }
     }
     this.isOpened = false;
+    this.button.nativeElement.blur();
   }
 
   onClickOption(option: string) {
     this.value = option;
     this.isOpened = false;
+    this.button.nativeElement.blur();
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange: OnChangeType<string> = (_value: string) => {};
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onTouch: OnTouchType = () => {};
  
   writeValue(value: string) {
     this.value = value;

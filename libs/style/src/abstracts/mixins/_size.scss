@@ -1,3 +1,11 @@
 @mixin width--full {
   width: 100%;
 }
+
+@mixin height--full {
+  height: 100svh;
+}
+
+@mixin height--auto {
+  height: auto;
+}

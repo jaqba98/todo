@@ -1,29 +1,29 @@
-<!-- TODO: I am here -->
 <div class="select">
-       <lib-label
-              [value]="label"
-              (eventClick)="onClick()"></lib-label>
-       <lib-button
-              #button
-              [value]="value"
-              [fullSize]="true"
-              [rightIconVisible]="true"
-              rightIconSrc="assets/arrow_down.svg"
-              rightIconAlt="Arrow Down"
-              (eventClick)="onClick()"
-              (eventBlur)="onBlur()"></lib-button>
-       <ng-container *ngIf="isOpened">
-              <div class="select__options-container">
-                     <div
-                            #selectOptionsContent
-                            class="select__options-content">
-                            <ng-container *ngFor="let option of options">
-                                   <lib-button
-                                          [value]="option"
-                                          [fullSize]="true"
-                                          (eventClick)="onClickOption(option)"></lib-button>
-                            </ng-container>
-                     </div>
-              </div>
-       </ng-container>
+  <lib-label
+    [value]="label"
+    [isError]="isError"
+    (event)="onClick()"></lib-label>
+  <lib-button
+    #button
+    [value]="value"
+    [fullSize]="true"
+    [rightIconVisible]="true"
+    rightIconSrc="assets/arrow_down.svg"
+    rightIconAlt="Arrow Down"
+    (eventClick)="onClick()"
+    (eventBlur)="onBlur()"></lib-button>
+  <ng-container *ngIf="isOpened">
+    <div class="select__options">
+      <div
+        #selectOptionsButtons
+        class="select__options-buttons">
+        <ng-container *ngFor="let option of options">
+          <lib-button
+            [value]="option"
+            [fullSize]="true"
+            (eventClick)="onClickOption(option)"></lib-button>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
 </div>

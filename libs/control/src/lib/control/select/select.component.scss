@@ -1,51 +1,35 @@
+@use "@todo/style";
 
-// .select {
-//     position: relative;
+.select {
+  @include style.position__relative;
 
-//     &__options {
-//         &-container {
-//             position: fixed;
-//             top: 0;
-//             left: 0;
-//             width: 100%;
-//             height: 100%;
-//             background-color: #00000075;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//         }
+  &__options {
+    @include style.position__fixed;
+    @include style.position;
+    @include style.bg--color("white");
+    @include style.flex(center, center, 0);
 
-//         &-content {
-//             //border-radius: const.$control__radius;
-//             //padding: const.$control__padding;
-//             //background-color: const.$control__background-plain;
-//             //border: const.$control__border-plain;
-//             width: 90%;
-//             max-height: 70%;
-//             display: flex;
-//             flex-direction: column;
-//             gap: 0.5em;
-//             overflow-y: auto;
-//             padding: 2em 1.5em;
-//         }
-//     }
-// }
+    &-buttons {
+      @include style.width--full;
+      @include style.height--full;
+      @include style.flex(stretch, center, 0.5rem);
+      @include style.flexDirectionColumn();
+      @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+      @include style.overflow_y--auto;
+    }
+  }
+}
 
-// @media screen and (min-width: 768px) {
-//     .select {
-//         &__options {
-//             &-container {
-//                 position: absolute;
-//                 background-color: transparent;
-//                 width: 100%;
-//                 height: auto;
-//                 top: 100%;
-//             }
-
-//             &-content {
-//                 width: 100%;
-//                 margin-top: 10px;
-//             }
-//         }
-//     }
-// }
+@media screen and (min-width: 768px) {
+  .select {
+    &__options {
+      @include style.position__relative;
+      &-buttons {
+        @include style.control--default;
+        @include style.position__absolute;
+        @include style.position(8px, auto, auto, auto);
+        @include style.height--auto;
+      }
+    }
+  }
+}
