@@ -1,12 +1,12 @@
 <form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
-  <lib-flex-view flexDirection="column" gap="1rem">
+  <lib-flex-view flexDirection="column" gap="1.5rem">
     <!-- Title -->
     <lib-flex-view flexDirection="column">
       <lib-text [value]="title" [isTitle]="true"></lib-text>
       <lib-text [value]="description"></lib-text>
     </lib-flex-view>
     <!-- Form -->
-    <lib-flex-view flexDirection="column" gap="0.25rem">
+    <lib-flex-view flexDirection="column" gap="0.5rem">
       <!-- Name -->
       <lib-input
         label="Name"
@@ -24,6 +24,11 @@
         formControlName="description"
         height="150px">
       </lib-textarea>
+      <!-- Completion -->
+      <lib-range
+        label="Completion"
+        formControlName="completion">
+      </lib-range>
     </lib-flex-view>
   </lib-flex-view>
 </form>
