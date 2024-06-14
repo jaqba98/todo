@@ -4,15 +4,11 @@
   @include style.height--full;
 
   &__nav {
-    @include style.border;
-    @include style.border--color(default);
     height: 100px;
   }
 
   &__content {
-    @include style.border;
-    @include style.border--color(default);
     @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
-    height: calc(100% - 100px);
+    min-height: calc(100% - 100px);
   }
 }
