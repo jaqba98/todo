@@ -56,6 +56,7 @@ export class AddTodoFormComponent
 
   onSubmit() {
     this.isSubmitted = true;
+    this.isAdded = false;
     const { invalid } = this.getFormGroup();
     if (invalid) return;
     const value = this.getFormGroupValue();
@@ -63,6 +64,7 @@ export class AddTodoFormComponent
     this.store.cleanModel();
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.isAdded = true;
     this.event.emit(value);
   }
 

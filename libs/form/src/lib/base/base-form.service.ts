@@ -27,6 +27,8 @@ export class BaseFormService<
 
   protected isSubmitted: boolean;
 
+  protected isAdded: boolean;
+
   constructor(
     protected readonly form: TForm,
     protected readonly store: BaseStoreService<TStore>
@@ -36,6 +38,7 @@ export class BaseFormService<
     this.sub = this.store.getModel()
       .subscribe(model => this.formGroup.patchValue(model));
     this.isSubmitted = false;
+    this.isAdded = false;
   }
 
   static imports() {
@@ -63,8 +66,12 @@ export class BaseFormService<
     this.sub.unsubscribe();
   }
 
+  isFormValid() {
+    return this.getFormGroup().valid;
+  }
+
   isFieldValid(field: string) {
-    return this.formGroup.get(field)?.valid;
+    return Boolean(this.formGroup.get(field)?.valid);
   }
 
   isFieldNotValid(field: string) {
@@ -73,6 +80,10 @@ export class BaseFormService<
 
   getColorError() {
     return ColorEnum.colorError;
+  }
+
+  getColorSuccess() {
+    return ColorEnum.colorSuccess;
   }
 
   getFieldErrorMessage(field: string) {

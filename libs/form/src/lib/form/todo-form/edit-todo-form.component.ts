@@ -73,6 +73,7 @@ export class EditTodoFormComponent
 
   onSubmit() {
     this.isSubmitted = true;
+    this.isAdded = false;
     const { invalid } = this.getFormGroup();
     if (invalid) return;
     const value = this.getFormGroupValue();
@@ -80,6 +81,7 @@ export class EditTodoFormComponent
     this.coreStore.editTodo(this.id, todo);
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.isAdded = true;
     this.event.emit(todo);
   }
 

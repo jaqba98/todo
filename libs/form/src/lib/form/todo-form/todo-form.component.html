@@ -2,7 +2,10 @@
   <lib-flex-view flexDirection="column" gap="2rem">
     <lib-flex-view flexDirection="column" gap="0.5rem">
       <!-- Name -->
-      <lib-input label="Name" formControlName="name"></lib-input>
+      <lib-input
+        label="Name"
+        formControlName="name">
+      </lib-input>
       <lib-message-status
         [color]="getColorError()"
         [isVisible]="isFieldNotValid('name') && isSubmitted"
@@ -60,5 +63,10 @@
         (click)="onClick()">
       </lib-button>
     </lib-flex-view>
+    <lib-message-status
+      [color]="getColorSuccess()"
+      [isVisible]="isAdded"
+      value="A new task has been added!">
+    </lib-message-status>
   </lib-flex-view>
 </form>
