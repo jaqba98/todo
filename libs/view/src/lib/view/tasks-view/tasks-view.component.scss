@@ -1,6 +1,18 @@
-// .tasks-view {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     min-height: calc(100svh - 70px);
-// }
+@use "@todo/style";
+
+.tasks-view {
+  @include style.height--full;
+
+  &__nav {
+    @include style.border;
+    @include style.border--color(default);
+    height: 100px;
+  }
+
+  &__content {
+    @include style.border;
+    @include style.border--color(default);
+    @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+    height: calc(100% - 100px);
+  }
+}

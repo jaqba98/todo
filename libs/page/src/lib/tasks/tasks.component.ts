@@ -4,13 +4,15 @@ import {
   AddTodoFormComponent,
   EditTodoFormComponent
 } from "@todo/form";
+import { TasksViewComponent } from "@todo/view";
 
 @Component({
   selector: "lib-tasks",
   standalone: true,
   imports: [
     AddTodoFormComponent,
-    EditTodoFormComponent
+    EditTodoFormComponent,
+    TasksViewComponent
   ],
   templateUrl: "./tasks.component.html"
 })
