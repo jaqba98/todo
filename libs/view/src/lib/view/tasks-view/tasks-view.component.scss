@@ -1,14 +1,18 @@
+@use "@todo/style";
+
 .tasks-view {
-  height: 100svh;
+  @include style.height--full;
 
   &__nav {
+    @include style.border;
+    @include style.border--color(default);
     height: 100px;
-    border: 1px solid red;
   }
 
   &__content {
+    @include style.border;
+    @include style.border--color(default);
+    @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
     height: calc(100% - 100px);
-    padding: 1rem;
-    border: 1px solid blue;
   }
 }
