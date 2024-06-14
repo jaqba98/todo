@@ -15,6 +15,7 @@ export const Default: Story = {
     value: "",
     isSelected: false,
     isError: false,
-    height: "100px"
+    height: "100px",
+    isRequired: false
   }
 };

@@ -3,6 +3,7 @@
 .textarea {
   @include style.control--default;
   @include style.control--input;
+  resize: none;
 
   &__selected {
     @include style.border--color("white-darker");

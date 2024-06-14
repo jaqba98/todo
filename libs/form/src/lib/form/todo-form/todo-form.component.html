@@ -6,7 +6,7 @@
       <lib-text [value]="description"></lib-text>
     </lib-flex-view>
     <!-- Form -->
-    <lib-flex-view flexDirection="column">
+    <lib-flex-view flexDirection="column" gap="0.25rem">
       <!-- Name -->
       <lib-input
         label="Name"
@@ -18,6 +18,12 @@
         [isVisible]="isFieldNotValid('name') && isSubmitted"
         [value]="getFieldErrorMessage('name')">
       </lib-message-status>
+      <!-- Description -->
+      <lib-textarea
+        label="Description"
+        formControlName="description"
+        height="150px">
+      </lib-textarea>
     </lib-flex-view>
   </lib-flex-view>
 </form>

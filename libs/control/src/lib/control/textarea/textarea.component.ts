@@ -42,6 +42,8 @@ export class TextareaComponent implements ControlValueAccessor {
 
   @Input() height: string;
 
+  @Input() isRequired: boolean;
+
   onChange: OnChangeType<string> = (value: string) => {
     return value;
   };
@@ -56,6 +58,7 @@ export class TextareaComponent implements ControlValueAccessor {
     this.isSelected = false;
     this.isError = false;
     this.height = "100px";
+    this.isRequired = false;
   }
 
   writeValue(value: string) {
