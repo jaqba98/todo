@@ -1,4 +1,7 @@
+@use "@todo/style";
+
 .top-nav {
+  @include style.bg--color("white");
   padding: 1rem;
   position: relative;
 
