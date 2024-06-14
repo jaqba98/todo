@@ -1,6 +1,8 @@
 <main class="tasks-view">
-  <nav class="tasks-view__nav">Nav</nav>
+  <nav class="tasks-view__nav">
+    <ng-content select="[nav]"></ng-content>
+  </nav>
   <section class="tasks-view__content">
-    <ng-content></ng-content>
+    <ng-content select="[content]"></ng-content>
   </section>
 </main>

@@ -46,6 +46,8 @@ export const Primary: Story = {
   },
   args: {
     flexDirection: "row",
-    gap: "0"
+    gap: "0",
+    alignItems: "stretch",
+    justifyContent: "flex-start"
   }
 };
