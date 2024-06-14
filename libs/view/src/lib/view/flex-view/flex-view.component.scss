@@ -2,4 +2,5 @@
 
 .flex-view {
   @include style.flex(stretch, stretch, 0);
+  height: 100%;
 }

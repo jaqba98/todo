@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 import {
   AddTodoFormComponent,
-  EditTodoFormComponent
+  EditTodoFormComponent,
+  TopNavFormComponent
 } from "@todo/form";
 import { TasksViewComponent } from "@todo/view";
 
@@ -12,6 +13,7 @@ import { TasksViewComponent } from "@todo/view";
   imports: [
     AddTodoFormComponent,
     EditTodoFormComponent,
+    TopNavFormComponent,
     TasksViewComponent
   ],
   templateUrl: "./tasks.component.html"

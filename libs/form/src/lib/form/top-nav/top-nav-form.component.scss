@@ -1,0 +1,6 @@
+@use "@todo/style";
+
+.top-nav {
+  @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+  height: 100%;
+}
