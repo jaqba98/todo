@@ -1,6 +1,6 @@
 <form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
-  <lib-flex-view flexDirection="column" gap="2rem">
-    <lib-flex-view flexDirection="column" gap="0.5rem">
+  <lib-flex-view flexDirection="column" gap="4rem">
+    <lib-flex-view flexDirection="column" gap="1rem">
       <!-- Name -->
       <lib-input
         label="Name"
@@ -52,21 +52,23 @@
         label="Tags"
         formControlName="tags"></lib-input>
     </lib-flex-view>
-    <lib-flex-view flexDirection="row" gap="0.5rem">
-      <lib-button
-        type="submit"
-        value="Add"
-        [isPrimary]="true">
-      </lib-button>
-      <lib-button
-        value="Back"
-        (click)="onClick()">
-      </lib-button>
+    <lib-flex-view flexDirection="column" gap="0.5rem">
+      <lib-flex-view gap="0.25rem">
+        <lib-button
+          type="submit"
+          value="Add"
+          [isPrimary]="true">
+        </lib-button>
+        <lib-button
+          value="Back"
+          (click)="onClick()">
+        </lib-button>
+      </lib-flex-view>
+      <lib-message-status
+        [color]="getColorSuccess()"
+        [isVisible]="isAdded"
+        [value]="successMsg">
+      </lib-message-status>
     </lib-flex-view>
-    <lib-message-status
-      [color]="getColorSuccess()"
-      [isVisible]="isAdded"
-      [value]="successMsg">
-    </lib-message-status>
   </lib-flex-view>
 </form>
