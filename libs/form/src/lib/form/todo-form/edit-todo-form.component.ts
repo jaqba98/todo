@@ -32,8 +32,10 @@ export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
   implements OnInit, OnDestroy {
   @Input() id = "";
-  
+
   @Output() event: EventEmitter<TodoCoreStoreModel>;
+
+  successMsg: string;
 
   private coreSub!: Subscription;
 
@@ -55,6 +57,7 @@ export class EditTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoCoreStoreModel>();
+    this.successMsg = "Task updated successfully!";
   }
 
   ngOnInit() {

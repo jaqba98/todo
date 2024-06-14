@@ -29,6 +29,8 @@ export class AddTodoFormComponent
   extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel>
   implements OnDestroy {
   @Output() event: EventEmitter<TodoBaseStoreModel>;
+
+  successMsg: string;
   
   constructor(
     protected override readonly store: AddTodoFormStoreService,
@@ -48,6 +50,7 @@ export class AddTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoBaseStoreModel>();
+    this.successMsg = "A new task has been added!";
   }
 
   ngOnDestroy(): void {
