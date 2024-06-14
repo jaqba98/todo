@@ -35,6 +35,10 @@ export class EditTodoFormComponent
 
   @Output() event: EventEmitter<TodoCoreStoreModel>;
 
+  title: string;
+
+  description: string;
+
   successMsg: string;
 
   private coreSub!: Subscription;
@@ -57,6 +61,8 @@ export class EditTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoCoreStoreModel>();
+    this.title = "Edit To Do";
+    this.description = "Complete the form and press the edit button";
     this.successMsg = "Task updated successfully!";
   }
 

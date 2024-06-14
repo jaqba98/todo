@@ -13,6 +13,7 @@ import {
   MessageStatusComponent,
   RangeComponent,
   SelectComponent,
+  TextComponent,
   TextareaComponent
 } from "@todo/control";
 import { FlexViewComponent } from "@todo/view";
@@ -50,7 +51,8 @@ export class BaseFormService<
       SelectComponent,
       ButtonComponent,
       TextareaComponent,
-      FlexViewComponent
+      FlexViewComponent,
+      TextComponent
     ];
   }
 

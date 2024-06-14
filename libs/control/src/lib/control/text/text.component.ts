@@ -24,6 +24,8 @@ export class TextComponent {
   
   @Input() isClickable: boolean;
 
+  @Input() isTitle: boolean;
+
   @Output() event: EventEmitter<boolean>;
 
   constructor() {
@@ -31,6 +33,7 @@ export class TextComponent {
     this.color = ColorEnum.colorDefault;
     this.isUnderline = false;
     this.isClickable = false;
+    this.isTitle = false;
     this.event = new EventEmitter<boolean>();
   }
 

@@ -1,6 +1,13 @@
 <label class="label">
-  <lib-text [value]="value"
-            [color]="getLabelColor()"
-            [isClickable]="true"            
-            (event)="onClick($event)"></lib-text>
+  <lib-text
+    [value]="value"
+    [color]="getLabelColor()"
+    [isClickable]="true"            
+    (event)="onClick($event)">
+  </lib-text>
+  <lib-text
+    *ngIf="isRequired"
+    value="*" 
+    [color]="getStartColor()">
+  </lib-text>
 </label>

@@ -43,6 +43,8 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input() isError: boolean;
 
+  @Input() isRequired: boolean;
+
   onChange: OnChangeType<string> = (value: string) => {
     return value;
   };
@@ -57,6 +59,7 @@ export class InputComponent implements ControlValueAccessor {
     this.value = "";
     this.isSelected = false;
     this.isError = false;
+    this.isRequired = false;
   }
 
   writeValue(value: string) {

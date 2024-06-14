@@ -30,6 +30,10 @@ export class AddTodoFormComponent
   implements OnDestroy {
   @Output() event: EventEmitter<TodoBaseStoreModel>;
 
+  title: string;
+
+  description: string;
+
   successMsg: string;
   
   constructor(
@@ -50,6 +54,8 @@ export class AddTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoBaseStoreModel>();
+    this.title = "Add To Do";
+    this.description = "Complete the form and press the add button";
     this.successMsg = "A new task has been added!";
   }
 
