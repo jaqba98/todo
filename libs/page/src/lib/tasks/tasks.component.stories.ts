@@ -4,7 +4,10 @@ import { TasksComponent } from "./tasks.component";
 
 const meta: Meta<TasksComponent> = {
   component: TasksComponent,
-  title: "page/task"
+  title: "page/task",
+  parameters: {
+    layout: "fullscreen"
+  }
 };
 export default meta;
 type Story = StoryObj<TasksComponent>;
