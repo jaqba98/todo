@@ -1,5 +1,5 @@
 <form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
-  <lib-flex-view flexDirection="column" gap="1.5rem">
+  <lib-flex-view flexDirection="column" gap="2rem">
     <!-- Title -->
     <lib-flex-view flexDirection="column">
       <lib-text [value]="title" [isTitle]="true"></lib-text>
@@ -29,6 +29,41 @@
         label="Completion"
         formControlName="completion">
       </lib-range>
+      <!-- Deadline -->
+      <lib-input
+        type="date"
+        label="Deadline"
+        formControlName="deadline">
+      </lib-input>
+      <!-- Priority -->
+      <lib-select
+        label="Priority"
+        formControlName="priority"
+        value=""
+        [options]="getOptions()">
+      </lib-select>
+      <!-- Tags -->
+      <lib-input
+        label="Tags"
+        formControlName="tags">
+      </lib-input>
     </lib-flex-view>
+    <!-- Buttons -->
+    <lib-flex-view gap="0.5rem">
+      <lib-button
+        type="submit"
+        [value]="submitValue"
+        [isPrimary]="true">
+      </lib-button>
+      <lib-button
+        value="Back"
+        (click)="onClick()">
+      </lib-button>
+    </lib-flex-view>
+    <lib-message-status
+      [color]="getColorSuccess()"
+      [isVisible]="isAdded"
+      [value]="successMsg">
+    </lib-message-status>
   </lib-flex-view>
 </form>

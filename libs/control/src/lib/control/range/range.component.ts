@@ -47,7 +47,7 @@ export class RangeComponent implements ControlValueAccessor {
     this.label = "";
     this.isError = false;
     this.value = 0;
-    this.isRequired = true;
+    this.isRequired = false;
   }
 
   getLabel() {

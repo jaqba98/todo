@@ -39,6 +39,8 @@ export class EditTodoFormComponent
 
   description: string;
 
+  submitValue: string;
+
   successMsg: string;
 
   private coreSub!: Subscription;
@@ -63,6 +65,7 @@ export class EditTodoFormComponent
     this.event = new EventEmitter<TodoCoreStoreModel>();
     this.title = "Edit To Do";
     this.description = "Complete the form and press the edit button";
+    this.submitValue = "Edit";
     this.successMsg = "Task updated successfully!";
   }
 

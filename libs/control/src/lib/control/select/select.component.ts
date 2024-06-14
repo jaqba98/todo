@@ -46,6 +46,8 @@ export class SelectComponent {
 
   @Input() options: string[];
 
+  @Input() isRequired: boolean;
+
   isOpened: boolean;
 
   private mouseX: number;
@@ -68,6 +70,7 @@ export class SelectComponent {
     this.isOpened = false;
     this.mouseX = 0;
     this.mouseY = 0;
+    this.isRequired = false;
   }
 
   @HostListener("document:mousemove", ["$event"])

@@ -34,6 +34,8 @@ export class AddTodoFormComponent
 
   description: string;
 
+  submitValue: string;
+
   successMsg: string;
   
   constructor(
@@ -56,6 +58,7 @@ export class AddTodoFormComponent
     this.event = new EventEmitter<TodoBaseStoreModel>();
     this.title = "Add To Do";
     this.description = "Complete the form and press the add button";
+    this.submitValue = "Add";
     this.successMsg = "A new task has been added!";
   }
 
