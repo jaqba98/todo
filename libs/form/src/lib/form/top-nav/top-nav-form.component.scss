@@ -6,6 +6,10 @@
   position: relative;
 
   &__options {
+    @include style.control--default;
     position: absolute;
+    top: 90%;
+    padding: 10px;
+    box-shadow: 6px 6px 2px #d3d3d390;
   }
 }
