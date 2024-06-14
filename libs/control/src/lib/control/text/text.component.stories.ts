@@ -26,7 +26,8 @@ const textDefault = {
   value: "Hello",
   color: ColorEnum.colorDefault,
   isUnderline: false,
-  isClickable: false
+  isClickable: false,
+  isTitle: false
 };
 
 export const Default: Story = {

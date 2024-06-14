@@ -32,8 +32,16 @@ export class EditTodoFormComponent
   extends BaseFormService<EditTodoFormModel, EditTodoFormStoreModel>
   implements OnInit, OnDestroy {
   @Input() id = "";
-  
+
   @Output() event: EventEmitter<TodoCoreStoreModel>;
+
+  title: string;
+
+  description: string;
+
+  submitValue: string;
+
+  successMsg: string;
 
   private coreSub!: Subscription;
 
@@ -55,6 +63,10 @@ export class EditTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoCoreStoreModel>();
+    this.title = "Edit To Do";
+    this.description = "Complete the form and press the edit button";
+    this.submitValue = "Edit";
+    this.successMsg = "Task updated successfully!";
   }
 
   ngOnInit() {
@@ -73,6 +85,7 @@ export class EditTodoFormComponent
 
   onSubmit() {
     this.isSubmitted = true;
+    this.isAdded = false;
     const { invalid } = this.getFormGroup();
     if (invalid) return;
     const value = this.getFormGroupValue();
@@ -80,6 +93,7 @@ export class EditTodoFormComponent
     this.coreStore.editTodo(this.id, todo);
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.isAdded = true;
     this.event.emit(todo);
   }
 

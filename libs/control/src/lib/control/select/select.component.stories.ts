@@ -14,6 +14,7 @@ export const Default: Story = {
     label: "Colors",
     isError: false,
     value: "Red",
-    options: ["Red", "Blue", "Green"]
+    options: ["Red", "Blue", "Green"],
+    isRequired: false
   }
 };

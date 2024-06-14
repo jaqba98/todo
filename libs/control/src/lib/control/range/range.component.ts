@@ -33,6 +33,8 @@ export class RangeComponent implements ControlValueAccessor {
 
   @Input() value: number;
 
+  @Input() isRequired: boolean;
+
   onChange: OnChangeType<string> = (value: string) => {
     return value;
   };
@@ -45,6 +47,7 @@ export class RangeComponent implements ControlValueAccessor {
     this.label = "";
     this.isError = false;
     this.value = 0;
+    this.isRequired = false;
   }
 
   getLabel() {

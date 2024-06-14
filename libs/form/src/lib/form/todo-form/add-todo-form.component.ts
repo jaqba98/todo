@@ -29,6 +29,14 @@ export class AddTodoFormComponent
   extends BaseFormService<AddTodoFormModel, AddTodoFormStoreModel>
   implements OnDestroy {
   @Output() event: EventEmitter<TodoBaseStoreModel>;
+
+  title: string;
+
+  description: string;
+
+  submitValue: string;
+
+  successMsg: string;
   
   constructor(
     protected override readonly store: AddTodoFormStoreService,
@@ -48,6 +56,10 @@ export class AddTodoFormComponent
       tags: ["", []]
     }, store);
     this.event = new EventEmitter<TodoBaseStoreModel>();
+    this.title = "Add To Do";
+    this.description = "Complete the form and press the add button";
+    this.submitValue = "Add";
+    this.successMsg = "A new task has been added!";
   }
 
   ngOnDestroy(): void {
@@ -56,6 +68,7 @@ export class AddTodoFormComponent
 
   onSubmit() {
     this.isSubmitted = true;
+    this.isAdded = false;
     const { invalid } = this.getFormGroup();
     if (invalid) return;
     const value = this.getFormGroupValue();
@@ -63,6 +76,7 @@ export class AddTodoFormComponent
     this.store.cleanModel();
     this.toastStore.changeIsVisible(true);
     this.isSubmitted = false;
+    this.isAdded = true;
     this.event.emit(value);
   }
 

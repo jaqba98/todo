@@ -1,8 +1,18 @@
 <form [formGroup]="getFormGroup()" (ngSubmit)="onSubmit()">
   <lib-flex-view flexDirection="column" gap="2rem">
+    <!-- Title -->
+    <lib-flex-view flexDirection="column">
+      <lib-text [value]="title" [isTitle]="true"></lib-text>
+      <lib-text [value]="description"></lib-text>
+    </lib-flex-view>
+    <!-- Form -->
     <lib-flex-view flexDirection="column" gap="0.5rem">
       <!-- Name -->
-      <lib-input label="Name" formControlName="name"></lib-input>
+      <lib-input
+        label="Name"
+        formControlName="name"
+        [isRequired]="true">
+      </lib-input>
       <lib-message-status
         [color]="getColorError()"
         [isVisible]="isFieldNotValid('name') && isSubmitted"
@@ -15,44 +25,34 @@
         height="150px">
       </lib-textarea>
       <!-- Completion -->
-      <lib-range label="Completion" formControlName="completion"></lib-range>
-      <lib-message-status
-        [color]="getColorError()"
-        [isVisible]="isFieldNotValid('completion') && isSubmitted"
-        [value]="getFieldErrorMessage('completion')">
-      </lib-message-status>
-      <!-- deadline -->
+      <lib-range
+        label="Completion"
+        formControlName="completion">
+      </lib-range>
+      <!-- Deadline -->
       <lib-input
         type="date"
         label="Deadline"
         formControlName="deadline">
       </lib-input>
-      <lib-message-status
-        [color]="getColorError()"
-        [isVisible]="isFieldNotValid('deadline') && isSubmitted"
-        [value]="getFieldErrorMessage('deadline')">
-      </lib-message-status>
-      <!-- priority -->
+      <!-- Priority -->
       <lib-select
         label="Priority"
         formControlName="priority"
         value=""
         [options]="getOptions()">
       </lib-select>
-      <lib-message-status
-        [color]="getColorError()"
-        [isVisible]="isFieldNotValid('priority') && isSubmitted"
-        [value]="getFieldErrorMessage('priority')">
-      </lib-message-status>
-      <!-- tags -->
+      <!-- Tags -->
       <lib-input
         label="Tags"
-        formControlName="tags"></lib-input>
+        formControlName="tags">
+      </lib-input>
     </lib-flex-view>
-    <lib-flex-view flexDirection="row" gap="0.5rem">
+    <!-- Buttons -->
+    <lib-flex-view gap="0.5rem">
       <lib-button
         type="submit"
-        value="Add"
+        [value]="submitValue"
         [isPrimary]="true">
       </lib-button>
       <lib-button
@@ -60,5 +60,10 @@
         (click)="onClick()">
       </lib-button>
     </lib-flex-view>
+    <lib-message-status
+      [color]="getColorSuccess()"
+      [isVisible]="isAdded"
+      [value]="successMsg">
+    </lib-message-status>
   </lib-flex-view>
 </form>
