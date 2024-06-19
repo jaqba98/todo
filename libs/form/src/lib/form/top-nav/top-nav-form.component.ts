@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Renderer2 } from "@angular/core";
 import { ButtonComponent } from "@todo/control";
 import { FlexViewComponent } from "@todo/view";
 
@@ -17,11 +17,26 @@ import { FlexViewComponent } from "@todo/view";
 export class TopNavFormComponent {
   isOpened: boolean;
 
-  constructor() {
+  options: string[] = [
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Option 4"
+  ];
+
+  constructor(private readonly renderer: Renderer2) {
     this.isOpened = false;
   }
-  
+
   onClick() {
     this.isOpened = !this.isOpened;
+  }
+
+  onBlur(): void {
+    this.renderer.listen("document", "click", (click: Event) => {
+      const el = click.target as HTMLElement;
+      if (el.classList.contains("top-nav__control")) return;
+      this.isOpened = false;
+    });
   }
 }

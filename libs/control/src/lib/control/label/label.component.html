@@ -2,12 +2,14 @@
   <lib-text
     [value]="value"
     [color]="getLabelColor()"
-    [isClickable]="true"            
+    [isClickable]="true"
+    [className]="className"          
     (event)="onClick($event)">
   </lib-text>
   <lib-text
     *ngIf="isRequired"
-    value="*" 
+    value="*"
+    [className]="className"
     [color]="getStartColor()">
   </lib-text>
 </label>

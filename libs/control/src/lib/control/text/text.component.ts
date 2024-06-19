@@ -26,6 +26,8 @@ export class TextComponent {
 
   @Input() isTitle: boolean;
 
+  @Input() className: string;
+
   @Output() event: EventEmitter<boolean>;
 
   constructor() {
@@ -34,6 +36,7 @@ export class TextComponent {
     this.isUnderline = false;
     this.isClickable = false;
     this.isTitle = false;
+    this.className = "";
     this.event = new EventEmitter<boolean>();
   }
 

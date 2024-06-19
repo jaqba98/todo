@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   Input,
+  Renderer2,
   ViewChild,
   forwardRef
 } from "@angular/core";
@@ -50,10 +51,6 @@ export class SelectComponent {
 
   isOpened: boolean;
 
-  private mouseX: number;
-  
-  private mouseY: number;
-
   onChange: OnChangeType<string> = (value: string) => {
     return value;
   };
@@ -62,21 +59,13 @@ export class SelectComponent {
     return;
   };
 
-  constructor() {
+  constructor(private readonly renderer: Renderer2) {
     this.label = "";
     this.isError = false;
     this.value = "";
     this.options = [];
     this.isOpened = false;
-    this.mouseX = 0;
-    this.mouseY = 0;
     this.isRequired = false;
-  }
-
-  @HostListener("document:mousemove", ["$event"])
-  onMouseMove(event: MouseEvent): void {
-    this.mouseX = event.clientX;
-    this.mouseY = event.clientY;
   }
 
   onClick() {
@@ -86,18 +75,16 @@ export class SelectComponent {
       this.button.nativeElement.blur();
   }
 
-  onBlur() {
-    const element = this.selectOptionsButtons.nativeElement;
-    const rect = element.getBoundingClientRect();
-    if (this.mouseX >= rect.left && this.mouseX <= rect.right) {
-      if (this.mouseY >= rect.top && this.mouseY <= rect.bottom) {
-        this.isOpened = true;
-        this.button.nativeElement.focus();
+  onBlur(): void {
+    this.renderer.listen("document", "click", (click: Event) => {
+      const el = click.target as HTMLElement;
+      console.log(el.classList);
+      if (el.classList.contains("select__control")) {
+        this.button.nativeElement.blur();
         return;
       }
-    }
-    this.isOpened = false;
-    this.button.nativeElement.blur();
+      this.isOpened = false;
+    });
   }
 
   onClickOption(option: string) {
