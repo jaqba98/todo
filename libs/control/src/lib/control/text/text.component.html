@@ -1,7 +1,9 @@
-<p class="text"
-   role="text"
-   [ngClass]="getTextColor()"
-   [class.text--underline]="isUnderline"
-   [class.text--clickable]="isClickable"
-   (click)="onClick()"
-   [style.font-size]="isTitle ? '1.5rem' : '1rem'">{{value}}</p>
+<p 
+  class="text"
+  role="text"
+  [class]="className"
+  [ngClass]="getTextColor()"
+  [class.text--underline]="isUnderline"
+  [class.text--clickable]="isClickable"
+  (click)="onClick()"
+  [style.font-size]="isTitle ? '1.5rem' : '1rem'">{{value}}</p>

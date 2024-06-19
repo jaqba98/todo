@@ -3,20 +3,24 @@
         [class.button__value-center]="disabledIcons()"
         [class.button__full-size]="fullSize"
         [class.button__primary]="isPrimary"
+        [class]="className"
         [type]="type"
         (click)="onClick()"
         (blur)="onBlur()">
           <ng-container *ngIf="leftIconVisible">
             <lib-icon [src]="leftIconSrc"
                       [alt]="leftIconAlt"
+                      [className]="className"
                       [width]="20"
                       [height]="20"></lib-icon>
           </ng-container>
           <lib-text [value]="value"
+                    [className]="className"
                     [color]="getTextColor()"></lib-text>
           <ng-container *ngIf="rightIconVisible">
             <lib-icon [src]="rightIconSrc"
                       [alt]="rightIconAlt"
+                      [className]="className"
                       [width]="20"
                       [height]="20"></lib-icon>
           </ng-container>

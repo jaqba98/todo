@@ -1,12 +1,18 @@
 <nav class="top-nav">
   <lib-button
     value="Menu"
-    (eventClick)="onClick()">
+    className="top-nav__control"
+    (eventClick)="onClick()"
+    (eventBlur)="onBlur()">
   </lib-button>
-  <div class="top-nav__options" *ngIf="isOpened">
-    <lib-button value="Option 1" (eventClick)="onClick()"></lib-button>
-    <lib-button value="Option 2" (eventClick)="onClick()"></lib-button>
-    <lib-button value="Option 3" (eventClick)="onClick()"></lib-button>
-    <lib-button value="Option 4" (eventClick)="onClick()"></lib-button>
-  </div>
+  <ng-container *ngIf="isOpened">
+    <div class="top-nav__options top-nav__control">
+      <lib-button
+        [value]="option"
+        className="top-nav__control"
+        (eventClick)="onClick()"
+        *ngFor="let option of options">
+      </lib-button>
+    </div>
+  </ng-container>
 </nav>

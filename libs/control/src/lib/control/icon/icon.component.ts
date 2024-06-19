@@ -16,10 +16,13 @@ export class IconComponent {
 
   @Input() height: number;
 
+  @Input() className: string;
+
   constructor() {
     this.src = "";
     this.alt = "";
     this.width = 0;
     this.height = 0;
+    this.className = "";
   }
 }

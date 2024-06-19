@@ -48,6 +48,8 @@ export class ButtonComponent {
 
   @Input() isPrimary: boolean;
 
+  @Input() className: string;
+
   @Output() eventClick: EventEmitter<boolean>;
 
   @Output() eventBlur: EventEmitter<boolean>;
@@ -63,6 +65,7 @@ export class ButtonComponent {
     this.rightIconSrc = "";
     this.rightIconAlt = "";
     this.isPrimary = false;
+    this.className = "";
     this.eventClick = new EventEmitter<boolean>();
     this.eventBlur = new EventEmitter<boolean>();
   }
