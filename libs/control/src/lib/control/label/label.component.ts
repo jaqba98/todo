@@ -23,12 +23,15 @@ export class LabelComponent {
 
   @Input() isRequired: boolean;
 
+  @Input() className: string;
+
   @Output() event: EventEmitter<boolean>;
 
   constructor() {
     this.value = "";
     this.isError = false;
     this.isRequired = false;
+    this.className = "";
     this.event = new EventEmitter<boolean>();
   }
 

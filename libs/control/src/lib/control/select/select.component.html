@@ -1,7 +1,8 @@
-<div class="select">
+<div class="select select__control">
   <lib-label
     [value]="label"
     [isError]="isError"
+    className="select__control"
     (event)="onClick()"
     [isRequired]="isRequired"></lib-label>
   <lib-button
@@ -11,17 +12,19 @@
     [rightIconVisible]="true"
     rightIconSrc="assets/arrow_down.svg"
     rightIconAlt="Arrow Down"
+    className="select__control"
     (eventClick)="onClick()"
     (eventBlur)="onBlur()"></lib-button>
   <ng-container *ngIf="isOpened">
-    <div class="select__options">
+    <div class="select__options select__control">
       <div
         #selectOptionsButtons
-        class="select__options-buttons">
+        class="select__options-buttons select__control">
         <ng-container *ngFor="let option of options">
           <lib-button
             [value]="option"
             [fullSize]="true"
+            className="select__control"
             (eventClick)="onClickOption(option)"></lib-button>
         </ng-container>
       </div>

@@ -24,7 +24,7 @@ export class TopNavFormComponent {
     "Option 4"
   ];
 
-  constructor(private renderer: Renderer2) {
+  constructor(private readonly renderer: Renderer2) {
     this.isOpened = false;
   }
 
@@ -35,7 +35,6 @@ export class TopNavFormComponent {
   onBlur(): void {
     this.renderer.listen("document", "click", (click: Event) => {
       const el = click.target as HTMLElement;
-      console.log(el.classList);
       if (el.classList.contains("top-nav__control")) return;
       this.isOpened = false;
     });
