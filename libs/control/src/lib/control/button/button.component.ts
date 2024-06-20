@@ -92,4 +92,8 @@ export class ButtonComponent {
     return !this.leftIconVisible
         && !this.rightIconVisible;
   }
+
+  emptyText() {
+    return this.value === "";
+  }
 }

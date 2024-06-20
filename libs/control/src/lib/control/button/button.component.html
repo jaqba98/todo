@@ -15,6 +15,7 @@
                       [height]="20"></lib-icon>
           </ng-container>
           <lib-text [value]="value"
+                    [hidden]="emptyText()"
                     [className]="className"
                     [color]="getTextColor()"></lib-text>
           <ng-container *ngIf="rightIconVisible">

@@ -5,14 +5,15 @@
     (eventClick)="onClick()"
     (eventBlur)="onBlur()">
   </lib-button>
+  <!-- TODO: I am here -->
   <ng-container *ngIf="isOpened">
-    <div class="top-nav__options top-nav__control">
-      <lib-button
-        [value]="option"
-        className="top-nav__control"
-        (eventClick)="onClick()"
-        *ngFor="let option of options">
-      </lib-button>
-    </div>
+  <div class="top-nav__options top-nav__control">
+  <lib-button
+  [value]="option"
+  className="top-nav__control"
+  (eventClick)="onClick()"
+  *ngFor="let option of options">
+  </lib-button>
+  </div>
   </ng-container>
 </nav>
