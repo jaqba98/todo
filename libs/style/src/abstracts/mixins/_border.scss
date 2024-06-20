@@ -32,6 +32,10 @@
   border: 1px solid;
 }
 
+@mixin border--none {
+  border: none;
+}
+
 @mixin border--radius($radius) {
   border-radius: $radius;
 }

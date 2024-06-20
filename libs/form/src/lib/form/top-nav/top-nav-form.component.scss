@@ -2,17 +2,32 @@
 
 .top-nav {
   @include style.bg--color("white");
-  padding: 1rem;
-  position: relative;
+  @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+  @include style.position__relative;
 
   &__options {
     @include style.control--default;
-    position: absolute;
-    top: 90%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    box-shadow: 3px 3px 3px lightgray;
+    @include style.position__absolute;
+    @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
+    @include style.flex(center, center, 0.5rem);
+    @include style.flex-direction__column;
+    @include style.position(90%, auto, auto, auto);
+    @include style.box-shadow(2px 2px 2px, style.$color__shadow);
   }
+}
+
+@media screen and (min-width: 834px) {
+  .top-nav {
+    @include style.position__static;
+    @include style.flex(center, flex-start, 0.5rem);
+  
+    &__options {
+      @include style.position__static;
+      @include style.flex-direction__row;
+      @include style.box-model--padding(0, 0, 0, 0);
+      @include style.border--none;
+      @include style.position(0);
+      @include style.box-shadow--none;
+    }
+  } 
 }

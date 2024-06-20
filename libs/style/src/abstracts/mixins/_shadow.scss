@@ -1,0 +1,7 @@
+@mixin box-shadow($size, $color) {
+  box-shadow: $size $color;
+}
+
+@mixin box-shadow--none {
+  box-shadow: none;
+}
