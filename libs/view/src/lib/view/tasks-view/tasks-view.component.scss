@@ -2,13 +2,5 @@
 
 .tasks-view {
   @include style.height--full;
-
-  &__nav {
-    height: 100px;
-  }
-
-  &__content {
-    @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
-    min-height: calc(100% - 100px);
-  }
+  @include style.box-model--padding(1rem, 1rem, 1rem, 1rem);
 }
